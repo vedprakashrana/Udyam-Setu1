@@ -7,7 +7,8 @@ services:
     plan: free
     rootDir: backend
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    startCommand: python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
@@ -22,7 +23,7 @@ services:
       - key: GEMINI_API_KEY
         sync: false
       - key: CORS_ORIGINS
-        value: "*"
+        value: '["*"]'
 
   # 2. Next.js Frontend Web Service
   - type: web
@@ -33,6 +34,7 @@ services:
     rootDir: frontend
     buildCommand: npm install && npm run build
     startCommand: npx next start -H 0.0.0.0 -p $PORT
+    healthCheckPath: /
     envVars:
       - key: NODE_VERSION
         value: 18.20.0
@@ -41,3 +43,4 @@ services:
           type: web
           name: grambiz-api
           property: host
+

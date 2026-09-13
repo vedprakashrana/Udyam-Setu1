@@ -1,5 +1,7 @@
-from pydantic_settings import BaseSettings
-from typing import List
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import field_validator
+from typing import List, Union, Any
+import json
 import os
 
 class Settings(BaseSettings):
@@ -31,8 +33,24 @@ class Settings(BaseSettings):
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
 
     # CORS
-    CORS_ORIGINS: List[str] = ["*"]
+    CORS_ORIGINS: Any = ["*"]
 
+    @field_validator("CORS_ORIGINS", mode="before")
+    @classmethod
+    def assemble_cors_origins(cls, v: Any) -> List[str]:
+        if isinstance(v, str):
+            v_clean = v.strip()
+            if v_clean.startswith("[") and v_clean.endswith("]"):
+                try:
+                    return json.loads(v_clean)
+                except Exception:
+                    pass
+            if "," in v_clean:
+                return [i.strip() for i in v_clean.split(",") if i.strip()]
+            return [v_clean]
+        if isinstance(v, (list, tuple)):
+            return list(v)
+        return ["*"]
 
     # AI Providers
     LLM_PROVIDER: str = "gemini"
@@ -42,8 +60,9 @@ class Settings(BaseSettings):
     EMBEDDING_PROVIDER: str = "gemini"
     EMBEDDING_API_KEY: str = ""
 
-    class Config:
-        env_file = ".env"
-        extra = "allow"
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="allow"
+    )
 
 settings = Settings()

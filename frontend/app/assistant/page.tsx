@@ -17,6 +17,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { useLanguage, SUPPORTED_LANGUAGES, LanguageCode } from '../../context/LanguageContext';
+import { API_BASE_URL } from '../../services/apiClient';
 
 interface Citation {
   source: string;
@@ -261,8 +262,7 @@ export default function AssistantPage() {
     setLoading(true);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
-      const res = await fetch(`${apiUrl}/ai/chat`, {
+      const res = await fetch(`${API_BASE_URL}/ai/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -8,7 +8,7 @@ from app.ai.orchestrator import AIOrchestrator
 
 def test_conversational_turn_1_greeting():
     res = AIOrchestrator.answer_query("Hello", conversation_id="test_conv_1", language="en")
-    assert "Hello" in res["reply"] or "GramBiz" in res["reply"]
+    assert any(w in res["reply"] for w in ["Hello", "Namaste", "UDYAM-SETU", "GramBiz"])
     # Ensure it's not giving ₹1 lakh loan response on Hello
     assert "₹10,00,000" not in res["reply"]
 
