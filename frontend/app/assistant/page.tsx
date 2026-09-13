@@ -290,12 +290,17 @@ export default function AssistantPage() {
     } catch (e: any) {
       console.error("AI chat error:", e);
       const isHi = currentLang === 'hi';
+      const isRender = typeof window !== 'undefined' && window.location.hostname.includes('.onrender.com');
       const errorMsg: Message = {
         id: 'err_' + Date.now(),
         role: 'assistant',
         content: isHi
-          ? "⚠️ **लाइव AI सेवा से संपर्क नहीं हो पाया।** कृपया सुनिश्चित करें कि बैकएंड API सर्वर चालू है (`http://localhost:8000`) और पुनः प्रयास करें।"
-          : "⚠️ **Could not connect to Live AI service.** Please ensure the backend API server is running (`http://localhost:8000`) and try again.",
+          ? (isRender
+              ? "⚠️ **लाइव AI बैकएंड सेवा सक्रिय हो रही है।** Render फ्री टियर पर बैकएंड सर्वर पहली बार चालू होने में 30–60 सेकंड ले सकता है। कृपया 30 सेकंड बाद 'पुनः प्रयास करें' दबाएं।"
+              : "⚠️ **लाइव AI सेवा से संपर्क नहीं हो पाया।** कृपया सुनिश्चित करें कि बैकएंड API सर्वर चालू है और पुनः प्रयास करें।")
+          : (isRender
+              ? "⚠️ **Live AI backend service is waking up.** Render free instances take 30–60 seconds to spin up on first request. Please wait a moment and click 'Retry'."
+              : "⚠️ **Could not connect to Live AI service.** Please ensure the backend API server is running and try again."),
         suggested_actions: isHi ? ['पुनः प्रयास करें', 'डेयरी लोन पात्रता', 'मंडी के ताज़ा भाव'] : ['Retry', 'Check Dairy Eligibility', 'View Mandi Prices'],
         createdAt: new Date().toISOString()
       };

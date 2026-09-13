@@ -1,5 +1,6 @@
 function normalizeApiUrl(url?: string): string {
-  let u = (url || 'http://localhost:8000/api/v1').trim();
+  let u = (url || '').trim();
+  if (!u) return '';
   if (!u.startsWith('http://') && !u.startsWith('https://')) {
     u = `https://${u}`;
   }
@@ -9,7 +10,38 @@ function normalizeApiUrl(url?: string): string {
   return u;
 }
 
-export const API_BASE_URL = normalizeApiUrl(process.env.NEXT_PUBLIC_API_URL);
+export function getApiBaseUrl(): string {
+  // If running in browser on Render cloud, automatically pair with the backend service
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    if (hostname.includes('.onrender.com')) {
+      const apiHost = hostname.replace('grambiz-web', 'grambiz-api');
+      return `https://${apiHost}/api/v1`;
+    }
+  }
+
+  // Next.js build-time or runtime env var
+  const envUrl = process.env.NEXT_PUBLIC_API_URL;
+  if (envUrl && envUrl.trim() !== '') {
+    return normalizeApiUrl(envUrl);
+  }
+
+  return 'http://localhost:8000/api/v1';
+}
+
+class DynamicApiUrl extends String {
+  toString() {
+    return getApiBaseUrl();
+  }
+  valueOf() {
+    return getApiBaseUrl();
+  }
+  [Symbol.toPrimitive]() {
+    return getApiBaseUrl();
+  }
+}
+
+export const API_BASE_URL: string = (new DynamicApiUrl() as unknown) as string;
 
 export const ApiClient = {
   // Base URL access
