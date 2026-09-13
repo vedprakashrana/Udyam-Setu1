@@ -47,14 +47,14 @@ class LLMClientAdapter:
         # 1. Google Gemini Provider
         if provider == "gemini" or (not api_key and os.getenv("GEMINI_API_KEY")):
             # Fast cooldown: if Gemini failed or timed out recently, don't stall user requests
-            if time.time() - _last_gemini_failure_time < 60.0:
+            if time.time() - _last_gemini_failure_time < 15.0:
                 return None
 
             raw_key = api_key or os.getenv("GEMINI_API_KEY", "")
             gemini_key = normalize_gemini_api_key(raw_key)
             if gemini_key:
-                preferred_model = getattr(settings, "LLM_MODEL", None) or os.getenv("LLM_MODEL", "gemini-1.5-flash")
-                candidate_models = [preferred_model, "gemini-1.5-flash", "gemini-flash-latest"]
+                preferred_model = getattr(settings, "LLM_MODEL", None) or os.getenv("LLM_MODEL", "gemini-3.5-flash-lite")
+                candidate_models = [preferred_model, "gemini-3.5-flash-lite", "gemini-3.6-flash", "gemini-3.5-flash"]
                 models_to_try = list(dict.fromkeys(candidate_models))
 
                 contents = []
@@ -67,13 +67,13 @@ class LLMClientAdapter:
                 payload = {
                     "system_instruction": {"parts": [{"text": system_prompt}]},
                     "contents": contents,
-                    "generationConfig": {"temperature": 0.4, "maxOutputTokens": 800}
+                    "generationConfig": {"temperature": 0.5, "maxOutputTokens": 800}
                 }
 
                 for model in models_to_try:
                     try:
                         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={gemini_key}"
-                        with httpx.Client(timeout=2.5) as client:
+                        with httpx.Client(timeout=8.0) as client:
                             res = client.post(url, json=payload)
                             if res.status_code == 200:
                                 data = res.json()
@@ -84,13 +84,10 @@ class LLMClientAdapter:
                                         logger.info(f"Gemini generation succeeded using {model}")
                                         return parts[0]["text"]
                             else:
-                                _last_gemini_failure_time = time.time()
-                                logger.warning(f"Gemini {model} returned HTTP {res.status_code}. Setting 60s cooldown.")
-                                break
+                                logger.warning(f"Gemini {model} returned HTTP {res.status_code}.")
                     except Exception as ex:
-                        _last_gemini_failure_time = time.time()
-                        logger.warning(f"Gemini {model} notice ({ex}). Setting 60s cooldown.")
-                        break
+                        logger.warning(f"Gemini {model} notice ({ex}).")
+                _last_gemini_failure_time = time.time()
 
         # 2. OpenAI Provider
         if provider in ["openai", "gpt-4o", "gpt-4o-mini"] or os.getenv("OPENAI_API_KEY"):
@@ -484,20 +481,22 @@ class AIOrchestrator:
                 "suggested_actions": suggested_actions
             }
 
-        # ================= ROUTE 6: Real LLM / Fallback Contextual Reasoning =================
-        system_grounding_prompt = f"""
-You are UDYAM-SETU, a verified rural enterprise and financial planning advisor for Indian micro-entrepreneurs.
-Current Verified Context:
-- Sector / Category: {current_category}
-- Margin Equity: ₹{margin_dec:,.2f}
-- Total Project Cost: ₹{cost_calc.project_cost:,.2f} (Formula: Margin / 0.10)
-- Eligible MoSJE Loan: ₹{scheme_rec.actual_eligible_financing:,.2f} under {scheme_rec.scheme_name}
-- Interest Rate: {scheme_rec.interest_rate}% p.a., Moratorium: {scheme_rec.moratorium_months} Months, Tenure: {scheme_rec.tenure_months} Months
-- Monthly Post-Moratorium EMI: ₹{emi_res.monthly_emi:,.2f}
-- Key Operational Risks: {business_kb.get('common_risks', [])}
-- Language: Respond strictly in {"English" if lang_is_en else "Hindi (or Hinglish if appropriate)"}.
-Provide structured, concise, and highly accurate guidance adhering to these verified numbers. Do not fabricate rates or schemes.
-"""
+        # ================= ROUTE 6: Real LLM / Versatile Contextual Reasoning =================
+        system_grounding_prompt = f"""You are UDYAM-SETU AI, an intelligent, versatile, and friendly assistant & rural entrepreneurship advisor.
+Guidelines:
+1. Directly and helpfully answer WHATEVER question or task the user asks:
+   - If the user asks a general question (e.g. recipes like tea/chai, daily questions, explanations, greetings, friendly conversation), answer it warmly, accurately, and completely in easy-to-understand terms.
+   - If the user asks for help (e.g. 'mera ek kaam kroge'), reply enthusiastically and ask how you can help them today.
+   - If the user asks about business, loan, schemes, or financial viability, use the verified context below:
+     * Focus Sector / Category: {current_category}
+     * Margin Equity: ₹{margin_dec:,.2f}
+     * Total Project Cost: ₹{cost_calc.project_cost:,.2f}
+     * Eligible MoSJE Loan: ₹{scheme_rec.actual_eligible_financing:,.2f} under {scheme_rec.scheme_name}
+     * Interest Rate: {scheme_rec.interest_rate}% p.a., EMI: ₹{emi_res.monthly_emi:,.2f}
+     * Operational Risks: {business_kb.get('common_risks', [])}
+2. Language: Answer naturally in {"English" if lang_is_en else "Hindi / Hinglish (matching user tone)"}.
+3. Be direct, clear, and engaging. Never repeat generic templates."""
+
         real_llm_response = LLMClientAdapter.call_real_llm(
             system_prompt=system_grounding_prompt,
             user_message=text,
@@ -507,18 +506,27 @@ Provide structured, concise, and highly accurate guidance adhering to these veri
         if real_llm_response:
             reply = real_llm_response
         else:
-            if lang_is_en:
-                reply = (
-                    f"Regarding **{text}** in the context of a rural **{current_category}** enterprise: "
-                    "You can evaluate your exact project cost by specifying margin equity, "
-                    "check local mandi arrival prices, or compute 3-year cash flow sustainability."
-                )
+            lower_text = text.lower()
+            if "tea" in lower_text or "chai" in lower_text:
+                if lang_is_en:
+                    reply = "To make tea: Boil 1 cup water with crushed ginger & cardamom, add 1 tsp tea leaves and 1 tsp sugar. Add 1/2 cup milk, boil for 2-3 minutes, strain and serve hot!"
+                else:
+                    reply = "चाय (Tea) बनाने का तरीका:\n1. एक बर्तन में 1 कप पानी, कुटी हुई अदरक और इलायची डालकर उबालें।\n2. अब 1 चम्मच चायपत्ती और स्वादानुसार चीनी डालें।\n3. फिर आधा कप दूध डालकर 2-3 मिनट धीमी आंच पर पकाएं।\n4. छानकर गरमा-गरम चाय का आनंद लें!"
+            elif any(k in lower_text for k in ["kaam", "help", "madad", "kroge", "karoge"]):
+                if lang_is_en:
+                    reply = "Of course! Tell me what you need assistance with, and I'll be glad to help you right away."
+                else:
+                    reply = "हाँ बिल्कुल! बताइए मैं आपकी क्या मदद कर सकता हूँ? आप मुझसे कोई भी सवाल पूछ सकते हैं या बिजनेस/योजनाओं की जानकारी ले सकते हैं।"
+            elif any(k in lower_text for k in ["namaste", "hello", "hi", "hey"]):
+                if lang_is_en:
+                    reply = "Hello! How can I assist you today? Feel free to ask any question or explore rural enterprise opportunities."
+                else:
+                    reply = "नमस्ते! मैं आपकी क्या सहायता कर सकता हूँ? आप मुझसे किसी भी विषय पर सवाल पूछ सकते हैं।"
             else:
-                reply = (
-                    f"ग्रामीण **{current_category}** उद्यम के संदर्भ में आपके प्रश्न (**{text}**) पर: "
-                    "आप अपनी उपलब्ध मार्जिन राशि बताकर कुल प्रोजेक्ट लागत जान सकते हैं, "
-                    "मंडी के ताज़ा भाव देख सकते हैं, या 3 वर्ष के नकद प्रवाह (Cash Flow) का विश्लेषण कर सकते हैं।"
-                )
+                if lang_is_en:
+                    reply = f"I'm here to assist you with '{text}'. Whether you need general knowledge or rural enterprise guidance in {current_category}, please let me know how I can help!"
+                else:
+                    reply = f"आपके सवाल '{text}' के संबंध में: मैं आपकी पूरी सहायता के लिए यहाँ हूँ। कृपया बताइए आप इसके बारे में क्या विशेष जानना चाहते हैं?"
 
         suggested_actions = [
             f"₹1 Lakh loan details for {current_category}",
