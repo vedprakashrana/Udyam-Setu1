@@ -11,12 +11,15 @@ function normalizeApiUrl(url?: string): string {
 }
 
 export function getApiBaseUrl(): string {
-  // If running in browser on Render cloud, automatically pair with the backend service
+  // If running in browser on Render cloud or Vercel, automatically pair with the backend service
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
     if (hostname.includes('.onrender.com')) {
       const apiHost = hostname.replace('grambiz-web', 'grambiz-api');
       return `https://${apiHost}/api/v1`;
+    }
+    if (hostname.includes('.vercel.app')) {
+      return `/api/v1`;
     }
   }
 
