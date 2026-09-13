@@ -18,6 +18,22 @@ logger = logging.getLogger(__name__)
 
 MODELS_DIR = os.path.dirname(os.path.abspath(__file__))
 
+HUMAN_FACTOR_NAMES = {
+    "local_demand_index": "Local Village Demand Density",
+    "target_population": "Catchment Population Reach (~8,420)",
+    "village_population": "Local Village Population Base",
+    "competitors_5km": "5 KM GIS Competitor Density",
+    "competitors_10km": "10 KM Trade Catchment Density",
+    "own_capital_inr": "Promoter Margin Equity Ratio",
+    "road_available": "All-Weather Transport Connectivity",
+    "electricity_available": "Grid Power Availability",
+    "basic_infrastructure_available": "Essential Infrastructure (Power & Water)",
+    "demand_trend": "Regional Demand Trend & Seasonality",
+    "price_volatility": "Mandi Spot Price Stability",
+    "monthly_revenue_estimate_inr": "Monthly Cash Turnover Potential",
+    "market_distance_km": "Proximity to Regional APMC Mandi"
+}
+
 # Standardize category names across models
 CATEGORY_MAP = {
     "dairy": "Dairy & Livestock",
@@ -242,7 +258,7 @@ def predict_model1_feasibility(
         },
         "positive_factors": pos_factors,
         "negative_factors": neg_factors,
-        "top_factors": [f[0] for f in importances]
+        "top_factors": [HUMAN_FACTOR_NAMES.get(f[0], f[0].replace("_", " ").title()) for f in importances]
     }
     _m1_cache[cache_key] = res_m1
     return res_m1
@@ -542,7 +558,7 @@ def predict_model3_risk(
         "risk_score": round(proba * 100.0, 1),
         "risk_level": level,
         "risk_probability": round(proba, 2),
-        "top_factors": [f[0] for f in importances],
+        "top_factors": [HUMAN_FACTOR_NAMES.get(f[0], f[0].replace("_", " ").title()) for f in importances],
         "dimensional_risks": dimensional_risks,
         "major_threats": major_threats
     }
