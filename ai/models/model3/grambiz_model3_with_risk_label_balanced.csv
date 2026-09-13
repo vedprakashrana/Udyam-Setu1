@@ -1,0 +1,161 @@
+state,district,block,village,business_category,prior_experience,own_capital_inr,competitors_5km,road_available,electricity_available,basic_infrastructure_available,demand_trend,price_volatility,buyer_dependency,supply_chain_reliability,monthly_fixed_cost_inr,monthly_revenue_estimate_inr,risk_label
+Jharkhand,Dhanbad,Baliapur,Dhangi,Dairy & Livestock,0,85000,19,1,1,0,0.46,0.315,0.292,0.974,2600,59000,0
+Jharkhand,Dhanbad,Baliapur,Dhangi,Poultry & Egg Production,1,95000,9,1,1,0,0.414,0.174,0.3,0.974,2800,61000,0
+Jharkhand,Dhanbad,Baliapur,Dhangi,Fisheries / Aquaculture,0,135000,15,1,1,0,-0.278,0.189,0.237,0.974,4000,33000,1
+Jharkhand,Dhanbad,Baliapur,Dhangi,Agri-input & Farm Supply,0,135000,11,1,1,0,0.16,0.228,0.251,0.974,4000,41000,0
+Jharkhand,Dhanbad,Baliapur,Dhangi,Food Processing,1,165000,3,1,1,1,0.092,0.123,0.251,0.974,5000,40000,0
+Jharkhand,Dhanbad,Baliapur,Dhangi,Retail / Kirana,1,90000,13,1,1,0,0.788,0.278,0.375,0.974,2700,100000,0
+Jharkhand,Dhanbad,Baliapur,Dhangi,Tailoring & Garment Services,1,40000,23,1,1,1,-0.19,0.336,0.219,0.974,1500,29000,1
+Jharkhand,Dhanbad,Baliapur,Dhangi,Repair & Maintenance,0,90000,11,1,1,1,-0.14,0.211,0.214,0.974,2700,28000,0
+Jharkhand,Dhanbad,Baliapur,Dhangi,Digital / CSC / Online Services,0,70000,9,1,1,1,-0.268,0.188,0.211,0.974,2100,26000,1
+Jharkhand,Dhanbad,Baliapur,Dhangi,Handicrafts / Artisan Products,0,60000,10,1,1,0,-0.496,0.204,0.181,0.974,1800,17000,1
+Jharkhand,Dhanbad,Baliapur,Gopinathdih,Dairy & Livestock,1,110000,21,1,1,1,0.574,0.311,0.214,0.889,3300,72000,0
+Jharkhand,Dhanbad,Baliapur,Gopinathdih,Poultry & Egg Production,0,90000,15,1,1,1,0.302,0.2,0.187,0.889,2700,50000,0
+Jharkhand,Dhanbad,Baliapur,Gopinathdih,Fisheries / Aquaculture,0,135000,6,1,1,1,-0.268,0.11,0.171,0.889,4000,36000,0
+Jharkhand,Dhanbad,Baliapur,Gopinathdih,Agri-input & Farm Supply,1,195000,7,1,1,1,0.224,0.137,0.186,0.889,5800,49000,0
+Jharkhand,Dhanbad,Baliapur,Gopinathdih,Food Processing,1,145000,12,1,1,0,0.22,0.173,0.197,0.889,4400,56000,0
+Jharkhand,Dhanbad,Baliapur,Gopinathdih,Retail / Kirana,0,130000,16,1,1,1,0.778,0.232,0.244,0.889,3900,99000,0
+Jharkhand,Dhanbad,Baliapur,Gopinathdih,Tailoring & Garment Services,1,65000,11,1,1,1,-0.234,0.235,0.148,0.889,2000,24000,1
+Jharkhand,Dhanbad,Baliapur,Gopinathdih,Repair & Maintenance,1,85000,9,1,1,1,-0.084,0.182,0.168,0.889,2600,35000,0
+Jharkhand,Dhanbad,Baliapur,Gopinathdih,Digital / CSC / Online Services,0,80000,14,1,1,1,-0.282,0.221,0.151,0.889,2400,25000,0
+Jharkhand,Dhanbad,Baliapur,Gopinathdih,Handicrafts / Artisan Products,1,40000,6,1,1,1,-0.466,0.119,0.15,0.889,1500,23000,0
+Jharkhand,Dhanbad,Govindpur,Behichiya,Dairy & Livestock,0,105000,14,1,0,0,0.274,0.264,0.42,0.732,3200,62000,0
+Jharkhand,Dhanbad,Govindpur,Behichiya,Poultry & Egg Production,0,80000,9,1,0,0,0.268,0.194,0.438,0.732,2400,68000,0
+Jharkhand,Dhanbad,Govindpur,Behichiya,Fisheries / Aquaculture,0,155000,15,1,0,0,-0.41,0.238,0.333,0.732,4600,33000,1
+Jharkhand,Dhanbad,Govindpur,Behichiya,Agri-input & Farm Supply,0,185000,9,1,0,0,0.084,0.216,0.401,0.732,5600,54000,0
+Jharkhand,Dhanbad,Govindpur,Behichiya,Food Processing,0,120000,6,1,0,0,-0.164,0.198,0.322,0.732,3600,33000,1
+Jharkhand,Dhanbad,Govindpur,Behichiya,Retail / Kirana,0,130000,16,1,0,0,0.502,0.323,0.46,0.732,3900,79000,1
+Jharkhand,Dhanbad,Govindpur,Behichiya,Tailoring & Garment Services,1,45000,12,1,0,0,-0.358,0.258,0.298,0.732,1500,27000,1
+Jharkhand,Dhanbad,Govindpur,Behichiya,Repair & Maintenance,0,55000,6,1,0,0,-0.234,0.207,0.341,0.732,1600,36000,1
+Jharkhand,Dhanbad,Govindpur,Behichiya,Digital / CSC / Online Services,1,50000,14,1,0,0,-0.39,0.285,0.311,0.732,1500,29000,1
+Jharkhand,Dhanbad,Govindpur,Behichiya,Handicrafts / Artisan Products,1,50000,8,1,0,0,-0.65,0.235,0.192,0.732,1500,10000,1
+Jharkhand,Dhanbad,Govindpur,Chickenia,Dairy & Livestock,0,110000,12,1,1,0,0.864,0.212,0.27,0.987,3300,87000,0
+Jharkhand,Dhanbad,Govindpur,Chickenia,Poultry & Egg Production,0,65000,19,1,1,0,0.636,0.244,0.247,0.987,2000,70000,0
+Jharkhand,Dhanbad,Govindpur,Chickenia,Fisheries / Aquaculture,0,230000,3,1,1,0,-0.172,0.102,0.193,0.987,6900,35000,0
+Jharkhand,Dhanbad,Govindpur,Chickenia,Agri-input & Farm Supply,0,150000,13,1,1,0,0.334,0.243,0.205,0.987,4500,44000,0
+Jharkhand,Dhanbad,Govindpur,Chickenia,Food Processing,0,125000,15,1,1,0,0.418,0.225,0.24,0.987,3800,63000,0
+Jharkhand,Dhanbad,Govindpur,Chickenia,Retail / Kirana,1,135000,21,1,1,0,0.974,0.329,0.309,0.987,4000,100000,0
+Jharkhand,Dhanbad,Govindpur,Chickenia,Tailoring & Garment Services,0,75000,13,1,1,1,-0.062,0.215,0.18,0.987,2200,30000,0
+Jharkhand,Dhanbad,Govindpur,Chickenia,Repair & Maintenance,0,95000,14,1,1,1,0.118,0.245,0.21,0.987,2800,45000,0
+Jharkhand,Dhanbad,Govindpur,Chickenia,Digital / CSC / Online Services,0,50000,15,1,1,1,-0.12,0.253,0.185,0.987,1500,32000,1
+Jharkhand,Dhanbad,Govindpur,Chickenia,Handicrafts / Artisan Products,1,50000,12,1,1,0,-0.416,0.203,0.151,0.987,1500,17000,1
+Jharkhand,Ranchi,Kanke,Kokdoro,Dairy & Livestock,0,160000,17,1,1,0,0.558,0.363,0.265,0.77,4800,92000,1
+Jharkhand,Ranchi,Kanke,Kokdoro,Poultry & Egg Production,0,90000,16,1,1,0,0.344,0.362,0.232,0.77,2700,67000,1
+Jharkhand,Ranchi,Kanke,Kokdoro,Fisheries / Aquaculture,0,130000,12,1,1,0,-0.308,0.313,0.196,0.77,3900,41000,1
+Jharkhand,Ranchi,Kanke,Kokdoro,Agri-input & Farm Supply,0,170000,8,1,1,0,0.052,0.292,0.192,0.77,5100,42000,0
+Jharkhand,Ranchi,Kanke,Kokdoro,Food Processing,0,155000,3,1,1,0,0.07,0.231,0.209,0.77,4600,51000,0
+Jharkhand,Ranchi,Kanke,Kokdoro,Retail / Kirana,0,80000,7,1,1,0,0.64,0.28,0.309,0.77,2400,100000,0
+Jharkhand,Ranchi,Kanke,Kokdoro,Tailoring & Garment Services,1,90000,9,1,1,1,-0.22,0.265,0.186,0.77,2700,37000,0
+Jharkhand,Ranchi,Kanke,Kokdoro,Repair & Maintenance,0,60000,11,1,1,1,-0.206,0.324,0.175,0.77,1800,31000,1
+Jharkhand,Ranchi,Kanke,Kokdoro,Digital / CSC / Online Services,0,60000,14,1,1,1,-0.354,0.338,0.165,0.77,1800,26000,1
+Jharkhand,Ranchi,Kanke,Kokdoro,Handicrafts / Artisan Products,1,65000,12,1,1,0,-0.55,0.273,0.151,0.77,2000,19000,1
+Jharkhand,Ranchi,Kanke,Kumharia,Dairy & Livestock,1,140000,15,1,1,1,0.804,0.304,0.3,0.96,4200,92000,0
+Jharkhand,Ranchi,Kanke,Kumharia,Poultry & Egg Production,0,135000,16,1,1,1,0.71,0.232,0.296,0.96,4000,89000,0
+Jharkhand,Ranchi,Kanke,Kumharia,Fisheries / Aquaculture,1,180000,14,1,1,1,-0.144,0.212,0.23,0.96,5400,45000,0
+Jharkhand,Ranchi,Kanke,Kumharia,Agri-input & Farm Supply,1,240000,15,1,1,0,0.404,0.26,0.248,0.96,7200,59000,0
+Jharkhand,Ranchi,Kanke,Kumharia,Food Processing,0,90000,13,1,1,0,0.282,0.263,0.239,0.96,2700,53000,0
+Jharkhand,Ranchi,Kanke,Kumharia,Retail / Kirana,1,105000,25,1,1,1,0.9,0.38,0.334,0.96,3200,100000,0
+Jharkhand,Ranchi,Kanke,Kumharia,Tailoring & Garment Services,1,40000,5,1,1,1,0.022,0.185,0.233,0.96,1500,48000,0
+Jharkhand,Ranchi,Kanke,Kumharia,Repair & Maintenance,0,130000,21,1,1,1,-0.038,0.344,0.192,0.96,3900,31000,1
+Jharkhand,Ranchi,Kanke,Kumharia,Digital / CSC / Online Services,0,60000,8,1,1,0,-0.124,0.188,0.211,0.96,1800,37000,0
+Jharkhand,Ranchi,Kanke,Kumharia,Handicrafts / Artisan Products,0,55000,14,1,1,1,-0.4,0.198,0.183,0.96,1600,26000,0
+Jharkhand,Ranchi,Ratu,Katamkuli,Dairy & Livestock,0,70000,6,0,1,0,0.11,0.224,0.206,0.557,2100,35000,0
+Jharkhand,Ranchi,Ratu,Katamkuli,Poultry & Egg Production,1,110000,4,0,1,0,0.152,0.194,0.231,0.557,3300,45000,0
+Jharkhand,Ranchi,Ratu,Katamkuli,Fisheries / Aquaculture,0,110000,7,0,1,0,-0.482,0.226,0.151,0.557,3300,14000,1
+Jharkhand,Ranchi,Ratu,Katamkuli,Agri-input & Farm Supply,1,170000,11,0,1,0,-0.09,0.246,0.183,0.557,5100,25000,1
+Jharkhand,Ranchi,Ratu,Katamkuli,Food Processing,0,175000,7,0,1,0,-0.136,0.221,0.186,0.557,5200,26000,1
+Jharkhand,Ranchi,Ratu,Katamkuli,Retail / Kirana,1,110000,19,0,1,0,0.292,0.335,0.233,0.557,3300,47000,1
+Jharkhand,Ranchi,Ratu,Katamkuli,Tailoring & Garment Services,0,65000,5,0,1,0,-0.38,0.221,0.155,0.557,2000,15000,1
+Jharkhand,Ranchi,Ratu,Katamkuli,Repair & Maintenance,0,60000,12,0,1,0,-0.268,0.299,0.178,0.557,1800,23000,1
+Jharkhand,Ranchi,Ratu,Katamkuli,Digital / CSC / Online Services,1,65000,7,0,1,0,-0.418,0.233,0.158,0.557,2000,16000,1
+Jharkhand,Ranchi,Ratu,Katamkuli,Handicrafts / Artisan Products,0,60000,9,0,1,0,-0.554,0.236,0.164,0.557,1800,17000,1
+Jharkhand,Ranchi,Ratu,Katarpa,Dairy & Livestock,1,105000,19,1,1,0,0.022,0.344,0.193,0.788,3200,30000,1
+Jharkhand,Ranchi,Ratu,Katarpa,Poultry & Egg Production,1,110000,14,1,1,0,-0.022,0.309,0.196,0.788,3300,30000,1
+Jharkhand,Ranchi,Ratu,Katarpa,Fisheries / Aquaculture,0,130000,11,1,1,0,-0.452,0.274,0.174,0.788,3900,21000,1
+Jharkhand,Ranchi,Ratu,Katarpa,Agri-input & Farm Supply,1,130000,15,1,1,1,-0.08,0.303,0.195,0.788,3900,30000,1
+Jharkhand,Ranchi,Ratu,Katarpa,Food Processing,0,135000,11,1,1,0,-0.078,0.256,0.211,0.788,4000,35000,1
+Jharkhand,Ranchi,Ratu,Katarpa,Retail / Kirana,0,70000,7,1,1,1,0.246,0.261,0.231,0.788,2100,46000,0
+Jharkhand,Ranchi,Ratu,Katarpa,Tailoring & Garment Services,1,85000,12,1,1,1,-0.398,0.298,0.157,0.788,2600,16000,1
+Jharkhand,Ranchi,Ratu,Katarpa,Repair & Maintenance,1,100000,12,1,1,1,-0.254,0.296,0.191,0.788,3000,27000,1
+Jharkhand,Ranchi,Ratu,Katarpa,Digital / CSC / Online Services,0,35000,11,1,1,0,-0.448,0.26,0.155,0.788,1500,15000,1
+Jharkhand,Ranchi,Ratu,Katarpa,Handicrafts / Artisan Products,0,50000,10,1,1,1,-0.628,0.262,0.13,0.788,1500,10000,1
+Bihar,Patna,Paliganj,Ajda Sikariya,Dairy & Livestock,0,110000,8,1,1,0,0.416,0.24,0.318,0.915,3300,66000,0
+Bihar,Patna,Paliganj,Ajda Sikariya,Poultry & Egg Production,1,60000,11,1,1,0,0.342,0.256,0.318,0.915,1800,65000,0
+Bihar,Patna,Paliganj,Ajda Sikariya,Fisheries / Aquaculture,1,110000,15,1,1,0,-0.294,0.266,0.269,0.915,3300,41000,1
+Bihar,Patna,Paliganj,Ajda Sikariya,Agri-input & Farm Supply,1,195000,12,1,1,0,0.372,0.298,0.343,0.915,5800,77000,0
+Bihar,Patna,Paliganj,Ajda Sikariya,Food Processing,0,110000,18,1,1,0,0.136,0.304,0.302,0.915,3300,57000,0
+Bihar,Patna,Paliganj,Ajda Sikariya,Retail / Kirana,1,65000,31,1,1,1,0.658,0.465,0.439,0.915,2000,100000,1
+Bihar,Patna,Paliganj,Ajda Sikariya,Tailoring & Garment Services,1,55000,9,1,1,1,-0.226,0.254,0.245,0.915,1600,35000,0
+Bihar,Patna,Paliganj,Ajda Sikariya,Repair & Maintenance,1,70000,13,1,1,1,-0.084,0.277,0.275,0.915,2100,45000,0
+Bihar,Patna,Paliganj,Ajda Sikariya,Digital / CSC / Online Services,1,65000,15,1,1,0,-0.27,0.281,0.252,0.915,2000,36000,1
+Bihar,Patna,Paliganj,Ajda Sikariya,Handicrafts / Artisan Products,1,40000,11,1,1,1,-0.52,0.219,0.209,0.915,1500,23000,0
+Bihar,Patna,Paliganj,Akbarpur Ranipur,Dairy & Livestock,1,85000,12,1,1,1,0.506,0.252,0.367,0.953,2600,74000,0
+Bihar,Patna,Paliganj,Akbarpur Ranipur,Poultry & Egg Production,0,100000,8,1,1,1,0.508,0.2,0.398,0.953,3000,88000,0
+Bihar,Patna,Paliganj,Akbarpur Ranipur,Fisheries / Aquaculture,1,120000,16,1,1,1,-0.304,0.256,0.286,0.953,3600,38000,1
+Bihar,Patna,Paliganj,Akbarpur Ranipur,Agri-input & Farm Supply,1,105000,15,1,1,1,0.384,0.268,0.377,0.953,3200,77000,0
+Bihar,Patna,Paliganj,Akbarpur Ranipur,Food Processing,0,160000,10,1,1,1,0.162,0.234,0.337,0.953,4800,58000,0
+Bihar,Patna,Paliganj,Akbarpur Ranipur,Retail / Kirana,1,65000,21,1,1,1,0.674,0.363,0.516,0.953,2000,100000,1
+Bihar,Patna,Paliganj,Akbarpur Ranipur,Tailoring & Garment Services,0,60000,12,1,1,1,-0.186,0.241,0.283,0.953,1800,38000,0
+Bihar,Patna,Paliganj,Akbarpur Ranipur,Repair & Maintenance,1,125000,12,1,1,1,-0.04,0.243,0.316,0.953,3800,49000,0
+Bihar,Patna,Paliganj,Akbarpur Ranipur,Digital / CSC / Online Services,0,60000,16,1,1,1,-0.332,0.268,0.238,0.953,1800,26000,1
+Bihar,Patna,Paliganj,Akbarpur Ranipur,Handicrafts / Artisan Products,0,70000,11,1,1,1,-0.488,0.225,0.247,0.953,2100,27000,0
+Bihar,Patna,Masaurhi,Dahiya,Dairy & Livestock,0,115000,4,0,1,0,0.788,0.18,0.28,0.691,3400,100000,0
+Bihar,Patna,Masaurhi,Dahiya,Poultry & Egg Production,0,65000,6,0,1,0,0.694,0.209,0.268,0.691,2000,91000,0
+Bihar,Patna,Masaurhi,Dahiya,Fisheries / Aquaculture,0,115000,9,0,1,0,-0.19,0.205,0.196,0.691,3400,39000,1
+Bihar,Patna,Masaurhi,Dahiya,Agri-input & Farm Supply,0,140000,23,0,1,0,0.468,0.377,0.237,0.691,4200,68000,1
+Bihar,Patna,Masaurhi,Dahiya,Food Processing,0,140000,12,0,1,0,0.328,0.289,0.227,0.691,4200,60000,0
+Bihar,Patna,Masaurhi,Dahiya,Retail / Kirana,0,80000,24,0,1,0,0.882,0.403,0.323,0.691,2400,100000,1
+Bihar,Patna,Masaurhi,Dahiya,Tailoring & Garment Services,1,55000,15,0,1,0,0.018,0.345,0.212,0.691,1600,49000,1
+Bihar,Patna,Masaurhi,Dahiya,Repair & Maintenance,1,70000,20,0,1,0,-0.054,0.341,0.174,0.691,2100,30000,1
+Bihar,Patna,Masaurhi,Dahiya,Digital / CSC / Online Services,0,50000,17,0,1,0,-0.1,0.276,0.201,0.691,1500,42000,1
+Bihar,Patna,Masaurhi,Dahiya,Handicrafts / Artisan Products,0,50000,3,0,1,0,-0.388,0.148,0.176,0.691,1500,29000,1
+Bihar,Patna,Masaurhi,Lakhanpur,Dairy & Livestock,1,100000,9,1,1,1,0.352,0.2,0.369,0.953,3000,62000,0
+Bihar,Patna,Masaurhi,Lakhanpur,Poultry & Egg Production,0,115000,9,1,1,1,0.144,0.197,0.326,0.953,3400,46000,0
+Bihar,Patna,Masaurhi,Lakhanpur,Fisheries / Aquaculture,1,140000,8,1,1,1,-0.378,0.165,0.28,0.953,4200,31000,0
+Bihar,Patna,Masaurhi,Lakhanpur,Agri-input & Farm Supply,1,150000,20,1,1,0,0.154,0.313,0.351,0.953,4500,54000,1
+Bihar,Patna,Masaurhi,Lakhanpur,Food Processing,1,170000,20,1,1,0,0.058,0.301,0.342,0.953,5100,50000,1
+Bihar,Patna,Masaurhi,Lakhanpur,Retail / Kirana,1,90000,19,1,1,1,0.634,0.326,0.442,0.953,2700,95000,0
+Bihar,Patna,Masaurhi,Lakhanpur,Tailoring & Garment Services,0,105000,21,1,1,1,-0.306,0.344,0.258,0.953,3200,26000,1
+Bihar,Patna,Masaurhi,Lakhanpur,Repair & Maintenance,0,90000,20,1,1,1,-0.22,0.298,0.275,0.953,2700,30000,1
+Bihar,Patna,Masaurhi,Lakhanpur,Digital / CSC / Online Services,1,45000,14,1,1,0,-0.334,0.215,0.273,0.953,1500,29000,0
+Bihar,Patna,Masaurhi,Lakhanpur,Handicrafts / Artisan Products,1,70000,20,1,1,1,-0.6,0.296,0.182,0.953,2100,11000,1
+Bihar,Begusarai,Barauni,Amarpur,Dairy & Livestock,0,120000,19,1,1,1,0.468,0.309,0.343,0.943,3600,70000,0
+Bihar,Begusarai,Barauni,Amarpur,Poultry & Egg Production,1,75000,10,1,1,1,0.294,0.216,0.319,0.943,2200,58000,0
+Bihar,Begusarai,Barauni,Amarpur,Fisheries / Aquaculture,0,110000,9,1,1,1,-0.336,0.211,0.258,0.943,3300,33000,0
+Bihar,Begusarai,Barauni,Amarpur,Agri-input & Farm Supply,0,140000,9,1,1,1,0.074,0.209,0.273,0.943,4200,41000,0
+Bihar,Begusarai,Barauni,Amarpur,Food Processing,1,130000,10,1,1,0,-0.02,0.197,0.262,0.943,3900,37000,0
+Bihar,Begusarai,Barauni,Amarpur,Retail / Kirana,0,165000,21,1,1,1,0.678,0.372,0.382,0.943,5000,90000,0
+Bihar,Begusarai,Barauni,Amarpur,Tailoring & Garment Services,1,85000,16,1,1,1,-0.25,0.281,0.242,0.943,2600,30000,1
+Bihar,Begusarai,Barauni,Amarpur,Repair & Maintenance,0,85000,18,1,1,1,-0.246,0.322,0.216,0.943,2600,24000,1
+Bihar,Begusarai,Barauni,Amarpur,Digital / CSC / Online Services,0,55000,4,1,1,0,-0.386,0.153,0.198,0.943,1600,19000,1
+Bihar,Begusarai,Barauni,Amarpur,Handicrafts / Artisan Products,1,45000,11,1,1,1,-0.532,0.211,0.205,0.943,1500,20000,0
+Bihar,Begusarai,Barauni,Barauni,Dairy & Livestock,0,80000,12,1,1,0,0.608,0.287,0.276,0.847,2400,84000,0
+Bihar,Begusarai,Barauni,Barauni,Poultry & Egg Production,0,75000,19,1,1,0,0.47,0.306,0.267,0.847,2200,77000,0
+Bihar,Begusarai,Barauni,Barauni,Fisheries / Aquaculture,0,150000,8,1,1,0,-0.25,0.198,0.221,0.847,4500,45000,0
+Bihar,Begusarai,Barauni,Barauni,Agri-input & Farm Supply,1,160000,15,1,1,0,0.33,0.231,0.256,0.847,4800,68000,0
+Bihar,Begusarai,Barauni,Barauni,Food Processing,0,120000,12,1,1,0,0.112,0.288,0.226,0.847,3600,51000,0
+Bihar,Begusarai,Barauni,Barauni,Retail / Kirana,1,105000,19,1,1,0,0.694,0.348,0.285,0.847,3200,91000,0
+Bihar,Begusarai,Barauni,Barauni,Tailoring & Garment Services,1,35000,19,1,1,1,-0.186,0.313,0.201,0.847,1500,37000,1
+Bihar,Begusarai,Barauni,Barauni,Repair & Maintenance,0,125000,10,1,1,1,-0.07,0.246,0.215,0.847,3800,44000,0
+Bihar,Begusarai,Barauni,Barauni,Digital / CSC / Online Services,0,45000,15,1,1,1,-0.28,0.286,0.19,0.847,1500,32000,1
+Bihar,Begusarai,Barauni,Barauni,Handicrafts / Artisan Products,0,70000,12,1,1,0,-0.526,0.214,0.16,0.847,2100,19000,1
+Bihar,Begusarai,Matihani,Balahpur,Dairy & Livestock,0,190000,13,1,1,0,0.626,0.251,0.196,0.961,5700,65000,0
+Bihar,Begusarai,Matihani,Balahpur,Poultry & Egg Production,1,105000,8,1,1,0,0.35,0.172,0.169,0.961,3200,43000,0
+Bihar,Begusarai,Matihani,Balahpur,Fisheries / Aquaculture,0,120000,6,1,1,0,-0.228,0.164,0.156,0.961,3600,30000,0
+Bihar,Begusarai,Matihani,Balahpur,Agri-input & Farm Supply,1,170000,11,1,1,0,0.262,0.226,0.167,0.961,5100,41000,0
+Bihar,Begusarai,Matihani,Balahpur,Food Processing,1,140000,5,1,1,0,0.234,0.152,0.174,0.961,4200,45000,0
+Bihar,Begusarai,Matihani,Balahpur,Retail / Kirana,1,60000,10,1,1,0,0.862,0.208,0.213,0.961,1800,82000,0
+Bihar,Begusarai,Matihani,Balahpur,Tailoring & Garment Services,1,65000,8,1,1,1,-0.134,0.181,0.146,0.961,2000,25000,1
+Bihar,Begusarai,Matihani,Balahpur,Repair & Maintenance,0,130000,17,1,1,1,-0.08,0.277,0.144,0.961,3900,24000,1
+Bihar,Begusarai,Matihani,Balahpur,Digital / CSC / Online Services,1,50000,16,1,1,0,-0.198,0.271,0.147,0.961,1500,25000,1
+Bihar,Begusarai,Matihani,Balahpur,Handicrafts / Artisan Products,0,35000,17,1,1,0,-0.428,0.236,0.137,0.961,1500,19000,1
+Bihar,Begusarai,Matihani,Matihani,Dairy & Livestock,1,85000,11,1,1,0,0.246,0.194,0.323,0.961,2600,48000,0
+Bihar,Begusarai,Matihani,Matihani,Poultry & Egg Production,1,60000,15,1,1,0,0.172,0.232,0.32,0.961,1800,47000,0
+Bihar,Begusarai,Matihani,Matihani,Fisheries / Aquaculture,0,195000,15,1,1,0,-0.46,0.253,0.207,0.961,5800,17000,1
+Bihar,Begusarai,Matihani,Matihani,Agri-input & Farm Supply,0,145000,15,1,1,0,0.064,0.235,0.305,0.961,4400,41000,0
+Bihar,Begusarai,Matihani,Matihani,Food Processing,0,115000,14,1,1,0,-0.088,0.247,0.268,0.961,3400,31000,0
+Bihar,Begusarai,Matihani,Matihani,Retail / Kirana,0,85000,10,1,1,0,0.354,0.244,0.335,0.961,2600,53000,0
+Bihar,Begusarai,Matihani,Matihani,Tailoring & Garment Services,1,95000,5,1,1,1,-0.296,0.179,0.248,0.961,2800,25000,0
+Bihar,Begusarai,Matihani,Matihani,Repair & Maintenance,0,95000,4,1,1,1,-0.292,0.145,0.22,0.961,2800,20000,0
+Bihar,Begusarai,Matihani,Matihani,Digital / CSC / Online Services,1,45000,5,1,1,0,-0.44,0.171,0.187,0.961,1500,13000,1
+Bihar,Begusarai,Matihani,Matihani,Handicrafts / Artisan Products,0,65000,11,1,1,0,-0.554,0.185,0.211,0.961,2000,17000,1
