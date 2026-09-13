@@ -324,11 +324,6 @@ export default function AssistantPage() {
             <div>
               <h2 className="text-base font-bold flex items-center flex-wrap gap-2">
                 UDYAM-SETU Conversational AI Advisor
-                <span className="text-[10px] bg-amber-400 text-slate-950 font-extrabold px-2 py-0.5 rounded shadow-sm">ACTIVE MEMORY</span>
-                <span className="text-[10px] bg-emerald-800 text-amber-300 border border-emerald-600 font-bold px-2 py-0.5 rounded flex items-center gap-1 shadow-xs">
-                  <Sparkles className="w-3 h-3 text-amber-400" />
-                  Gemini AI Active
-                </span>
               </h2>
               <p className="text-[11px] text-emerald-200">Context-Aware Reasoning &amp; Exact Tool-Grounded Calculations</p>
             </div>
