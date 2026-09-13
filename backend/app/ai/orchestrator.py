@@ -45,8 +45,8 @@ class LLMClientAdapter:
             raw_key = api_key or os.getenv("GEMINI_API_KEY", "")
             gemini_key = normalize_gemini_api_key(raw_key)
             if gemini_key:
-                preferred_model = getattr(settings, "LLM_MODEL", None) or os.getenv("LLM_MODEL", "gemini-flash-latest")
-                candidate_models = [preferred_model, "gemini-flash-latest", "gemini-3.5-flash", "gemini-2.5-flash"]
+                preferred_model = getattr(settings, "LLM_MODEL", None) or os.getenv("LLM_MODEL", "gemini-1.5-flash")
+                candidate_models = [preferred_model, "gemini-1.5-flash", "gemini-flash-latest"]
                 # Deduplicate while preserving priority order
                 models_to_try = list(dict.fromkeys(candidate_models))
 
@@ -66,7 +66,7 @@ class LLMClientAdapter:
                 for model in models_to_try:
                     try:
                         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={gemini_key}"
-                        with httpx.Client(timeout=10.0) as client:
+                        with httpx.Client(timeout=3.0) as client:
                             res = client.post(url, json=payload)
                             if res.status_code == 200:
                                 data = res.json()
@@ -76,10 +76,13 @@ class LLMClientAdapter:
                                     if parts and "text" in parts[0]:
                                         logger.info(f"Gemini generation succeeded using {model}")
                                         return parts[0]["text"]
+                            elif res.status_code in (400, 401, 403):
+                                logger.warning(f"Gemini auth error (HTTP {res.status_code}). Switching directly to instant local advisor.")
+                                break
                             else:
                                 logger.warning(f"Gemini {model} returned HTTP {res.status_code}: {res.text[:120]}")
                     except Exception as ex:
-                        logger.warning(f"Gemini {model} call exception ({ex})")
+                        logger.warning(f"Gemini {model} fast timeout / notice ({ex})")
 
         # 2. OpenAI Provider
         if provider in ["openai", "gpt-4o", "gpt-4o-mini"] or os.getenv("OPENAI_API_KEY"):

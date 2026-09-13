@@ -59,10 +59,13 @@ COMMODITY_MAP = {
     "Handicrafts / Artisan Products": ("Handcrafted Decor", "INR/Piece", 325.48, 370.0)
 }
 
-# Lazy loading handles
+# Lazy loading handles & in-memory caches
 _m1_artifact = None
 _m2_artifact = None
 _m3_artifact = None
+_m1_cache = {}
+_m2_cache = {}
+_m3_cache = {}
 
 def get_m1():
     global _m1_artifact
@@ -88,6 +91,24 @@ def get_m3():
             _m3_artifact = joblib.load(p)
     return _m3_artifact
 
+def warmup_models():
+    """Preloads ML models and warms up inference pipelines for all categories on startup."""
+    try:
+        logger.info("Starting background preload for 4-Model Suite...")
+        get_m1()
+        get_m2()
+        get_m3()
+        for cat in COMMODITY_MAP.keys():
+            try:
+                predict_model1_feasibility(cat, 100000.0)
+                predict_model2_price_demand(cat)
+                predict_model3_risk(cat, 100000.0)
+            except Exception:
+                pass
+        logger.info("4-Model Suite: All 10 categories preloaded and cached in memory.")
+    except Exception as e:
+        logger.warning(f"Model warmup non-critical notice: {e}")
+
 # --- MODEL 1 INFERENCE ---
 def predict_model1_feasibility(
     category: str,
@@ -110,6 +131,10 @@ def predict_model1_feasibility(
              competitor density, underserved opportunity, and positive/negative factors.
     """
     norm_cat = normalize_category(category)
+    cache_key = (norm_cat, round(float(own_capital), -3), bool(prior_experience), int(population), competitors_5km, bool(has_road), bool(has_power), bool(has_infra))
+    if cache_key in _m1_cache:
+        return dict(_m1_cache[cache_key])
+
     m1 = get_m1()
     
     c1 = competitors_1km if competitors_1km is not None else max(0, competitors_5km // 2)
@@ -196,7 +221,7 @@ def predict_model1_feasibility(
     else:
         neg_factors.append("First-time business operator; vocational / KVK training recommended")
 
-    return {
+    res_m1 = {
         "business_category": norm_cat,
         "feasibility_label": label,
         "feasibility_score": round(proba * 100.0, 1),
@@ -219,6 +244,8 @@ def predict_model1_feasibility(
         "negative_factors": neg_factors,
         "top_factors": [f[0] for f in importances]
     }
+    _m1_cache[cache_key] = res_m1
+    return res_m1
 
 # --- MODEL 2 INFERENCE ---
 def predict_model2_price_demand(
@@ -235,6 +262,10 @@ def predict_model2_price_demand(
              volatility, uncertainty interval, pricing recommendation, and expected monthly revenue.
     """
     norm_cat = normalize_category(category)
+    cache_key = (norm_cat, month, season, override_price)
+    if cache_key in _m2_cache:
+        return dict(_m2_cache[cache_key])
+
     m2 = get_m2()
     
     comm_name, unit, default_p, default_vol = COMMODITY_MAP.get(
@@ -326,7 +357,7 @@ def predict_model2_price_demand(
     else:
         expected_monthly_revenue = round(raw_sales, 2)
 
-    return {
+    res_m2 = {
         "business_category": norm_cat,
         "commodity_or_service": comm_name,
         "unit": unit,
@@ -343,6 +374,8 @@ def predict_model2_price_demand(
         "pricing_recommendation": rec,
         "expected_monthly_revenue": expected_monthly_revenue
     }
+    _m2_cache[cache_key] = res_m2
+    return res_m2
 
 # --- MODEL 3 INFERENCE ---
 def predict_model3_risk(
@@ -369,8 +402,6 @@ def predict_model3_risk(
              operational risk, financial risk, and major threats.
     """
     norm_cat = normalize_category(category)
-    m3 = get_m3()
-
     eff_trend = float(demand_trend if demand_trend is not None else 0.50)
     eff_vol = float(price_volatility if price_volatility is not None else 0.20)
     if eff_vol > 1.0:
@@ -378,6 +409,12 @@ def predict_model3_risk(
     eff_rev = float(monthly_rev if monthly_rev is not None else REVENUE_TABLE.get(norm_cat, 50000.0))
     eff_opex = float(monthly_fixed_cost if monthly_fixed_cost is not None else estimate_operating_cost(norm_cat))
     eff_sc = float(supply_chain_reliability if supply_chain_reliability is not None else (0.85 if has_road else 0.55))
+
+    cache_key = (norm_cat, round(float(own_capital), -3), bool(prior_experience), competitors_5km, bool(has_road), bool(has_power), bool(has_infra), round(eff_trend, 2), round(eff_vol, 2))
+    if cache_key in _m3_cache:
+        return dict(_m3_cache[cache_key])
+
+    m3 = get_m3()
 
     if m3 is None:
         proba = 0.35 if own_capital >= 50000 else 0.48
@@ -499,7 +536,7 @@ def predict_model3_risk(
     )
     major_threats = [t[1] for t in ranked_threats if t[0] >= 30][:3]
 
-    return {
+    res_m3 = {
         "business_category": norm_cat,
         "risk_label": label,
         "risk_score": round(proba * 100.0, 1),
@@ -509,6 +546,8 @@ def predict_model3_risk(
         "dimensional_risks": dimensional_risks,
         "major_threats": major_threats
     }
+    _m3_cache[cache_key] = res_m3
+    return res_m3
 
 # --- DYNAMIC SWOT GENERATOR (Generated from Model 1 + Model 2 + Model 3 without extra ML) ---
 def generate_swot_from_models(

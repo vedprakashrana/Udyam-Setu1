@@ -56,7 +56,7 @@ class Settings(BaseSettings):
     LLM_PROVIDER: str = "gemini"
     LLM_API_KEY: str = ""
     GEMINI_API_KEY: str = ""
-    LLM_MODEL: str = "gemini-3.5-flash"
+    LLM_MODEL: str = "gemini-1.5-flash"
     EMBEDDING_PROVIDER: str = "gemini"
     EMBEDDING_API_KEY: str = ""
 
