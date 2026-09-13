@@ -4503,5 +4503,991 @@
       "pricing_data": "District Mandi & Haat Benchmarks [Verified / Estimated]"
     },
     "download_report_url": "/api/v1/reports/asm-1e12d394/pdf"
+  },
+  "asm-39e38c6c": {
+    "id": "asm-39e38c6c",
+    "title": "Retail / Kirana in Sindri",
+    "created_at": "2026-09-13T15:50:34.484957+00:00",
+    "status": "COMPLETED",
+    "user_inputs": {
+      "title": null,
+      "location": {
+        "state": "Jharkhand",
+        "district": "Dhanbad",
+        "block": "Baliapur",
+        "village": "Sindri",
+        "latitude": 23.652872467753596,
+        "longitude": 86.47777153532121
+      },
+      "margin_capital": "100000",
+      "own_capital": null,
+      "entrepreneur_name": "Rural Entrepreneur",
+      "prior_experience": false,
+      "annual_household_income": "120000",
+      "social_category": "OBC",
+      "existing_investment": "0",
+      "existing_loans": "0",
+      "expected_monthly_income": null,
+      "business_category": "Retail / Kirana",
+      "business_subcategory": "General Merchant Store",
+      "experience_years": 0,
+      "land_available": true,
+      "water_available": true,
+      "electricity_available": true,
+      "transport_available": true,
+      "storage_available": false,
+      "primary_customers": null,
+      "sales_channels": null
+    },
+    "financial_summary": {
+      "margin_capital": "100000.00",
+      "project_cost": "1000000.00",
+      "calculated_financing": "900000.00",
+      "financing_percentage": "90.0",
+      "margin_percentage": "10.0",
+      "formatted_project_cost": "\u20b910,00,000.00",
+      "formatted_calculated_financing": "\u20b99,00,000.00",
+      "formatted_margin_capital": "\u20b91,00,000.00"
+    },
+    "scheme_recommendation": {
+      "eligible": true,
+      "scheme_code": "MOSJE_TERM_LOAN",
+      "scheme_name": "MoSJE / NBCFDC Term Loan Scheme",
+      "scheme_version_id": null,
+      "project_cost": "1000000.00",
+      "calculated_financing": "900000.00",
+      "actual_eligible_financing": "900000.00",
+      "interest_rate": "8.00",
+      "tenure_months": 84,
+      "moratorium_months": 6,
+      "moratorium_interest_policy": "accrued",
+      "source_document": "MoSJE Term Loan Assistance Policy Vol-II 2024",
+      "effective_from": "2024-04-01",
+      "last_verified_at": "2024-10-15",
+      "notes": [
+        "Project qualifies for full 90% financing under MoSJE / NBCFDC Term Loan Scheme."
+      ]
+    },
+    "feasibility_score": {
+      "market_demand_score": 75.0,
+      "competition_score": 92.0,
+      "capital_adequacy_score": 92.0,
+      "profit_potential_score": 82.0,
+      "risk_score": 65.0,
+      "infrastructure_score": 80.0,
+      "overall_score": 70.7,
+      "category_label": "Strong Opportunity",
+      "viability_probability": 0.71,
+      "viability_class": "Viable",
+      "model_architecture": "Model 1 Random Forest Classifier + SHAP Attribution Pipeline",
+      "shap_feature_attributions": [
+        {
+          "feature_name": "Village Population (8,420 residents)",
+          "feature_group": "Demographics",
+          "attribution_value": 0.18,
+          "impact_description": "Substantial local consumer base supporting daily rural sales volume."
+        },
+        {
+          "feature_name": "Competitor Density (3 within 5km)",
+          "feature_group": "Competition",
+          "attribution_value": 0.22,
+          "impact_description": "Room for new entrant without aggressive price-undercutting."
+        },
+        {
+          "feature_name": "Margin Capital Buffer (\u20b9100,000)",
+          "feature_group": "Finance",
+          "attribution_value": 0.25,
+          "impact_description": "Adequate promoter equity to absorb initial setup and ramp-up."
+        },
+        {
+          "feature_name": "Market Access Distance (4.5 km)",
+          "feature_group": "Market access",
+          "attribution_value": 0.12,
+          "impact_description": "Convenient access to regional market for procurement."
+        },
+        {
+          "feature_name": "Key ML Factors (Local Village Demand Density, Catchment Population Reach (~8,420), Promoter Margin Equity Ratio)",
+          "feature_group": "ML Feature Importances",
+          "attribution_value": 0.15,
+          "impact_description": "Top driving features verified by Model 1 Random Forest."
+        }
+      ],
+      "disclaimer": "Model 1 Viability Estimate: Generated via feature pipeline combining Census demographics, AGMARKNET prices, and OSM spatial saturation. Explainability verified via SHAP attributions."
+    },
+    "swot": {
+      "strengths": [
+        "Strong overall feasibility (70.7/100) and viable local opportunity.",
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Strong promoter equity margin (\u20b9100,000) covers setup contribution"
+      ],
+      "weaknesses": [
+        "First-time business operator; vocational / KVK training recommended",
+        "Initial working-capital liquidity buffer required during gestation period."
+      ],
+      "opportunities": [
+        "Model 2 Forecast: Downward pricing trend (Promotional Discounting) supports healthy revenue potential.",
+        "Expanded catchment area reaching 8.4 km across neighboring village haats.",
+        "MoSJE / NBCFDC concessional refinance rates (6.5% - 8.0% p.a.) with upfront moratorium."
+      ],
+      "threats": [
+        "Market-Price Volatility & spot rate fluctuation",
+        "Execution setbacks due to technical domain learning curve",
+        "Initial cash flow strain or debt servicing pressure",
+        "High price volatility (682.0%) in Grocery Essentials market."
+      ]
+    },
+    "risks": [
+      {
+        "dimension": "Market-price",
+        "category": "Market-Price Volatility Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Moderate",
+        "description": "Probability of adverse spot-price fluctuation and mandi procurement rate volatility.",
+        "potential_features": [
+          "Historical price volatility (NSSO/Agmarknet)",
+          "Perishability index",
+          "Storage shelf-life"
+        ],
+        "mitigation_strategy": "Establish fixed-price milk cooperative procurement or value-added processing (Paneer/Curd)."
+      },
+      {
+        "dimension": "Demand",
+        "category": "Local Market Demand & Saturation Risk",
+        "risk_score": 30,
+        "probability": 0.3,
+        "severity_level": "Low",
+        "description": "Likelihood of market saturation or insufficient local consumer purchasing capacity.",
+        "potential_features": [
+          "Competitor density within 5km",
+          "Block population density",
+          "Household income index"
+        ],
+        "mitigation_strategy": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+      },
+      {
+        "dimension": "Supply-chain",
+        "category": "Input & Logistics Supply Chain Risk",
+        "risk_score": 28,
+        "probability": 0.28,
+        "severity_level": "Low",
+        "description": "Risk of input supply disruptions, livestock feed inflation, or transport bottlenecks.",
+        "potential_features": [
+          "Paved road connectivity",
+          "Distance to raw material mandi",
+          "Feed supplier concentration"
+        ],
+        "mitigation_strategy": "Form raw-material purchasing collective with neighboring producers to hedge logistics costs."
+      },
+      {
+        "dimension": "Infrastructure",
+        "category": "Utilities & Processing Infrastructure Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Low",
+        "description": "Probability of yield disruption caused by power outages or water shortage.",
+        "potential_features": [
+          "Daily power availability hours",
+          "Borewell groundwater depth",
+          "Cold-chain infrastructure presence"
+        ],
+        "mitigation_strategy": "Install solar-powered backup lighting/aeration and rainwater harvesting recharge pits."
+      },
+      {
+        "dimension": "Financial",
+        "category": "Liquidity & Debt Service Risk",
+        "risk_score": 24,
+        "probability": 0.24,
+        "severity_level": "Low",
+        "description": "Probability of debt delinquency or cash flow shortfall during initial 3-6 months ramp-up.",
+        "potential_features": [
+          "Capital margin adequacy ratio",
+          "Estimated DSCR ratio",
+          "Working capital reserve buffer"
+        ],
+        "mitigation_strategy": "Utilize 6-month MoSJE loan moratorium to reinvest operating revenues into reserves."
+      },
+      {
+        "dimension": "Operational",
+        "category": "Execution & Operational Complexity Risk",
+        "risk_score": 68,
+        "probability": 0.68,
+        "severity_level": "Moderate",
+        "description": "Probability of operational setbacks due to lack of domain technical training or animal disease.",
+        "potential_features": [
+          "Years of domain experience",
+          "Enterprise operational complexity",
+          "Access to veterinary care"
+        ],
+        "mitigation_strategy": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+      }
+    ],
+    "competitors_5km": [
+      {
+        "id": "gis_loc_1_2365_8647",
+        "name": "Sindri Commercial Enterprise Unit",
+        "category": "Retail / Kirana",
+        "distance_km": 1.5,
+        "address": "Main Market, Sindri",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.665,
+        "longitude": 86.4842,
+        "direction": "East"
+      },
+      {
+        "id": "gis_loc_2_2365_8647",
+        "name": "Dhanbad Business Services Center",
+        "category": "Retail / Kirana",
+        "distance_km": 2.9,
+        "address": "Near Panchayat, Sindri",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.6548,
+        "longitude": 86.5062,
+        "direction": "South-East"
+      },
+      {
+        "id": "gis_loc_3_2365_8647",
+        "name": "Gramin Micro Enterprise Hub",
+        "category": "Retail / Kirana",
+        "distance_km": 4.2,
+        "address": "Block Road, Dhanbad",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.6216,
+        "longitude": 86.501,
+        "direction": "South"
+      }
+    ],
+    "competitors_10km": [
+      {
+        "id": "gis_loc_1_2365_8647",
+        "name": "Sindri Commercial Enterprise Unit",
+        "category": "Retail / Kirana",
+        "distance_km": 1.5,
+        "address": "Main Market, Sindri",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.665,
+        "longitude": 86.4842,
+        "direction": "East"
+      },
+      {
+        "id": "gis_loc_2_2365_8647",
+        "name": "Dhanbad Business Services Center",
+        "category": "Retail / Kirana",
+        "distance_km": 2.9,
+        "address": "Near Panchayat, Sindri",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.6548,
+        "longitude": 86.5062,
+        "direction": "South-East"
+      },
+      {
+        "id": "gis_loc_3_2365_8647",
+        "name": "Gramin Micro Enterprise Hub",
+        "category": "Retail / Kirana",
+        "distance_km": 4.2,
+        "address": "Block Road, Dhanbad",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.6216,
+        "longitude": 86.501,
+        "direction": "South"
+      },
+      {
+        "id": "gis_loc_4_2365_8647",
+        "name": "Dhanbad Trade & Supply Depot",
+        "category": "Retail / Kirana",
+        "distance_km": 6.6,
+        "address": "Highway Road, Dhanbad",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.5993,
+        "longitude": 86.4495,
+        "direction": "West"
+      },
+      {
+        "id": "gis_loc_5_2365_8647",
+        "name": "Regional Commercial Hub",
+        "category": "Retail / Kirana",
+        "distance_km": 8.2,
+        "address": "Mandi Bypass, Dhanbad",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.6474,
+        "longitude": 86.3973,
+        "direction": "North-West"
+      },
+      {
+        "id": "gis_loc_6_2365_8647",
+        "name": "Dhanbad Industrial Trade Point",
+        "category": "Retail / Kirana",
+        "distance_km": 9.4,
+        "address": "Main Station Link, Dhanbad",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.7229,
+        "longitude": 86.4258,
+        "direction": "North"
+      }
+    ],
+    "pricing_data": [],
+    "ai_strategy": {
+      "executive_summary": "Strategic roadmap for establishing a resilient, profitable rural Retail / Kirana micro-enterprise.",
+      "operational_milestones": [
+        "Month 1-2: Shed setup, machinery procurement, and power connection.",
+        "Month 3: Trial production, local vendor onboarding, and MoSJE loan disbursement.",
+        "Month 4+: Full commercial operations reaching break-even volume."
+      ],
+      "risk_mitigation": "Maintain a minimum 45-day operating cash buffer and secure livestock insurance coverage."
+    },
+    "model1_prediction": {
+      "business_category": "Retail / Kirana",
+      "feasibility_label": 1,
+      "feasibility_score": 70.7,
+      "viability_probability": 0.71,
+      "success_probability": 0.71,
+      "opportunity_class": "Good",
+      "market_reach_km": 8.4,
+      "competitor_density": {
+        "competitors_1km": 1,
+        "competitors_5km": 3,
+        "competitors_10km": 8,
+        "local_competition_index": 25.5,
+        "density_level": "Low"
+      },
+      "underserved_opportunity": {
+        "is_underserved": true,
+        "summary": "Local population demand index significantly exceeds existing mapped saturation."
+      },
+      "positive_factors": [
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Strong promoter equity margin (\u20b9100,000) covers setup contribution",
+        "Low competitor saturation (3 units within 5km) leaves market share open",
+        "All-weather road connectivity enables reliable supply logistics"
+      ],
+      "negative_factors": [
+        "First-time business operator; vocational / KVK training recommended"
+      ],
+      "top_factors": [
+        "Local Village Demand Density",
+        "Catchment Population Reach (~8,420)",
+        "Promoter Margin Equity Ratio",
+        "Nearby Population",
+        "All-Weather Transport Connectivity"
+      ]
+    },
+    "model2_forecast": {
+      "business_category": "Retail / Kirana",
+      "commodity_or_service": "Grocery Essentials",
+      "unit": "INR/Order",
+      "current_price": 467.14,
+      "price_next_1m": 461.24,
+      "price_next_3m": 459.74,
+      "price_next_6m": 464.75,
+      "demand_next_1m": 129.71,
+      "demand_next_3m": 123.73,
+      "price_trend": "Downward",
+      "price_volatility": 6.82,
+      "price_volatility_3m": 6.82,
+      "uncertainty_interval": {
+        "price_next_1m": {
+          "lower_bound": 254.6,
+          "upper_bound": 667.88
+        },
+        "price_next_3m": {
+          "lower_bound": 195.85,
+          "upper_bound": 723.63
+        },
+        "price_next_6m": {
+          "lower_bound": 145.93,
+          "upper_bound": 783.57
+        }
+      },
+      "pricing_recommendation": "Promotional Discounting",
+      "expected_monthly_revenue": 59827.44
+    },
+    "model3_risk": {
+      "business_category": "Retail / Kirana",
+      "risk_label": 0,
+      "risk_score": 31.8,
+      "risk_level": "Low",
+      "risk_probability": 0.32,
+      "top_factors": [
+        "Regional Demand Trend & Seasonality",
+        "Monthly Cash Turnover Potential",
+        "Mandi Spot Price Stability",
+        "Supply Chain Reliability",
+        "5 KM GIS Competitor Density"
+      ],
+      "dimensional_risks": {
+        "market_risk": {
+          "dimension": "Market-Price Risk",
+          "score": 81,
+          "level": "High",
+          "probability": 0.81,
+          "description": "Spot-price volatility (68.2%) and mandi procurement rate swings.",
+          "mitigation": "Establish institutional supply contracts or forward-procurement pricing agreements."
+        },
+        "demand_seasonal_risk": {
+          "dimension": "Demand & Seasonal Risk",
+          "score": 43,
+          "level": "Moderate",
+          "probability": 0.43,
+          "description": "Seasonal demand cyclicality and local competition from 3 units.",
+          "mitigation": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+        },
+        "supply_chain_risk": {
+          "dimension": "Supply-Chain Risk",
+          "score": 25,
+          "level": "Low",
+          "probability": 0.25,
+          "description": "Feed, raw-material input availability, and all-weather transport connectivity.",
+          "mitigation": "Form raw-material purchasing collective with neighboring village producers."
+        },
+        "infrastructure_risk": {
+          "dimension": "Infrastructure Risk",
+          "score": 20,
+          "level": "Low",
+          "probability": 0.2,
+          "description": "Reliability of grid power, water availability, and cold storage preservation.",
+          "mitigation": "Install solar-powered backup lighting/aeration and rainwater storage."
+        },
+        "financial_risk": {
+          "dimension": "Financial & Debt Service Risk",
+          "score": 58,
+          "level": "Moderate",
+          "probability": 0.58,
+          "description": "Liquidity buffer and cash surplus sufficiency (Profit margin: 3.1%).",
+          "mitigation": "Utilize official loan moratorium period to build 45-day operating cash buffer."
+        },
+        "operational_risk": {
+          "dimension": "Operational Complexity Risk",
+          "score": 65,
+          "level": "High",
+          "probability": 0.65,
+          "description": "Execution capability, technical equipment maintenance, and domain experience.",
+          "mitigation": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+        }
+      },
+      "major_threats": [
+        "Market-Price Volatility & spot rate fluctuation",
+        "Execution setbacks due to technical domain learning curve",
+        "Initial cash flow strain or debt servicing pressure"
+      ]
+    },
+    "model4_advisory": {
+      "business_category": "Retail / Kirana",
+      "state": "Jharkhand",
+      "estimated_project_cost": 97812,
+      "own_capital": 100000.0,
+      "loan_amount_needed": 0.0,
+      "expected_monthly_revenue": 59827.44,
+      "expected_operating_cost": 58000.0,
+      "loan_required": false,
+      "message": "Own capital covers the entire estimated project setup cost. No institutional credit required.",
+      "potential_monthly_profit": 1827.44
+    },
+    "sources_and_confidence": {
+      "population_data": "Estimated from Census & Panchayat Registry",
+      "scheme_rules": "MoSJE Policy Guideline 2024 [Verified]",
+      "competitor_data": "6 local commercial points identified [Verified]",
+      "pricing_data": "District Mandi & Haat Benchmarks [Verified / Estimated]"
+    },
+    "download_report_url": "/api/v1/reports/asm-39e38c6c/pdf"
+  },
+  "asm-da220d68": {
+    "id": "asm-da220d68",
+    "title": "Tailoring & Garment Services in Saifpur Firojpur",
+    "created_at": "2026-09-13T16:00:51.814388+00:00",
+    "status": "COMPLETED",
+    "user_inputs": {
+      "title": null,
+      "location": {
+        "state": "Uttar Pradesh",
+        "district": "Meerut",
+        "block": "Hastinapur",
+        "village": "Saifpur Firojpur",
+        "latitude": 29.165,
+        "longitude": 78.012
+      },
+      "margin_capital": "100000",
+      "own_capital": null,
+      "entrepreneur_name": "Rural Entrepreneur",
+      "prior_experience": true,
+      "annual_household_income": "120000",
+      "social_category": "OBC",
+      "existing_investment": "0",
+      "existing_loans": "0",
+      "expected_monthly_income": null,
+      "business_category": "Tailoring & Garment Services",
+      "business_subcategory": "Garment Stitching Center",
+      "experience_years": 2,
+      "land_available": true,
+      "water_available": true,
+      "electricity_available": true,
+      "transport_available": true,
+      "storage_available": false,
+      "primary_customers": null,
+      "sales_channels": null
+    },
+    "financial_summary": {
+      "margin_capital": "100000.00",
+      "project_cost": "1000000.00",
+      "calculated_financing": "900000.00",
+      "financing_percentage": "90.0",
+      "margin_percentage": "10.0",
+      "formatted_project_cost": "\u20b910,00,000.00",
+      "formatted_calculated_financing": "\u20b99,00,000.00",
+      "formatted_margin_capital": "\u20b91,00,000.00"
+    },
+    "scheme_recommendation": {
+      "eligible": true,
+      "scheme_code": "MOSJE_TERM_LOAN",
+      "scheme_name": "MoSJE / NBCFDC Term Loan Scheme",
+      "scheme_version_id": null,
+      "project_cost": "1000000.00",
+      "calculated_financing": "900000.00",
+      "actual_eligible_financing": "900000.00",
+      "interest_rate": "8.00",
+      "tenure_months": 84,
+      "moratorium_months": 6,
+      "moratorium_interest_policy": "accrued",
+      "source_document": "MoSJE Term Loan Assistance Policy Vol-II 2024",
+      "effective_from": "2024-04-01",
+      "last_verified_at": "2024-10-15",
+      "notes": [
+        "Project qualifies for full 90% financing under MoSJE / NBCFDC Term Loan Scheme."
+      ]
+    },
+    "feasibility_score": {
+      "market_demand_score": 75.0,
+      "competition_score": 92.0,
+      "capital_adequacy_score": 92.0,
+      "profit_potential_score": 82.0,
+      "risk_score": 75.0,
+      "infrastructure_score": 80.0,
+      "overall_score": 68.8,
+      "category_label": "Good",
+      "viability_probability": 0.69,
+      "viability_class": "Viable",
+      "model_architecture": "Model 1 Random Forest Classifier + SHAP Attribution Pipeline",
+      "shap_feature_attributions": [
+        {
+          "feature_name": "Village Population (8,420 residents)",
+          "feature_group": "Demographics",
+          "attribution_value": 0.18,
+          "impact_description": "Substantial local consumer base supporting daily rural sales volume."
+        },
+        {
+          "feature_name": "Competitor Density (3 within 5km)",
+          "feature_group": "Competition",
+          "attribution_value": 0.22,
+          "impact_description": "Room for new entrant without aggressive price-undercutting."
+        },
+        {
+          "feature_name": "Margin Capital Buffer (\u20b9100,000)",
+          "feature_group": "Finance",
+          "attribution_value": 0.25,
+          "impact_description": "Adequate promoter equity to absorb initial setup and ramp-up."
+        },
+        {
+          "feature_name": "Market Access Distance (4.5 km)",
+          "feature_group": "Market access",
+          "attribution_value": 0.12,
+          "impact_description": "Convenient access to regional market for procurement."
+        },
+        {
+          "feature_name": "Key ML Factors (Local Village Demand Density, Catchment Population Reach (~8,420), Promoter Margin Equity Ratio)",
+          "feature_group": "ML Feature Importances",
+          "attribution_value": 0.15,
+          "impact_description": "Top driving features verified by Model 1 Random Forest."
+        }
+      ],
+      "disclaimer": "Model 1 Viability Estimate: Generated via feature pipeline combining Census demographics, AGMARKNET prices, and OSM spatial saturation. Explainability verified via SHAP attributions."
+    },
+    "swot": {
+      "strengths": [
+        "Strong overall feasibility (68.8/100) and viable local opportunity.",
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Strong promoter equity margin (\u20b9100,000) covers setup contribution"
+      ],
+      "weaknesses": [
+        "Working capital discipline required to sustain initial ramp-up months."
+      ],
+      "opportunities": [
+        "Model 2 Forecast: Downward pricing trend (Promotional Discounting) supports healthy revenue potential.",
+        "Expanded catchment area reaching 8.4 km across neighboring village haats.",
+        "MoSJE / NBCFDC concessional refinance rates (6.5% - 8.0% p.a.) with upfront moratorium."
+      ],
+      "threats": [
+        "Market-Price Volatility & spot rate fluctuation",
+        "Local market competition (3 units within 5km) & lean season",
+        "High price volatility (429.0%) in Stitching Job market."
+      ]
+    },
+    "risks": [
+      {
+        "dimension": "Market-price",
+        "category": "Market-Price Volatility Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Moderate",
+        "description": "Probability of adverse spot-price fluctuation and mandi procurement rate volatility.",
+        "potential_features": [
+          "Historical price volatility (NSSO/Agmarknet)",
+          "Perishability index",
+          "Storage shelf-life"
+        ],
+        "mitigation_strategy": "Establish fixed-price milk cooperative procurement or value-added processing (Paneer/Curd)."
+      },
+      {
+        "dimension": "Demand",
+        "category": "Local Market Demand & Saturation Risk",
+        "risk_score": 30,
+        "probability": 0.3,
+        "severity_level": "Low",
+        "description": "Likelihood of market saturation or insufficient local consumer purchasing capacity.",
+        "potential_features": [
+          "Competitor density within 5km",
+          "Block population density",
+          "Household income index"
+        ],
+        "mitigation_strategy": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+      },
+      {
+        "dimension": "Supply-chain",
+        "category": "Input & Logistics Supply Chain Risk",
+        "risk_score": 28,
+        "probability": 0.28,
+        "severity_level": "Low",
+        "description": "Risk of input supply disruptions, livestock feed inflation, or transport bottlenecks.",
+        "potential_features": [
+          "Paved road connectivity",
+          "Distance to raw material mandi",
+          "Feed supplier concentration"
+        ],
+        "mitigation_strategy": "Form raw-material purchasing collective with neighboring producers to hedge logistics costs."
+      },
+      {
+        "dimension": "Infrastructure",
+        "category": "Utilities & Processing Infrastructure Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Low",
+        "description": "Probability of yield disruption caused by power outages or water shortage.",
+        "potential_features": [
+          "Daily power availability hours",
+          "Borewell groundwater depth",
+          "Cold-chain infrastructure presence"
+        ],
+        "mitigation_strategy": "Install solar-powered backup lighting/aeration and rainwater harvesting recharge pits."
+      },
+      {
+        "dimension": "Financial",
+        "category": "Liquidity & Debt Service Risk",
+        "risk_score": 24,
+        "probability": 0.24,
+        "severity_level": "Low",
+        "description": "Probability of debt delinquency or cash flow shortfall during initial 3-6 months ramp-up.",
+        "potential_features": [
+          "Capital margin adequacy ratio",
+          "Estimated DSCR ratio",
+          "Working capital reserve buffer"
+        ],
+        "mitigation_strategy": "Utilize 6-month MoSJE loan moratorium to reinvest operating revenues into reserves."
+      },
+      {
+        "dimension": "Operational",
+        "category": "Execution & Operational Complexity Risk",
+        "risk_score": 40,
+        "probability": 0.4,
+        "severity_level": "Moderate",
+        "description": "Probability of operational setbacks due to lack of domain technical training or animal disease.",
+        "potential_features": [
+          "Years of domain experience",
+          "Enterprise operational complexity",
+          "Access to veterinary care"
+        ],
+        "mitigation_strategy": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+      }
+    ],
+    "competitors_5km": [
+      {
+        "id": "gis_loc_1_2916_7801",
+        "name": "Saifpur Firojpur Commercial Enterprise Unit",
+        "category": "Tailoring & Garment Services",
+        "distance_km": 1.5,
+        "address": "Main Market, Saifpur Firojpur",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 29.1772,
+        "longitude": 78.0187,
+        "direction": "East"
+      },
+      {
+        "id": "gis_loc_2_2916_7801",
+        "name": "Meerut Business Services Center",
+        "category": "Tailoring & Garment Services",
+        "distance_km": 2.9,
+        "address": "Near Panchayat, Saifpur Firojpur",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 29.1669,
+        "longitude": 78.0418,
+        "direction": "South-East"
+      },
+      {
+        "id": "gis_loc_3_2916_7801",
+        "name": "Gramin Micro Enterprise Hub",
+        "category": "Tailoring & Garment Services",
+        "distance_km": 4.2,
+        "address": "Block Road, Meerut",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 29.1337,
+        "longitude": 78.0364,
+        "direction": "South"
+      }
+    ],
+    "competitors_10km": [
+      {
+        "id": "gis_loc_1_2916_7801",
+        "name": "Saifpur Firojpur Commercial Enterprise Unit",
+        "category": "Tailoring & Garment Services",
+        "distance_km": 1.5,
+        "address": "Main Market, Saifpur Firojpur",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 29.1772,
+        "longitude": 78.0187,
+        "direction": "East"
+      },
+      {
+        "id": "gis_loc_2_2916_7801",
+        "name": "Meerut Business Services Center",
+        "category": "Tailoring & Garment Services",
+        "distance_km": 2.9,
+        "address": "Near Panchayat, Saifpur Firojpur",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 29.1669,
+        "longitude": 78.0418,
+        "direction": "South-East"
+      },
+      {
+        "id": "gis_loc_3_2916_7801",
+        "name": "Gramin Micro Enterprise Hub",
+        "category": "Tailoring & Garment Services",
+        "distance_km": 4.2,
+        "address": "Block Road, Meerut",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 29.1337,
+        "longitude": 78.0364,
+        "direction": "South"
+      },
+      {
+        "id": "gis_loc_4_2916_7801",
+        "name": "Meerut Trade & Supply Depot",
+        "category": "Tailoring & Garment Services",
+        "distance_km": 6.6,
+        "address": "Highway Road, Meerut",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 29.1115,
+        "longitude": 77.9824,
+        "direction": "West"
+      },
+      {
+        "id": "gis_loc_5_2916_7801",
+        "name": "Regional Commercial Hub",
+        "category": "Tailoring & Garment Services",
+        "distance_km": 8.2,
+        "address": "Mandi Bypass, Meerut",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 29.1596,
+        "longitude": 77.9276,
+        "direction": "North-West"
+      },
+      {
+        "id": "gis_loc_6_2916_7801",
+        "name": "Meerut Industrial Trade Point",
+        "category": "Tailoring & Garment Services",
+        "distance_km": 9.4,
+        "address": "Main Station Link, Meerut",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 29.235,
+        "longitude": 77.9575,
+        "direction": "North"
+      }
+    ],
+    "pricing_data": [],
+    "ai_strategy": {
+      "executive_summary": "Strategic roadmap for establishing a resilient, profitable rural Tailoring & Garment Services micro-enterprise.",
+      "operational_milestones": [
+        "Month 1-2: Shed setup, machinery procurement, and power connection.",
+        "Month 3: Trial production, local vendor onboarding, and MoSJE loan disbursement.",
+        "Month 4+: Full commercial operations reaching break-even volume."
+      ],
+      "risk_mitigation": "Maintain a minimum 45-day operating cash buffer and secure livestock insurance coverage."
+    },
+    "model1_prediction": {
+      "business_category": "Tailoring & Garment Services",
+      "feasibility_label": 1,
+      "feasibility_score": 68.8,
+      "viability_probability": 0.69,
+      "success_probability": 0.69,
+      "opportunity_class": "Good",
+      "market_reach_km": 8.4,
+      "competitor_density": {
+        "competitors_1km": 1,
+        "competitors_5km": 3,
+        "competitors_10km": 8,
+        "local_competition_index": 25.5,
+        "density_level": "Low"
+      },
+      "underserved_opportunity": {
+        "is_underserved": true,
+        "summary": "Local population demand index significantly exceeds existing mapped saturation."
+      },
+      "positive_factors": [
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Strong promoter equity margin (\u20b9100,000) covers setup contribution",
+        "Low competitor saturation (3 units within 5km) leaves market share open",
+        "All-weather road connectivity enables reliable supply logistics",
+        "Prior domain experience reduces execution and operational ramp-up risk"
+      ],
+      "negative_factors": [],
+      "top_factors": [
+        "Local Village Demand Density",
+        "Catchment Population Reach (~8,420)",
+        "Promoter Margin Equity Ratio",
+        "Nearby Population",
+        "All-Weather Transport Connectivity"
+      ]
+    },
+    "model2_forecast": {
+      "business_category": "Tailoring & Garment Services",
+      "commodity_or_service": "Stitching Job",
+      "unit": "INR/Job",
+      "current_price": 298.8,
+      "price_next_1m": 299.69,
+      "price_next_3m": 285.17,
+      "price_next_6m": 285.81,
+      "demand_next_1m": 187.52,
+      "demand_next_3m": 180.05,
+      "price_trend": "Downward",
+      "price_volatility": 4.29,
+      "price_volatility_3m": 4.29,
+      "uncertainty_interval": {
+        "price_next_1m": {
+          "lower_bound": 165.43,
+          "upper_bound": 433.95
+        },
+        "price_next_3m": {
+          "lower_bound": 121.48,
+          "upper_bound": 448.86
+        },
+        "price_next_6m": {
+          "lower_bound": 89.74,
+          "upper_bound": 481.88
+        }
+      },
+      "pricing_recommendation": "Promotional Discounting",
+      "expected_monthly_revenue": 56197.87
+    },
+    "model3_risk": {
+      "business_category": "Tailoring & Garment Services",
+      "risk_label": 0,
+      "risk_score": 32.4,
+      "risk_level": "Low",
+      "risk_probability": 0.32,
+      "top_factors": [
+        "Regional Demand Trend & Seasonality",
+        "Monthly Cash Turnover Potential",
+        "Mandi Spot Price Stability",
+        "Supply Chain Reliability",
+        "5 KM GIS Competitor Density"
+      ],
+      "dimensional_risks": {
+        "market_risk": {
+          "dimension": "Market-Price Risk",
+          "score": 51,
+          "level": "Moderate",
+          "probability": 0.51,
+          "description": "Spot-price volatility (42.9%) and mandi procurement rate swings.",
+          "mitigation": "Establish institutional supply contracts or forward-procurement pricing agreements."
+        },
+        "demand_seasonal_risk": {
+          "dimension": "Demand & Seasonal Risk",
+          "score": 43,
+          "level": "Moderate",
+          "probability": 0.43,
+          "description": "Seasonal demand cyclicality and local competition from 3 units.",
+          "mitigation": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+        },
+        "supply_chain_risk": {
+          "dimension": "Supply-Chain Risk",
+          "score": 25,
+          "level": "Low",
+          "probability": 0.25,
+          "description": "Feed, raw-material input availability, and all-weather transport connectivity.",
+          "mitigation": "Form raw-material purchasing collective with neighboring village producers."
+        },
+        "infrastructure_risk": {
+          "dimension": "Infrastructure Risk",
+          "score": 20,
+          "level": "Low",
+          "probability": 0.2,
+          "description": "Reliability of grid power, water availability, and cold storage preservation.",
+          "mitigation": "Install solar-powered backup lighting/aeration and rainwater storage."
+        },
+        "financial_risk": {
+          "dimension": "Financial & Debt Service Risk",
+          "score": 15,
+          "level": "Low",
+          "probability": 0.15,
+          "description": "Liquidity buffer and cash surplus sufficiency (Profit margin: 80.8%).",
+          "mitigation": "Utilize official loan moratorium period to build 45-day operating cash buffer."
+        },
+        "operational_risk": {
+          "dimension": "Operational Complexity Risk",
+          "score": 22,
+          "level": "Low",
+          "probability": 0.22,
+          "description": "Execution capability, technical equipment maintenance, and domain experience.",
+          "mitigation": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+        }
+      },
+      "major_threats": [
+        "Market-Price Volatility & spot rate fluctuation",
+        "Local market competition (3 units within 5km) & lean season"
+      ]
+    },
+    "model4_advisory": {
+      "business_category": "Tailoring & Garment Services",
+      "state": "Uttar Pradesh",
+      "estimated_project_cost": 66250,
+      "own_capital": 100000.0,
+      "loan_amount_needed": 0.0,
+      "expected_monthly_revenue": 56197.87,
+      "expected_operating_cost": 10800.0,
+      "loan_required": false,
+      "message": "Own capital covers the entire estimated project setup cost. No institutional credit required.",
+      "potential_monthly_profit": 45397.87
+    },
+    "sources_and_confidence": {
+      "population_data": "Estimated from Census & Panchayat Registry",
+      "scheme_rules": "MoSJE Policy Guideline 2024 [Verified]",
+      "competitor_data": "6 local commercial points identified [Verified]",
+      "pricing_data": "District Mandi & Haat Benchmarks [Verified / Estimated]"
+    },
+    "download_report_url": "/api/v1/reports/asm-da220d68/pdf"
   }
 }
