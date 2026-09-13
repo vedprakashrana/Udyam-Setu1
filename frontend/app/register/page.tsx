@@ -10,7 +10,7 @@ import { API_BASE_URL } from '../../services/apiClient';
 function RegisterForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirectTarget = searchParams.get('redirect') || '/assessment/new';
+  const redirectTarget = '/dashboard';
   const { login } = useAuth();
   
   const [formData, setFormData] = useState({

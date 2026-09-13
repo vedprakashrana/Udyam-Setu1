@@ -3217,5 +3217,1291 @@
       "pricing_data": "District Mandi & Haat Benchmarks [Verified / Estimated]"
     },
     "download_report_url": "/api/v1/reports/asm-ee1a5cf7/pdf"
+  },
+  "asm-1e12d394": {
+    "id": "asm-1e12d394",
+    "title": "Fisheries / Aquaculture in Alampur",
+    "created_at": "2026-09-13T15:35:26.352639+00:00",
+    "status": "COMPLETED",
+    "user_inputs": {
+      "title": null,
+      "location": {
+        "state": "Bihar",
+        "district": "Patna",
+        "block": "Phulwari",
+        "village": "Alampur",
+        "latitude": 25.561,
+        "longitude": 85.081
+      },
+      "margin_capital": "100000",
+      "own_capital": null,
+      "entrepreneur_name": "Rural Entrepreneur",
+      "prior_experience": false,
+      "annual_household_income": "120000",
+      "social_category": "OBC",
+      "existing_investment": "0",
+      "existing_loans": "0",
+      "expected_monthly_income": null,
+      "business_category": "Fisheries / Aquaculture",
+      "business_subcategory": "Freshwater Fish Pond",
+      "experience_years": 0,
+      "land_available": true,
+      "water_available": true,
+      "electricity_available": true,
+      "transport_available": true,
+      "storage_available": false,
+      "primary_customers": null,
+      "sales_channels": null
+    },
+    "financial_summary": {
+      "margin_capital": "100000.00",
+      "project_cost": "1000000.00",
+      "calculated_financing": "900000.00",
+      "financing_percentage": "90.0",
+      "margin_percentage": "10.0",
+      "formatted_project_cost": "\u20b910,00,000.00",
+      "formatted_calculated_financing": "\u20b99,00,000.00",
+      "formatted_margin_capital": "\u20b91,00,000.00"
+    },
+    "scheme_recommendation": {
+      "eligible": true,
+      "scheme_code": "MOSJE_TERM_LOAN",
+      "scheme_name": "MoSJE / NBCFDC Term Loan Scheme",
+      "scheme_version_id": null,
+      "project_cost": "1000000.00",
+      "calculated_financing": "900000.00",
+      "actual_eligible_financing": "900000.00",
+      "interest_rate": "8.00",
+      "tenure_months": 84,
+      "moratorium_months": 6,
+      "moratorium_interest_policy": "accrued",
+      "source_document": "MoSJE Term Loan Assistance Policy Vol-II 2024",
+      "effective_from": "2024-04-01",
+      "last_verified_at": "2024-10-15",
+      "notes": [
+        "Project qualifies for full 90% financing under MoSJE / NBCFDC Term Loan Scheme."
+      ]
+    },
+    "feasibility_score": {
+      "market_demand_score": 75.0,
+      "competition_score": 92.0,
+      "capital_adequacy_score": 92.0,
+      "profit_potential_score": 82.0,
+      "risk_score": 65.0,
+      "infrastructure_score": 80.0,
+      "overall_score": 68.2,
+      "category_label": "Good",
+      "viability_probability": 0.68,
+      "viability_class": "Viable",
+      "model_architecture": "Model 1 Random Forest Classifier + SHAP Attribution Pipeline",
+      "shap_feature_attributions": [
+        {
+          "feature_name": "Village Population (8,420 residents)",
+          "feature_group": "Demographics",
+          "attribution_value": 0.18,
+          "impact_description": "Substantial local consumer base supporting daily rural sales volume."
+        },
+        {
+          "feature_name": "Competitor Density (3 within 5km)",
+          "feature_group": "Competition",
+          "attribution_value": 0.22,
+          "impact_description": "Room for new entrant without aggressive price-undercutting."
+        },
+        {
+          "feature_name": "Margin Capital Buffer (\u20b9100,000)",
+          "feature_group": "Finance",
+          "attribution_value": 0.25,
+          "impact_description": "Adequate promoter equity to absorb initial setup and ramp-up."
+        },
+        {
+          "feature_name": "Market Access Distance (4.5 km)",
+          "feature_group": "Market access",
+          "attribution_value": 0.12,
+          "impact_description": "Convenient access to regional market for procurement."
+        },
+        {
+          "feature_name": "Key ML Factors (Local Village Demand Density, Catchment Population Reach (~8,420), Promoter Margin Equity Ratio)",
+          "feature_group": "ML Feature Importances",
+          "attribution_value": 0.15,
+          "impact_description": "Top driving features verified by Model 1 Random Forest."
+        }
+      ],
+      "disclaimer": "Model 1 Viability Estimate: Generated via feature pipeline combining Census demographics, AGMARKNET prices, and OSM spatial saturation. Explainability verified via SHAP attributions."
+    },
+    "swot": {
+      "strengths": [
+        "Strong overall feasibility (68.2/100) and viable local opportunity.",
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Strong promoter equity margin (\u20b9100,000) covers setup contribution"
+      ],
+      "weaknesses": [
+        "First-time business operator; vocational / KVK training recommended"
+      ],
+      "opportunities": [
+        "Model 2 Forecast: Downward pricing trend (Promotional Discounting) supports healthy revenue potential.",
+        "Expanded catchment area reaching 8.4 km across neighboring village haats.",
+        "MoSJE / NBCFDC concessional refinance rates (6.5% - 8.0% p.a.) with upfront moratorium."
+      ],
+      "threats": [
+        "Execution setbacks due to technical domain learning curve",
+        "Local market competition (3 units within 5km) & lean season",
+        "High price volatility (238.0%) in Freshwater Rohu Fish market."
+      ]
+    },
+    "risks": [
+      {
+        "dimension": "Market-price",
+        "category": "Market-Price Volatility Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Moderate",
+        "description": "Probability of adverse spot-price fluctuation and mandi procurement rate volatility.",
+        "potential_features": [
+          "Historical price volatility (NSSO/Agmarknet)",
+          "Perishability index",
+          "Storage shelf-life"
+        ],
+        "mitigation_strategy": "Establish fixed-price milk cooperative procurement or value-added processing (Paneer/Curd)."
+      },
+      {
+        "dimension": "Demand",
+        "category": "Local Market Demand & Saturation Risk",
+        "risk_score": 30,
+        "probability": 0.3,
+        "severity_level": "Low",
+        "description": "Likelihood of market saturation or insufficient local consumer purchasing capacity.",
+        "potential_features": [
+          "Competitor density within 5km",
+          "Block population density",
+          "Household income index"
+        ],
+        "mitigation_strategy": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+      },
+      {
+        "dimension": "Supply-chain",
+        "category": "Input & Logistics Supply Chain Risk",
+        "risk_score": 28,
+        "probability": 0.28,
+        "severity_level": "Low",
+        "description": "Risk of input supply disruptions, livestock feed inflation, or transport bottlenecks.",
+        "potential_features": [
+          "Paved road connectivity",
+          "Distance to raw material mandi",
+          "Feed supplier concentration"
+        ],
+        "mitigation_strategy": "Form raw-material purchasing collective with neighboring producers to hedge logistics costs."
+      },
+      {
+        "dimension": "Infrastructure",
+        "category": "Utilities & Processing Infrastructure Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Low",
+        "description": "Probability of yield disruption caused by power outages or water shortage.",
+        "potential_features": [
+          "Daily power availability hours",
+          "Borewell groundwater depth",
+          "Cold-chain infrastructure presence"
+        ],
+        "mitigation_strategy": "Install solar-powered backup lighting/aeration and rainwater harvesting recharge pits."
+      },
+      {
+        "dimension": "Financial",
+        "category": "Liquidity & Debt Service Risk",
+        "risk_score": 24,
+        "probability": 0.24,
+        "severity_level": "Low",
+        "description": "Probability of debt delinquency or cash flow shortfall during initial 3-6 months ramp-up.",
+        "potential_features": [
+          "Capital margin adequacy ratio",
+          "Estimated DSCR ratio",
+          "Working capital reserve buffer"
+        ],
+        "mitigation_strategy": "Utilize 6-month MoSJE loan moratorium to reinvest operating revenues into reserves."
+      },
+      {
+        "dimension": "Operational",
+        "category": "Execution & Operational Complexity Risk",
+        "risk_score": 68,
+        "probability": 0.68,
+        "severity_level": "Moderate",
+        "description": "Probability of operational setbacks due to lack of domain technical training or animal disease.",
+        "potential_features": [
+          "Years of domain experience",
+          "Enterprise operational complexity",
+          "Access to veterinary care"
+        ],
+        "mitigation_strategy": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+      }
+    ],
+    "competitors_5km": [
+      {
+        "id": "gis_loc_1_2556_8508",
+        "name": "Alampur Commercial Enterprise Unit",
+        "category": "Fisheries / Aquaculture",
+        "distance_km": 1.5,
+        "address": "Main Market, Alampur",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 25.5732,
+        "longitude": 85.0875,
+        "direction": "East"
+      },
+      {
+        "id": "gis_loc_2_2556_8508",
+        "name": "Patna Business Services Center",
+        "category": "Fisheries / Aquaculture",
+        "distance_km": 2.9,
+        "address": "Near Panchayat, Alampur",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 25.5629,
+        "longitude": 85.1099,
+        "direction": "South-East"
+      },
+      {
+        "id": "gis_loc_3_2556_8508",
+        "name": "Gramin Micro Enterprise Hub",
+        "category": "Fisheries / Aquaculture",
+        "distance_km": 4.2,
+        "address": "Block Road, Patna",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 25.5297,
+        "longitude": 85.1046,
+        "direction": "South"
+      }
+    ],
+    "competitors_10km": [
+      {
+        "id": "gis_loc_1_2556_8508",
+        "name": "Alampur Commercial Enterprise Unit",
+        "category": "Fisheries / Aquaculture",
+        "distance_km": 1.5,
+        "address": "Main Market, Alampur",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 25.5732,
+        "longitude": 85.0875,
+        "direction": "East"
+      },
+      {
+        "id": "gis_loc_2_2556_8508",
+        "name": "Patna Business Services Center",
+        "category": "Fisheries / Aquaculture",
+        "distance_km": 2.9,
+        "address": "Near Panchayat, Alampur",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 25.5629,
+        "longitude": 85.1099,
+        "direction": "South-East"
+      },
+      {
+        "id": "gis_loc_3_2556_8508",
+        "name": "Gramin Micro Enterprise Hub",
+        "category": "Fisheries / Aquaculture",
+        "distance_km": 4.2,
+        "address": "Block Road, Patna",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 25.5297,
+        "longitude": 85.1046,
+        "direction": "South"
+      },
+      {
+        "id": "gis_loc_4_2556_8508",
+        "name": "Patna Trade & Supply Depot",
+        "category": "Fisheries / Aquaculture",
+        "distance_km": 6.6,
+        "address": "Highway Road, Patna",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 25.5075,
+        "longitude": 85.0523,
+        "direction": "West"
+      },
+      {
+        "id": "gis_loc_5_2556_8508",
+        "name": "Regional Commercial Hub",
+        "category": "Fisheries / Aquaculture",
+        "distance_km": 8.2,
+        "address": "Mandi Bypass, Patna",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 25.5556,
+        "longitude": 84.9993,
+        "direction": "North-West"
+      },
+      {
+        "id": "gis_loc_6_2556_8508",
+        "name": "Patna Industrial Trade Point",
+        "category": "Fisheries / Aquaculture",
+        "distance_km": 9.4,
+        "address": "Main Station Link, Patna",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 25.631,
+        "longitude": 85.0282,
+        "direction": "North"
+      }
+    ],
+    "pricing_data": [],
+    "ai_strategy": {
+      "executive_summary": "Strategic roadmap for establishing a resilient, profitable rural Fisheries / Aquaculture micro-enterprise.",
+      "operational_milestones": [
+        "Month 1-2: Shed setup, machinery procurement, and power connection.",
+        "Month 3: Trial production, local vendor onboarding, and MoSJE loan disbursement.",
+        "Month 4+: Full commercial operations reaching break-even volume."
+      ],
+      "risk_mitigation": "Maintain a minimum 45-day operating cash buffer and secure livestock insurance coverage."
+    },
+    "model1_prediction": {
+      "business_category": "Fisheries / Aquaculture",
+      "feasibility_label": 1,
+      "feasibility_score": 68.2,
+      "viability_probability": 0.68,
+      "success_probability": 0.68,
+      "opportunity_class": "Good",
+      "market_reach_km": 8.4,
+      "competitor_density": {
+        "competitors_1km": 1,
+        "competitors_5km": 3,
+        "competitors_10km": 8,
+        "local_competition_index": 25.5,
+        "density_level": "Low"
+      },
+      "underserved_opportunity": {
+        "is_underserved": true,
+        "summary": "Local population demand index significantly exceeds existing mapped saturation."
+      },
+      "positive_factors": [
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Strong promoter equity margin (\u20b9100,000) covers setup contribution",
+        "Low competitor saturation (3 units within 5km) leaves market share open",
+        "All-weather road connectivity enables reliable supply logistics"
+      ],
+      "negative_factors": [
+        "First-time business operator; vocational / KVK training recommended"
+      ],
+      "top_factors": [
+        "Local Village Demand Density",
+        "Catchment Population Reach (~8,420)",
+        "Promoter Margin Equity Ratio",
+        "Nearby Population",
+        "All-Weather Transport Connectivity"
+      ]
+    },
+    "model2_forecast": {
+      "business_category": "Fisheries / Aquaculture",
+      "commodity_or_service": "Freshwater Rohu Fish",
+      "unit": "INR/Kg",
+      "current_price": 177.74,
+      "price_next_1m": 177.68,
+      "price_next_3m": 169.23,
+      "price_next_6m": 168.77,
+      "demand_next_1m": 61.27,
+      "demand_next_3m": 58.13,
+      "price_trend": "Downward",
+      "price_volatility": 2.38,
+      "price_volatility_3m": 2.38,
+      "uncertainty_interval": {
+        "price_next_1m": {
+          "lower_bound": 123.55,
+          "upper_bound": 231.81
+        },
+        "price_next_3m": {
+          "lower_bound": 103.18,
+          "upper_bound": 235.28
+        },
+        "price_next_6m": {
+          "lower_bound": 90.04,
+          "upper_bound": 247.5
+        }
+      },
+      "pricing_recommendation": "Promotional Discounting",
+      "expected_monthly_revenue": 33748.01
+    },
+    "model3_risk": {
+      "business_category": "Fisheries / Aquaculture",
+      "risk_label": 0,
+      "risk_score": 16.2,
+      "risk_level": "Low",
+      "risk_probability": 0.16,
+      "top_factors": [
+        "Regional Demand Trend & Seasonality",
+        "Monthly Cash Turnover Potential",
+        "Mandi Spot Price Stability",
+        "Supply Chain Reliability",
+        "5 KM GIS Competitor Density"
+      ],
+      "dimensional_risks": {
+        "market_risk": {
+          "dimension": "Market-Price Risk",
+          "score": 28,
+          "level": "Low",
+          "probability": 0.28,
+          "description": "Spot-price volatility (23.8%) and mandi procurement rate swings.",
+          "mitigation": "Establish institutional supply contracts or forward-procurement pricing agreements."
+        },
+        "demand_seasonal_risk": {
+          "dimension": "Demand & Seasonal Risk",
+          "score": 43,
+          "level": "Moderate",
+          "probability": 0.43,
+          "description": "Seasonal demand cyclicality and local competition from 3 units.",
+          "mitigation": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+        },
+        "supply_chain_risk": {
+          "dimension": "Supply-Chain Risk",
+          "score": 25,
+          "level": "Low",
+          "probability": 0.25,
+          "description": "Feed, raw-material input availability, and all-weather transport connectivity.",
+          "mitigation": "Form raw-material purchasing collective with neighboring village producers."
+        },
+        "infrastructure_risk": {
+          "dimension": "Infrastructure Risk",
+          "score": 20,
+          "level": "Low",
+          "probability": 0.2,
+          "description": "Reliability of grid power, water availability, and cold storage preservation.",
+          "mitigation": "Install solar-powered backup lighting/aeration and rainwater storage."
+        },
+        "financial_risk": {
+          "dimension": "Financial & Debt Service Risk",
+          "score": 24,
+          "level": "Low",
+          "probability": 0.24,
+          "description": "Liquidity buffer and cash surplus sufficiency (Profit margin: 60.0%).",
+          "mitigation": "Utilize official loan moratorium period to build 45-day operating cash buffer."
+        },
+        "operational_risk": {
+          "dimension": "Operational Complexity Risk",
+          "score": 65,
+          "level": "High",
+          "probability": 0.65,
+          "description": "Execution capability, technical equipment maintenance, and domain experience.",
+          "mitigation": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+        }
+      },
+      "major_threats": [
+        "Execution setbacks due to technical domain learning curve",
+        "Local market competition (3 units within 5km) & lean season"
+      ]
+    },
+    "model4_advisory": {
+      "business_category": "Fisheries / Aquaculture",
+      "state": "Bihar",
+      "estimated_project_cost": 141562,
+      "own_capital": 100000.0,
+      "loan_amount_needed": 41562.0,
+      "expected_monthly_revenue": 33748.01,
+      "expected_operating_cost": 13500.0,
+      "loan_required": true,
+      "recommended_scheme": {
+        "name": "MoSJE / NBCFDC Term Loan Scheme",
+        "interest_rate": 8.0,
+        "interest_rate_type": "Fixed Concessional",
+        "tenure_months": 84,
+        "moratorium_months": 6,
+        "subsidy_type": "Interest Concession",
+        "subsidy_pct": null,
+        "eligibility_notes": "Up to \u20b915 Lakhs for backward classes / rural entrepreneurs under MoSJE guidelines.",
+        "required_documents": [
+          "Aadhaar",
+          "Detailed Project Report (DPR)",
+          "Land/Shop Lease or Ownership Proof",
+          "Bank Statements"
+        ],
+        "official_source": "https://nbcfdc.gov.in/schemes/term-loan"
+      },
+      "alternative_schemes": [
+        {
+          "name": "PMEGP Rural Enterprise Subsidy",
+          "interest_rate": 8.5,
+          "subsidy_pct": 35.0
+        },
+        {
+          "name": "PM Mudra Yojana (Kishore / Tarun)",
+          "interest_rate": 9.25,
+          "subsidy_pct": null
+        }
+      ],
+      "repayment_advice": {
+        "potential_monthly_profit": 20248.01,
+        "emi": 685.07,
+        "can_afford_emi": true,
+        "surplus_after_emi": 19562.94,
+        "estimated_payoff_months": 84,
+        "total_interest_paid": 13536.36,
+        "repayment_schedule": [
+          {
+            "month": 1,
+            "is_moratorium": true,
+            "opening_balance": 41562.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 277.08,
+            "closing_balance": 41562.0
+          },
+          {
+            "month": 2,
+            "is_moratorium": true,
+            "opening_balance": 41562.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 277.08,
+            "closing_balance": 41562.0
+          },
+          {
+            "month": 3,
+            "is_moratorium": true,
+            "opening_balance": 41562.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 277.08,
+            "closing_balance": 41562.0
+          },
+          {
+            "month": 4,
+            "is_moratorium": true,
+            "opening_balance": 41562.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 277.08,
+            "closing_balance": 41562.0
+          },
+          {
+            "month": 5,
+            "is_moratorium": true,
+            "opening_balance": 41562.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 277.08,
+            "closing_balance": 41562.0
+          },
+          {
+            "month": 6,
+            "is_moratorium": true,
+            "opening_balance": 41562.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 277.08,
+            "closing_balance": 41562.0
+          },
+          {
+            "month": 7,
+            "is_moratorium": false,
+            "opening_balance": 41562.0,
+            "emi": 685.07,
+            "principal": 407.99,
+            "interest": 277.08,
+            "closing_balance": 41154.01
+          },
+          {
+            "month": 8,
+            "is_moratorium": false,
+            "opening_balance": 41154.01,
+            "emi": 685.07,
+            "principal": 410.71,
+            "interest": 274.36,
+            "closing_balance": 40743.3
+          },
+          {
+            "month": 9,
+            "is_moratorium": false,
+            "opening_balance": 40743.3,
+            "emi": 685.07,
+            "principal": 413.45,
+            "interest": 271.62,
+            "closing_balance": 40329.85
+          },
+          {
+            "month": 10,
+            "is_moratorium": false,
+            "opening_balance": 40329.85,
+            "emi": 685.07,
+            "principal": 416.2,
+            "interest": 268.87,
+            "closing_balance": 39913.65
+          },
+          {
+            "month": 11,
+            "is_moratorium": false,
+            "opening_balance": 39913.65,
+            "emi": 685.07,
+            "principal": 418.98,
+            "interest": 266.09,
+            "closing_balance": 39494.67
+          },
+          {
+            "month": 12,
+            "is_moratorium": false,
+            "opening_balance": 39494.67,
+            "emi": 685.07,
+            "principal": 421.77,
+            "interest": 263.3,
+            "closing_balance": 39072.9
+          },
+          {
+            "month": 13,
+            "is_moratorium": false,
+            "opening_balance": 39072.9,
+            "emi": 685.07,
+            "principal": 424.58,
+            "interest": 260.49,
+            "closing_balance": 38648.32
+          },
+          {
+            "month": 14,
+            "is_moratorium": false,
+            "opening_balance": 38648.32,
+            "emi": 685.07,
+            "principal": 427.41,
+            "interest": 257.66,
+            "closing_balance": 38220.91
+          },
+          {
+            "month": 15,
+            "is_moratorium": false,
+            "opening_balance": 38220.91,
+            "emi": 685.07,
+            "principal": 430.26,
+            "interest": 254.81,
+            "closing_balance": 37790.65
+          },
+          {
+            "month": 16,
+            "is_moratorium": false,
+            "opening_balance": 37790.65,
+            "emi": 685.07,
+            "principal": 433.13,
+            "interest": 251.94,
+            "closing_balance": 37357.52
+          },
+          {
+            "month": 17,
+            "is_moratorium": false,
+            "opening_balance": 37357.52,
+            "emi": 685.07,
+            "principal": 436.02,
+            "interest": 249.05,
+            "closing_balance": 36921.5
+          },
+          {
+            "month": 18,
+            "is_moratorium": false,
+            "opening_balance": 36921.5,
+            "emi": 685.07,
+            "principal": 438.93,
+            "interest": 246.14,
+            "closing_balance": 36482.57
+          },
+          {
+            "month": 19,
+            "is_moratorium": false,
+            "opening_balance": 36482.57,
+            "emi": 685.07,
+            "principal": 441.85,
+            "interest": 243.22,
+            "closing_balance": 36040.72
+          },
+          {
+            "month": 20,
+            "is_moratorium": false,
+            "opening_balance": 36040.72,
+            "emi": 685.07,
+            "principal": 444.8,
+            "interest": 240.27,
+            "closing_balance": 35595.92
+          },
+          {
+            "month": 21,
+            "is_moratorium": false,
+            "opening_balance": 35595.92,
+            "emi": 685.07,
+            "principal": 447.76,
+            "interest": 237.31,
+            "closing_balance": 35148.16
+          },
+          {
+            "month": 22,
+            "is_moratorium": false,
+            "opening_balance": 35148.16,
+            "emi": 685.07,
+            "principal": 450.75,
+            "interest": 234.32,
+            "closing_balance": 34697.41
+          },
+          {
+            "month": 23,
+            "is_moratorium": false,
+            "opening_balance": 34697.41,
+            "emi": 685.07,
+            "principal": 453.75,
+            "interest": 231.32,
+            "closing_balance": 34243.66
+          },
+          {
+            "month": 24,
+            "is_moratorium": false,
+            "opening_balance": 34243.66,
+            "emi": 685.07,
+            "principal": 456.78,
+            "interest": 228.29,
+            "closing_balance": 33786.88
+          },
+          {
+            "month": 25,
+            "is_moratorium": false,
+            "opening_balance": 33786.88,
+            "emi": 685.07,
+            "principal": 459.82,
+            "interest": 225.25,
+            "closing_balance": 33327.06
+          },
+          {
+            "month": 26,
+            "is_moratorium": false,
+            "opening_balance": 33327.06,
+            "emi": 685.07,
+            "principal": 462.89,
+            "interest": 222.18,
+            "closing_balance": 32864.17
+          },
+          {
+            "month": 27,
+            "is_moratorium": false,
+            "opening_balance": 32864.17,
+            "emi": 685.07,
+            "principal": 465.98,
+            "interest": 219.09,
+            "closing_balance": 32398.19
+          },
+          {
+            "month": 28,
+            "is_moratorium": false,
+            "opening_balance": 32398.19,
+            "emi": 685.07,
+            "principal": 469.08,
+            "interest": 215.99,
+            "closing_balance": 31929.11
+          },
+          {
+            "month": 29,
+            "is_moratorium": false,
+            "opening_balance": 31929.11,
+            "emi": 685.07,
+            "principal": 472.21,
+            "interest": 212.86,
+            "closing_balance": 31456.9
+          },
+          {
+            "month": 30,
+            "is_moratorium": false,
+            "opening_balance": 31456.9,
+            "emi": 685.07,
+            "principal": 475.36,
+            "interest": 209.71,
+            "closing_balance": 30981.54
+          },
+          {
+            "month": 31,
+            "is_moratorium": false,
+            "opening_balance": 30981.54,
+            "emi": 685.07,
+            "principal": 478.53,
+            "interest": 206.54,
+            "closing_balance": 30503.01
+          },
+          {
+            "month": 32,
+            "is_moratorium": false,
+            "opening_balance": 30503.01,
+            "emi": 685.07,
+            "principal": 481.72,
+            "interest": 203.35,
+            "closing_balance": 30021.29
+          },
+          {
+            "month": 33,
+            "is_moratorium": false,
+            "opening_balance": 30021.29,
+            "emi": 685.07,
+            "principal": 484.93,
+            "interest": 200.14,
+            "closing_balance": 29536.36
+          },
+          {
+            "month": 34,
+            "is_moratorium": false,
+            "opening_balance": 29536.36,
+            "emi": 685.07,
+            "principal": 488.16,
+            "interest": 196.91,
+            "closing_balance": 29048.2
+          },
+          {
+            "month": 35,
+            "is_moratorium": false,
+            "opening_balance": 29048.2,
+            "emi": 685.07,
+            "principal": 491.42,
+            "interest": 193.65,
+            "closing_balance": 28556.78
+          },
+          {
+            "month": 36,
+            "is_moratorium": false,
+            "opening_balance": 28556.78,
+            "emi": 685.07,
+            "principal": 494.69,
+            "interest": 190.38,
+            "closing_balance": 28062.09
+          },
+          {
+            "month": 37,
+            "is_moratorium": false,
+            "opening_balance": 28062.09,
+            "emi": 685.07,
+            "principal": 497.99,
+            "interest": 187.08,
+            "closing_balance": 27564.1
+          },
+          {
+            "month": 38,
+            "is_moratorium": false,
+            "opening_balance": 27564.1,
+            "emi": 685.07,
+            "principal": 501.31,
+            "interest": 183.76,
+            "closing_balance": 27062.79
+          },
+          {
+            "month": 39,
+            "is_moratorium": false,
+            "opening_balance": 27062.79,
+            "emi": 685.07,
+            "principal": 504.65,
+            "interest": 180.42,
+            "closing_balance": 26558.14
+          },
+          {
+            "month": 40,
+            "is_moratorium": false,
+            "opening_balance": 26558.14,
+            "emi": 685.07,
+            "principal": 508.02,
+            "interest": 177.05,
+            "closing_balance": 26050.12
+          },
+          {
+            "month": 41,
+            "is_moratorium": false,
+            "opening_balance": 26050.12,
+            "emi": 685.07,
+            "principal": 511.4,
+            "interest": 173.67,
+            "closing_balance": 25538.72
+          },
+          {
+            "month": 42,
+            "is_moratorium": false,
+            "opening_balance": 25538.72,
+            "emi": 685.07,
+            "principal": 514.81,
+            "interest": 170.26,
+            "closing_balance": 25023.91
+          },
+          {
+            "month": 43,
+            "is_moratorium": false,
+            "opening_balance": 25023.91,
+            "emi": 685.07,
+            "principal": 518.24,
+            "interest": 166.83,
+            "closing_balance": 24505.67
+          },
+          {
+            "month": 44,
+            "is_moratorium": false,
+            "opening_balance": 24505.67,
+            "emi": 685.07,
+            "principal": 521.7,
+            "interest": 163.37,
+            "closing_balance": 23983.97
+          },
+          {
+            "month": 45,
+            "is_moratorium": false,
+            "opening_balance": 23983.97,
+            "emi": 685.07,
+            "principal": 525.18,
+            "interest": 159.89,
+            "closing_balance": 23458.79
+          },
+          {
+            "month": 46,
+            "is_moratorium": false,
+            "opening_balance": 23458.79,
+            "emi": 685.07,
+            "principal": 528.68,
+            "interest": 156.39,
+            "closing_balance": 22930.11
+          },
+          {
+            "month": 47,
+            "is_moratorium": false,
+            "opening_balance": 22930.11,
+            "emi": 685.07,
+            "principal": 532.2,
+            "interest": 152.87,
+            "closing_balance": 22397.91
+          },
+          {
+            "month": 48,
+            "is_moratorium": false,
+            "opening_balance": 22397.91,
+            "emi": 685.07,
+            "principal": 535.75,
+            "interest": 149.32,
+            "closing_balance": 21862.16
+          },
+          {
+            "month": 49,
+            "is_moratorium": false,
+            "opening_balance": 21862.16,
+            "emi": 685.07,
+            "principal": 539.32,
+            "interest": 145.75,
+            "closing_balance": 21322.84
+          },
+          {
+            "month": 50,
+            "is_moratorium": false,
+            "opening_balance": 21322.84,
+            "emi": 685.07,
+            "principal": 542.92,
+            "interest": 142.15,
+            "closing_balance": 20779.92
+          },
+          {
+            "month": 51,
+            "is_moratorium": false,
+            "opening_balance": 20779.92,
+            "emi": 685.07,
+            "principal": 546.54,
+            "interest": 138.53,
+            "closing_balance": 20233.38
+          },
+          {
+            "month": 52,
+            "is_moratorium": false,
+            "opening_balance": 20233.38,
+            "emi": 685.07,
+            "principal": 550.18,
+            "interest": 134.89,
+            "closing_balance": 19683.2
+          },
+          {
+            "month": 53,
+            "is_moratorium": false,
+            "opening_balance": 19683.2,
+            "emi": 685.07,
+            "principal": 553.85,
+            "interest": 131.22,
+            "closing_balance": 19129.35
+          },
+          {
+            "month": 54,
+            "is_moratorium": false,
+            "opening_balance": 19129.35,
+            "emi": 685.07,
+            "principal": 557.54,
+            "interest": 127.53,
+            "closing_balance": 18571.81
+          },
+          {
+            "month": 55,
+            "is_moratorium": false,
+            "opening_balance": 18571.81,
+            "emi": 685.07,
+            "principal": 561.26,
+            "interest": 123.81,
+            "closing_balance": 18010.55
+          },
+          {
+            "month": 56,
+            "is_moratorium": false,
+            "opening_balance": 18010.55,
+            "emi": 685.07,
+            "principal": 565.0,
+            "interest": 120.07,
+            "closing_balance": 17445.55
+          },
+          {
+            "month": 57,
+            "is_moratorium": false,
+            "opening_balance": 17445.55,
+            "emi": 685.07,
+            "principal": 568.77,
+            "interest": 116.3,
+            "closing_balance": 16876.78
+          },
+          {
+            "month": 58,
+            "is_moratorium": false,
+            "opening_balance": 16876.78,
+            "emi": 685.07,
+            "principal": 572.56,
+            "interest": 112.51,
+            "closing_balance": 16304.22
+          },
+          {
+            "month": 59,
+            "is_moratorium": false,
+            "opening_balance": 16304.22,
+            "emi": 685.07,
+            "principal": 576.38,
+            "interest": 108.69,
+            "closing_balance": 15727.84
+          },
+          {
+            "month": 60,
+            "is_moratorium": false,
+            "opening_balance": 15727.84,
+            "emi": 685.07,
+            "principal": 580.22,
+            "interest": 104.85,
+            "closing_balance": 15147.62
+          },
+          {
+            "month": 61,
+            "is_moratorium": false,
+            "opening_balance": 15147.62,
+            "emi": 685.07,
+            "principal": 584.09,
+            "interest": 100.98,
+            "closing_balance": 14563.53
+          },
+          {
+            "month": 62,
+            "is_moratorium": false,
+            "opening_balance": 14563.53,
+            "emi": 685.07,
+            "principal": 587.98,
+            "interest": 97.09,
+            "closing_balance": 13975.55
+          },
+          {
+            "month": 63,
+            "is_moratorium": false,
+            "opening_balance": 13975.55,
+            "emi": 685.07,
+            "principal": 591.9,
+            "interest": 93.17,
+            "closing_balance": 13383.65
+          },
+          {
+            "month": 64,
+            "is_moratorium": false,
+            "opening_balance": 13383.65,
+            "emi": 685.07,
+            "principal": 595.85,
+            "interest": 89.22,
+            "closing_balance": 12787.8
+          },
+          {
+            "month": 65,
+            "is_moratorium": false,
+            "opening_balance": 12787.8,
+            "emi": 685.07,
+            "principal": 599.82,
+            "interest": 85.25,
+            "closing_balance": 12187.98
+          },
+          {
+            "month": 66,
+            "is_moratorium": false,
+            "opening_balance": 12187.98,
+            "emi": 685.07,
+            "principal": 603.82,
+            "interest": 81.25,
+            "closing_balance": 11584.16
+          },
+          {
+            "month": 67,
+            "is_moratorium": false,
+            "opening_balance": 11584.16,
+            "emi": 685.07,
+            "principal": 607.84,
+            "interest": 77.23,
+            "closing_balance": 10976.32
+          },
+          {
+            "month": 68,
+            "is_moratorium": false,
+            "opening_balance": 10976.32,
+            "emi": 685.07,
+            "principal": 611.89,
+            "interest": 73.18,
+            "closing_balance": 10364.43
+          },
+          {
+            "month": 69,
+            "is_moratorium": false,
+            "opening_balance": 10364.43,
+            "emi": 685.07,
+            "principal": 615.97,
+            "interest": 69.1,
+            "closing_balance": 9748.46
+          },
+          {
+            "month": 70,
+            "is_moratorium": false,
+            "opening_balance": 9748.46,
+            "emi": 685.07,
+            "principal": 620.08,
+            "interest": 64.99,
+            "closing_balance": 9128.38
+          },
+          {
+            "month": 71,
+            "is_moratorium": false,
+            "opening_balance": 9128.38,
+            "emi": 685.07,
+            "principal": 624.21,
+            "interest": 60.86,
+            "closing_balance": 8504.17
+          },
+          {
+            "month": 72,
+            "is_moratorium": false,
+            "opening_balance": 8504.17,
+            "emi": 685.07,
+            "principal": 628.38,
+            "interest": 56.69,
+            "closing_balance": 7875.79
+          },
+          {
+            "month": 73,
+            "is_moratorium": false,
+            "opening_balance": 7875.79,
+            "emi": 685.07,
+            "principal": 632.56,
+            "interest": 52.51,
+            "closing_balance": 7243.23
+          },
+          {
+            "month": 74,
+            "is_moratorium": false,
+            "opening_balance": 7243.23,
+            "emi": 685.07,
+            "principal": 636.78,
+            "interest": 48.29,
+            "closing_balance": 6606.45
+          },
+          {
+            "month": 75,
+            "is_moratorium": false,
+            "opening_balance": 6606.45,
+            "emi": 685.07,
+            "principal": 641.03,
+            "interest": 44.04,
+            "closing_balance": 5965.42
+          },
+          {
+            "month": 76,
+            "is_moratorium": false,
+            "opening_balance": 5965.42,
+            "emi": 685.07,
+            "principal": 645.3,
+            "interest": 39.77,
+            "closing_balance": 5320.12
+          },
+          {
+            "month": 77,
+            "is_moratorium": false,
+            "opening_balance": 5320.12,
+            "emi": 685.07,
+            "principal": 649.6,
+            "interest": 35.47,
+            "closing_balance": 4670.52
+          },
+          {
+            "month": 78,
+            "is_moratorium": false,
+            "opening_balance": 4670.52,
+            "emi": 685.07,
+            "principal": 653.93,
+            "interest": 31.14,
+            "closing_balance": 4016.59
+          },
+          {
+            "month": 79,
+            "is_moratorium": false,
+            "opening_balance": 4016.59,
+            "emi": 685.07,
+            "principal": 658.29,
+            "interest": 26.78,
+            "closing_balance": 3358.3
+          },
+          {
+            "month": 80,
+            "is_moratorium": false,
+            "opening_balance": 3358.3,
+            "emi": 685.07,
+            "principal": 662.68,
+            "interest": 22.39,
+            "closing_balance": 2695.62
+          },
+          {
+            "month": 81,
+            "is_moratorium": false,
+            "opening_balance": 2695.62,
+            "emi": 685.07,
+            "principal": 667.1,
+            "interest": 17.97,
+            "closing_balance": 2028.52
+          },
+          {
+            "month": 82,
+            "is_moratorium": false,
+            "opening_balance": 2028.52,
+            "emi": 685.07,
+            "principal": 671.55,
+            "interest": 13.52,
+            "closing_balance": 1356.97
+          },
+          {
+            "month": 83,
+            "is_moratorium": false,
+            "opening_balance": 1356.97,
+            "emi": 685.07,
+            "principal": 676.02,
+            "interest": 9.05,
+            "closing_balance": 680.95
+          },
+          {
+            "month": 84,
+            "is_moratorium": false,
+            "opening_balance": 680.95,
+            "emi": 685.49,
+            "principal": 680.95,
+            "interest": 4.54,
+            "closing_balance": 0.0
+          }
+        ]
+      },
+      "disclosure": "Statutory rule check based on official MoSJE & NBCFDC guidelines. Qualification is deterministic and auditable."
+    },
+    "sources_and_confidence": {
+      "population_data": "Estimated from Census & Panchayat Registry",
+      "scheme_rules": "MoSJE Policy Guideline 2024 [Verified]",
+      "competitor_data": "6 local commercial points identified [Verified]",
+      "pricing_data": "District Mandi & Haat Benchmarks [Verified / Estimated]"
+    },
+    "download_report_url": "/api/v1/reports/asm-1e12d394/pdf"
   }
 }
