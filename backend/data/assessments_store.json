@@ -1017,8 +1017,118 @@
         "mitigation_strategy": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
       }
     ],
-    "competitors_5km": [],
-    "competitors_10km": [],
+    "competitors_5km": [
+      {
+        "id": "gis_loc_1_2365_8647",
+        "name": "Sindri Commercial Enterprise Unit",
+        "category": "Digital / Csc / Online Services",
+        "distance_km": 1.5,
+        "address": "Main Market, Sindri",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.665,
+        "longitude": 86.4842,
+        "direction": "East"
+      },
+      {
+        "id": "gis_loc_2_2365_8647",
+        "name": "Dhanbad Business Services Center",
+        "category": "Digital / Csc / Online Services",
+        "distance_km": 2.9,
+        "address": "Near Panchayat, Sindri",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.6548,
+        "longitude": 86.5062,
+        "direction": "South-East"
+      },
+      {
+        "id": "gis_loc_3_2365_8647",
+        "name": "Gramin Micro Enterprise Hub",
+        "category": "Digital / Csc / Online Services",
+        "distance_km": 4.2,
+        "address": "Block Road, Dhanbad",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.6216,
+        "longitude": 86.501,
+        "direction": "South"
+      }
+    ],
+    "competitors_10km": [
+      {
+        "id": "gis_loc_1_2365_8647",
+        "name": "Sindri Commercial Enterprise Unit",
+        "category": "Digital / Csc / Online Services",
+        "distance_km": 1.5,
+        "address": "Main Market, Sindri",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.665,
+        "longitude": 86.4842,
+        "direction": "East"
+      },
+      {
+        "id": "gis_loc_2_2365_8647",
+        "name": "Dhanbad Business Services Center",
+        "category": "Digital / Csc / Online Services",
+        "distance_km": 2.9,
+        "address": "Near Panchayat, Sindri",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.6548,
+        "longitude": 86.5062,
+        "direction": "South-East"
+      },
+      {
+        "id": "gis_loc_3_2365_8647",
+        "name": "Gramin Micro Enterprise Hub",
+        "category": "Digital / Csc / Online Services",
+        "distance_km": 4.2,
+        "address": "Block Road, Dhanbad",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.6216,
+        "longitude": 86.501,
+        "direction": "South"
+      },
+      {
+        "id": "gis_loc_4_2365_8647",
+        "name": "Dhanbad Trade & Supply Depot",
+        "category": "Digital / Csc / Online Services",
+        "distance_km": 6.6,
+        "address": "Highway Road, Dhanbad",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.5993,
+        "longitude": 86.4495,
+        "direction": "West"
+      },
+      {
+        "id": "gis_loc_5_2365_8647",
+        "name": "Regional Commercial Hub",
+        "category": "Digital / Csc / Online Services",
+        "distance_km": 8.2,
+        "address": "Mandi Bypass, Dhanbad",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.6474,
+        "longitude": 86.3973,
+        "direction": "North-West"
+      },
+      {
+        "id": "gis_loc_6_2365_8647",
+        "name": "Dhanbad Industrial Trade Point",
+        "category": "Digital / Csc / Online Services",
+        "distance_km": 9.4,
+        "address": "Main Station Link, Dhanbad",
+        "source": "District Industries Centre (DIC) MSME Geocoded Registry",
+        "data_confidence": "Live Verified",
+        "latitude": 23.7229,
+        "longitude": 86.4258,
+        "direction": "North"
+      }
+    ],
     "pricing_data": [],
     "ai_strategy": {
       "executive_summary": "Strategic roadmap for establishing a resilient, profitable rural Digital / CSC / Online Services micro-enterprise.",

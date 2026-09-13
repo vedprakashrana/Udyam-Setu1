@@ -202,6 +202,9 @@ class CompetitorItem(BaseModel):
     address: str
     source: str
     data_confidence: str
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
+    direction: Optional[str] = None
 
 class ShapFeatureAttribution(BaseModel):
     feature_name: str

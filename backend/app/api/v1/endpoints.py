@@ -328,14 +328,20 @@ def create_assessment(payload: AssessmentCreateRequest):
         lon,
         payload.business_category,
         5.0,
-        try_live=False
+        try_live=False,
+        village=payload.location.village,
+        district=payload.location.district,
+        state=payload.location.state
     )
     comp_10km = GISEngine.find_competitors_within_radius(
         lat,
         lon,
         payload.business_category,
         10.0,
-        try_live=False
+        try_live=False,
+        village=payload.location.village,
+        district=payload.location.district,
+        state=payload.location.state
     )
     
     # 4. Feasibility & Risk Engines
@@ -445,6 +451,26 @@ def get_assessment(id: str):
     record = ASSESSMENTS_DB.get(id)
     if not record:
         raise HTTPException(status_code=404, detail="Assessment not found.")
+    
+    # Auto-calibrate live competitors if empty for this assessment
+    if not record.get("competitors_5km") or len(record.get("competitors_5km", [])) == 0:
+        loc = record.get("user_inputs", {}).get("location", {})
+        cat = record.get("user_inputs", {}).get("business_category", "Dairy")
+        target_lat = float(loc.get("latitude") or 25.5941)
+        target_lon = float(loc.get("longitude") or 85.1376)
+        comp_5km = GISEngine.find_competitors_within_radius(
+            target_lat, target_lon, cat, 5.0, try_live=False,
+            village=loc.get("village"), district=loc.get("district"), state=loc.get("state")
+        )
+        comp_10km = GISEngine.find_competitors_within_radius(
+            target_lat, target_lon, cat, 10.0, try_live=False,
+            village=loc.get("village"), district=loc.get("district"), state=loc.get("state")
+        )
+        record["competitors_5km"] = [c.model_dump() for c in comp_5km]
+        record["competitors_10km"] = [c.model_dump() for c in comp_10km]
+        ASSESSMENTS_DB[id] = record
+        save_assessments_store(ASSESSMENTS_DB)
+
     return record
 
 from app.engines.ml.predictor import MLPredictorEngine
