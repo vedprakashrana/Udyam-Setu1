@@ -14,6 +14,7 @@ import {
   Filter,
   Globe
 } from 'lucide-react';
+import { ApiClient } from '../../services/apiClient';
 
 interface MandiRecord {
   mandi_name: string;
@@ -37,111 +38,17 @@ export default function RealtimeMandiPage() {
   const [search, setSearch] = useState('');
   const [selectedCat, setSelectedCat] = useState('All');
   const [selectedState, setSelectedState] = useState('All');
+  const [autoRefresh, setAutoRefresh] = useState(true);
 
   const fetchMandiData = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/api/v1/pro/mandi/live');
-      if (res.ok) {
-        const data = await res.json();
-        setRecords(data.data_records || []);
-      } else {
-        throw new Error();
+      const data = await ApiClient.getLiveMandiPrices(selectedCat, undefined, selectedState);
+      if (data?.data_records) {
+        setRecords(data.data_records);
       }
     } catch (e) {
-      // Fallback
-      setRecords([
-        {
-          mandi_name: "Meerut Main APMC Mandi",
-          state: "Uttar Pradesh",
-          district: "Meerut",
-          commodity: "Cow Milk (Per Litre)",
-          category: "Dairy",
-          min_price: 38.0,
-          max_price: 44.0,
-          modal_price: 42.0,
-          unit: "Litre",
-          daily_arrival: "18,500 Litres",
-          price_trend: "UP (+2.4%)",
-          source: "State Dairy Cooperative Federation Bulletin",
-          last_updated: "2026-09-09 12:00 UTC"
-        },
-        {
-          mandi_name: "Hastinapur Rural Mandi",
-          state: "Uttar Pradesh",
-          district: "Meerut",
-          commodity: "Buffalo Milk (Fat 6.5%+)",
-          category: "Dairy",
-          min_price: 54.0,
-          max_price: 62.0,
-          modal_price: 58.0,
-          unit: "Litre",
-          daily_arrival: "9,200 Litres",
-          price_trend: "STABLE",
-          source: "District Milk Cooperative Union (Hastinapur Centre)",
-          last_updated: "2026-09-09 12:00 UTC"
-        },
-        {
-          mandi_name: "Muzaffarnagar Kisan Mandi",
-          state: "Uttar Pradesh",
-          district: "Muzaffarnagar",
-          commodity: "Broiler Live Bird (Per Kg)",
-          category: "Poultry",
-          min_price: 95.0,
-          max_price: 115.0,
-          modal_price: 108.0,
-          unit: "Kg",
-          daily_arrival: "14.2 Tonnes",
-          price_trend: "UP (+5.1%)",
-          source: "State Poultry Federation Benchmark Feed",
-          last_updated: "2026-09-09 12:00 UTC"
-        },
-        {
-          mandi_name: "Bulandshahr Krishi Upaj Mandi",
-          state: "Uttar Pradesh",
-          district: "Bulandshahr",
-          commodity: "Table Eggs (Per 100 pcs)",
-          category: "Poultry",
-          min_price: 480.0,
-          max_price: 530.0,
-          modal_price: 510.0,
-          unit: "Tray (100 Pcs)",
-          daily_arrival: "42,000 Pcs",
-          price_trend: "DOWN (-1.5%)",
-          source: "National Egg Coordination Committee (NECC) Official Index",
-          last_updated: "2026-09-09 12:00 UTC"
-        },
-        {
-          mandi_name: "Patna APMC Market Yard",
-          state: "Bihar",
-          district: "Patna",
-          commodity: "Cow Milk (Per Litre)",
-          category: "Dairy",
-          min_price: 40.0,
-          max_price: 46.0,
-          modal_price: 43.5,
-          unit: "Litre",
-          daily_arrival: "24,000 Litres",
-          price_trend: "UP (+1.8%)",
-          source: "Bihar State Milk Co-Operative Federation (COMFED)",
-          last_updated: "2026-09-09 12:00 UTC"
-        },
-        {
-          mandi_name: "Jaipur Muhana Mandi",
-          state: "Rajasthan",
-          district: "Jaipur",
-          commodity: "Mustard Seed (Per Quintal)",
-          category: "Food Processing",
-          min_price: 5350.0,
-          max_price: 5800.0,
-          modal_price: 5600.0,
-          unit: "Quintal",
-          daily_arrival: "45.0 Tonnes",
-          price_trend: "UP (+0.8%)",
-          source: "Rajasthan State Agricultural Marketing Board",
-          last_updated: "2026-09-09 12:00 UTC"
-        }
-      ]);
+      console.warn("Live mandi fetch warning:", e);
     } finally {
       setLoading(false);
     }
@@ -149,7 +56,20 @@ export default function RealtimeMandiPage() {
 
   useEffect(() => {
     fetchMandiData();
-  }, []);
+  }, [selectedCat, selectedState]);
+
+  useEffect(() => {
+    if (!autoRefresh) return;
+    const interval = setInterval(() => {
+      ApiClient.getLiveMandiPrices(selectedCat, undefined, selectedState)
+        .then(data => {
+          if (data?.data_records) setRecords(data.data_records);
+        })
+        .catch(() => {});
+    }, 15000);
+    return () => clearInterval(interval);
+  }, [autoRefresh, selectedCat, selectedState]);
+
 
   const availableStates = ['All', ...Array.from(new Set(records.map(r => r.state)))];
 
@@ -184,14 +104,29 @@ export default function RealtimeMandiPage() {
             </div>
           </div>
 
-          <button
-            onClick={fetchMandiData}
-            className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl transition border border-slate-200 shadow-sm"
-          >
-            <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
-            <span>Sync Live Mandis</span>
-          </button>
+          <div className="flex items-center gap-2.5">
+            <button
+              onClick={() => setAutoRefresh(!autoRefresh)}
+              className={`flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-xl transition border shadow-sm ${
+                autoRefresh 
+                  ? 'bg-emerald-50 text-emerald-800 border-emerald-300 hover:bg-emerald-100' 
+                  : 'bg-slate-100 text-slate-600 border-slate-200 hover:bg-slate-200'
+              }`}
+              title="Toggle automatic live price polling"
+            >
+              <span className={`w-2 h-2 rounded-full ${autoRefresh ? 'bg-emerald-500 animate-ping' : 'bg-slate-400'}`}></span>
+              <span>Live Updates: {autoRefresh ? 'ON' : 'OFF'}</span>
+            </button>
+            <button
+              onClick={fetchMandiData}
+              className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl transition border border-slate-200 shadow-sm"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
+              <span>Sync Now</span>
+            </button>
+          </div>
         </div>
+
 
         {/* Filter Controls */}
         <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-3">

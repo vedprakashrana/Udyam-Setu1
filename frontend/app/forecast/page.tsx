@@ -25,6 +25,7 @@ import {
   AreaChart, 
   Area 
 } from 'recharts';
+import { ApiClient } from '../../services/apiClient';
 
 export default function ForecastSimulatorPage() {
   const [category, setCategory] = useState('Dairy & Livestock');
@@ -37,22 +38,8 @@ export default function ForecastSimulatorPage() {
   const fetchForecast = async (cat: string, price: number, vol: number, months: number) => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/api/v1/pro/ml/predict', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          category: cat,
-          current_unit_price: price,
-          monthly_base_volume: vol,
-          months_ahead: months
-        })
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setForecastData(data);
-      } else {
-        throw new Error();
-      }
+      const data = await ApiClient.getMLForecast(cat, price, vol, months);
+      setForecastData(data);
     } catch (e) {
       // Local ML heuristic fallback
       setForecastData({

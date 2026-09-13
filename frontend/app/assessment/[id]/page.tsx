@@ -18,9 +18,9 @@ import {
   ArrowRight,
   Sparkles,
   HelpCircle,
-  BarChart3,
   Activity
 } from 'lucide-react';
+import { ApiClient, API_BASE_URL } from '../../../services/apiClient';
 
 export default function AssessmentResultPage() {
   const params = useParams();
@@ -32,15 +32,10 @@ export default function AssessmentResultPage() {
   useEffect(() => {
     async function fetchAssessment() {
       try {
-        const res = await fetch(`http://localhost:8000/api/v1/assessments/${assessmentId}`);
-        if (res.ok) {
-          const json = await res.json();
-          setData(json);
-        } else {
-          // Fallback if local server isn't running in dev mode
-          loadFallbackData();
-        }
+        const json = await ApiClient.getAssessmentById(assessmentId);
+        setData(json);
       } catch (e) {
+        console.warn("Could not fetch assessment from live API, checking fallback:", e);
         loadFallbackData();
       } finally {
         setLoading(false);
@@ -208,7 +203,7 @@ export default function AssessmentResultPage() {
 
           <div className="flex items-center gap-3">
             <a
-              href={`http://localhost:8000/api/v1/reports/${data.id}/pdf`}
+              href={`${API_BASE_URL}/reports/${data.id}/pdf`}
               download
               target="_blank"
               rel="noreferrer"
@@ -580,7 +575,7 @@ export default function AssessmentResultPage() {
 
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
             <a
-              href={`http://localhost:8000/api/v1/reports/${data.id}/pdf`}
+              href={`${API_BASE_URL}/reports/${data.id}/pdf`}
               download={`UDYAM_SETU_Feasibility_Report_${data.id}.pdf`}
               target="_blank"
               rel="noreferrer"

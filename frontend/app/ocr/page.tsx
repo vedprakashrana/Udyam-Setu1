@@ -9,10 +9,11 @@ import {
   Sparkles, 
   ArrowRight, 
   ShieldCheck, 
-  FileText,
-  RefreshCw,
-  Landmark
+  FileText, 
+  RefreshCw, 
+  Landmark 
 } from 'lucide-react';
+import { ApiClient } from '../../services/apiClient';
 
 export default function OCRScannerPage() {
   const router = useRouter();
@@ -31,20 +32,9 @@ export default function OCRScannerPage() {
     setSelectedDoc(docName);
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/api/v1/pro/ocr/scan', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          document_name: docName,
-          sample_text: docName.includes('khasra') ? 'Khasra No 142/2 Area 1.5 Acre Ganeshpur Meerut' : ''
-        })
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setParsedData(data);
-      } else {
-        throw new Error();
-      }
+      const sampleText = docName.includes('khasra') ? 'Khasra No 142/2 Area 1.5 Acre Ganeshpur Meerut' : '';
+      const data = await ApiClient.scanDocument(docName, sampleText);
+      setParsedData(data);
     } catch (e) {
       // Offline / fallback mock
       setParsedData({

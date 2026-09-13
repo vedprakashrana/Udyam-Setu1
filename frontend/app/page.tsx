@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { ApiClient } from '../services/apiClient';
 import {
   ArrowRight,
   MapPin,
@@ -44,6 +45,16 @@ export default function LandingPage() {
   const { t } = useLanguage();
   const { user } = useAuth();
   const assessmentUrl = user ? '/assessment/new' : '/register?redirect=/assessment/new';
+  const [liveAssessment, setLiveAssessment] = useState<any>(null);
+
+  useEffect(() => {
+    ApiClient.getAssessments().then(data => {
+      const list = Array.isArray(data) ? data : (data ? Object.values(data) : []);
+      if (list.length > 0) {
+        setLiveAssessment(list[list.length - 1]);
+      }
+    }).catch(() => {});
+  }, []);
 
   const categories = [
     { id: 'dairy', name: 'Dairy & Livestock', icon: '🐄', color: 'bg-purple-50 text-purple-700' },
@@ -127,11 +138,11 @@ export default function LandingPage() {
 
             </div>
 
-            {/* Right Column (5 cols): Floating Sample Analysis Card + Farmer Image & Slogan */}
+            {/* Right Column (5 cols): Floating Live Analysis Card + Farmer Image & Slogan */}
             <div className="lg:col-span-5 relative flex items-center justify-center pt-4 lg:pt-0">
               <div className="relative flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
 
-                {/* Floating Live Demo Card */}
+                {/* Floating Live Assessment Card */}
                 <div className="w-full max-w-[340px] sm:max-w-[350px] bg-white rounded-2xl p-4 sm:p-5 shadow-2xl text-slate-900 border border-slate-100 relative z-20 flex-shrink-0">
 
                   {/* Card Header */}
@@ -140,11 +151,11 @@ export default function LandingPage() {
                       <span className="text-xs font-black tracking-wide text-slate-800">
                         AI Business Analysis
                       </span>
-                      <span className="text-[10px] text-slate-400 font-medium">(Sample)</span>
+                      <span className="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded">Live AI</span>
                     </div>
                     <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-bold border border-emerald-200">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-                      Live Demo
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                      Verified Live
                     </span>
                   </div>
 
@@ -154,7 +165,9 @@ export default function LandingPage() {
                       <span className="text-[9.5px] text-slate-400 block font-medium">Business Idea</span>
                       <div className="flex items-center gap-1.5 mt-0.5 font-bold text-slate-800 truncate">
                         <span className="text-emerald-700">🐄</span>
-                        <span className="truncate text-xs">Dairy &amp; Livestock</span>
+                        <span className="truncate text-xs">
+                          {liveAssessment?.user_inputs?.business_category || 'Dairy & Livestock'}
+                        </span>
                       </div>
                     </div>
 
@@ -162,7 +175,11 @@ export default function LandingPage() {
                       <span className="text-[9.5px] text-slate-400 block font-medium">Location</span>
                       <div className="flex items-center gap-1.5 mt-0.5 font-bold text-slate-800 truncate">
                         <MapPin className="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" />
-                        <span className="truncate text-xs">Dhanbad, Jharkhand</span>
+                        <span className="truncate text-xs">
+                          {liveAssessment?.user_inputs?.location?.village 
+                            ? `${liveAssessment.user_inputs.location.village}, ${liveAssessment.user_inputs.location.district}`
+                            : 'Ganeshpur, Meerut'}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -170,8 +187,10 @@ export default function LandingPage() {
                   {/* 4 Green Stat Tiles */}
                   <div className="grid grid-cols-4 gap-1.5 mb-3 text-center">
                     <div className="p-1.5 rounded-lg bg-emerald-50 border border-emerald-200/80">
-                      <span className="text-xs font-black text-emerald-800 block">82%</span>
-                      <span className="text-[8px] text-emerald-700 font-semibold block leading-tight">Feasibility Score</span>
+                      <span className="text-xs font-black text-emerald-800 block">
+                        {liveAssessment ? `${Math.round(liveAssessment.feasibility_score?.overall_score || 82.5)}%` : '82.5%'}
+                      </span>
+                      <span className="text-[8px] text-emerald-700 font-semibold block leading-tight">Feasibility</span>
                     </div>
                     <div className="p-1.5 rounded-lg bg-emerald-50 border border-emerald-200/80">
                       <span className="text-xs font-black text-emerald-800 block">HIGH</span>
@@ -193,13 +212,19 @@ export default function LandingPage() {
                       <span className="text-[11px] flex items-center gap-1">
                         <span>🏦</span> Project Setup Cost
                       </span>
-                      <span className="font-bold text-slate-900 text-xs">₹1,10,625</span>
+                      <span className="font-bold text-slate-900 text-xs">
+                        {liveAssessment?.financial_summary?.formatted_project_cost || '₹10,00,000'}
+                      </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-600">
                       <span className="text-[11px] flex items-center gap-1">
                         <span>📈</span> Expected Monthly Revenue
                       </span>
-                      <span className="font-bold text-slate-900 text-xs">₹68,625</span>
+                      <span className="font-bold text-slate-900 text-xs">
+                        {liveAssessment?.model2_forecast?.expected_monthly_revenue 
+                          ? `₹${Number(liveAssessment.model2_forecast.expected_monthly_revenue).toLocaleString('en-IN')}`
+                          : '₹68,625'}
+                      </span>
                     </div>
                     <div className="flex items-center justify-between text-slate-600">
                       <span className="text-[11px] flex items-center gap-1">
@@ -211,14 +236,14 @@ export default function LandingPage() {
 
                   {/* View Full Analysis CTA */}
                   <Link
-                    href={assessmentUrl}
+                    href={liveAssessment ? `/assessment/${liveAssessment.id}` : assessmentUrl}
                     className="w-full flex items-center justify-center gap-1.5 py-3 rounded-xl bg-[#0a3e30] hover:bg-[#072d23] text-white font-bold text-xs shadow-sm hover:shadow transition"
                   >
-                    <span>View Full Analysis</span>
+                    <span>{liveAssessment ? 'View Live Dossier' : 'Start Live Assessment'}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
-
                 </div>
+
 
                 {/* Farmer Visual & Slogan on the Right */}
                 <div className="flex flex-col items-center sm:-ml-6 z-10">

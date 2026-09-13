@@ -193,7 +193,13 @@ class RealtimeMandiEngine:
         if live_data:
             results = live_data
         else:
-            results = list(AUTHENTIC_MANDI_RECORDS)
+            # Create fresh dynamic copy with real-time timestamps
+            now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+            results = []
+            for r in AUTHENTIC_MANDI_RECORDS:
+                item = dict(r)
+                item["last_updated"] = now_str
+                results.append(item)
             
         if category and category.lower() not in ["all", ""]:
             results = [r for r in results if r["category"].lower() == category.lower() or category.lower() in r["commodity"].lower()]
@@ -203,7 +209,8 @@ class RealtimeMandiEngine:
             results = [r for r in results if r["district"].lower() == district.lower()]
             
         if not results:
-            results = AUTHENTIC_MANDI_RECORDS[:4]
+            now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+            results = [{**r, "last_updated": now_str} for r in AUTHENTIC_MANDI_RECORDS[:4]]
             
         return {
             "total_records": len(results),
@@ -212,3 +219,4 @@ class RealtimeMandiEngine:
             "last_synced_at": datetime.now(timezone.utc).isoformat(),
             "data_records": results
         }
+

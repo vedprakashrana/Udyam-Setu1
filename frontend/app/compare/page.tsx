@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Layers, CheckCircle2, TrendingUp, ShieldAlert, Sparkles, ArrowRight, IndianRupee, RefreshCw } from 'lucide-react';
+import { ApiClient } from '../../services/apiClient';
 
 interface Candidate {
   category: string;
@@ -24,13 +25,8 @@ export default function ComparePage() {
   const fetchComparison = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/api/v1/pro/compare/all');
-      if (res.ok) {
-        const data = await res.json();
-        setCandidates(data);
-      } else {
-        throw new Error();
-      }
+      const data = await ApiClient.getComparisonMatrix();
+      setCandidates(data);
     } catch (e) {
       setCandidates([
         {

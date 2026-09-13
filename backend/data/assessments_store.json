@@ -1,0 +1,1933 @@
+{
+  "demo-dairy-assessment-101": {
+    "id": "demo-dairy-assessment-101",
+    "title": "Dairy Micro-Enterprise Feasibility",
+    "created_at": "2026-09-13T13:00:11.021327+00:00",
+    "status": "COMPLETED",
+    "user_inputs": {
+      "business_category": "Dairy & Livestock",
+      "business_subcategory": "Cow & Buffalo Milk Chilling",
+      "margin_capital": 100000.0,
+      "location": {
+        "state": "Uttar Pradesh",
+        "district": "Meerut",
+        "block": "Hastinapur",
+        "village": "Ganeshpur",
+        "latitude": 28.6139,
+        "longitude": 77.209
+      },
+      "experience_years": 2,
+      "land_available": true,
+      "water_available": true,
+      "electricity_available": true,
+      "transport_available": true,
+      "storage_available": false
+    },
+    "financial_summary": {
+      "margin_capital": "100000.00",
+      "project_cost": "1000000.00",
+      "calculated_financing": "900000.00",
+      "financing_percentage": "90.0",
+      "margin_percentage": "10.0",
+      "formatted_project_cost": "\u20b910,00,000.00",
+      "formatted_calculated_financing": "\u20b99,00,000.00",
+      "formatted_margin_capital": "\u20b91,00,000.00"
+    },
+    "scheme_recommendation": {
+      "eligible": true,
+      "scheme_code": "MOSJE_TERM_LOAN",
+      "scheme_name": "MoSJE / NBCFDC Term Loan Scheme",
+      "scheme_version_id": null,
+      "project_cost": "1000000.00",
+      "calculated_financing": "900000.00",
+      "actual_eligible_financing": "900000.00",
+      "interest_rate": "8.00",
+      "tenure_months": 84,
+      "moratorium_months": 6,
+      "moratorium_interest_policy": "accrued",
+      "source_document": "MoSJE Term Loan Assistance Policy Vol-II 2024",
+      "effective_from": "2024-04-01",
+      "last_verified_at": "2024-10-15",
+      "notes": [
+        "Project qualifies for full 90% financing under MoSJE / NBCFDC Term Loan Scheme."
+      ]
+    },
+    "feasibility_score": {
+      "market_demand_score": 75.0,
+      "competition_score": 92.0,
+      "capital_adequacy_score": 92.0,
+      "profit_potential_score": 82.0,
+      "risk_score": 75.0,
+      "infrastructure_score": 80.0,
+      "overall_score": 68.9,
+      "category_label": "Good",
+      "viability_probability": 0.69,
+      "viability_class": "Viable",
+      "model_architecture": "Model 1 Random Forest Classifier + SHAP Attribution Pipeline",
+      "shap_feature_attributions": [
+        {
+          "feature_name": "Village Population (8,420 residents)",
+          "feature_group": "Demographics",
+          "attribution_value": 0.18,
+          "impact_description": "Substantial local consumer base supporting daily rural sales volume."
+        },
+        {
+          "feature_name": "Competitor Density (2 within 5km)",
+          "feature_group": "Competition",
+          "attribution_value": 0.22,
+          "impact_description": "Room for new entrant without aggressive price-undercutting."
+        },
+        {
+          "feature_name": "Margin Capital Buffer (\u20b9100,000)",
+          "feature_group": "Finance",
+          "attribution_value": 0.25,
+          "impact_description": "Adequate promoter equity to absorb initial setup and ramp-up."
+        },
+        {
+          "feature_name": "Market Access Distance (4.5 km)",
+          "feature_group": "Market access",
+          "attribution_value": 0.12,
+          "impact_description": "Convenient access to regional market for procurement."
+        },
+        {
+          "feature_name": "Key ML Factors (local_demand_index, target_population, own_capital_inr)",
+          "feature_group": "ML Feature Importances",
+          "attribution_value": 0.15,
+          "impact_description": "Top driving features verified by Model 1 Random Forest."
+        }
+      ],
+      "disclaimer": "Model 1 Viability Estimate: Generated via feature pipeline combining Census demographics, AGMARKNET prices, and OSM spatial saturation. Explainability verified via SHAP attributions."
+    },
+    "swot": {
+      "strengths": [
+        "Strong overall feasibility (69.5/100) and viable local opportunity.",
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Strong promoter equity margin (\u20b9100,000) covers setup contribution"
+      ],
+      "weaknesses": [
+        "Working capital discipline required to sustain initial ramp-up months."
+      ],
+      "opportunities": [
+        "Model 2 Forecast: Stable pricing trend (Promotional Discounting) supports healthy revenue potential.",
+        "Expanded catchment area reaching 8.4 km across neighboring village haats.",
+        "MoSJE / NBCFDC concessional refinance rates (6.5% - 8.0% p.a.) with upfront moratorium."
+      ],
+      "threats": [
+        "Market-Price Volatility & spot rate fluctuation",
+        "Local market competition (2 units within 5km) & lean season",
+        "Initial cash flow strain or debt servicing pressure",
+        "High price volatility (70.0%) in Raw Cow Milk market."
+      ]
+    },
+    "risks": [
+      {
+        "dimension": "Market-price",
+        "category": "Market-Price Volatility Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Moderate",
+        "description": "Probability of adverse spot-price fluctuation and mandi procurement rate volatility.",
+        "potential_features": [
+          "Historical price volatility (NSSO/Agmarknet)",
+          "Perishability index",
+          "Storage shelf-life"
+        ],
+        "mitigation_strategy": "Establish fixed-price milk cooperative procurement or value-added processing (Paneer/Curd)."
+      },
+      {
+        "dimension": "Demand",
+        "category": "Local Market Demand & Saturation Risk",
+        "risk_score": 30,
+        "probability": 0.3,
+        "severity_level": "Low",
+        "description": "Likelihood of market saturation or insufficient local consumer purchasing capacity.",
+        "potential_features": [
+          "Competitor density within 5km",
+          "Block population density",
+          "Household income index"
+        ],
+        "mitigation_strategy": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+      },
+      {
+        "dimension": "Supply-chain",
+        "category": "Input & Logistics Supply Chain Risk",
+        "risk_score": 28,
+        "probability": 0.28,
+        "severity_level": "Low",
+        "description": "Risk of input supply disruptions, livestock feed inflation, or transport bottlenecks.",
+        "potential_features": [
+          "Paved road connectivity",
+          "Distance to raw material mandi",
+          "Feed supplier concentration"
+        ],
+        "mitigation_strategy": "Form raw-material purchasing collective with neighboring producers to hedge logistics costs."
+      },
+      {
+        "dimension": "Infrastructure",
+        "category": "Utilities & Processing Infrastructure Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Low",
+        "description": "Probability of yield disruption caused by power outages or water shortage.",
+        "potential_features": [
+          "Daily power availability hours",
+          "Borewell groundwater depth",
+          "Cold-chain infrastructure presence"
+        ],
+        "mitigation_strategy": "Install solar-powered backup lighting/aeration and rainwater harvesting recharge pits."
+      },
+      {
+        "dimension": "Financial",
+        "category": "Liquidity & Debt Service Risk",
+        "risk_score": 24,
+        "probability": 0.24,
+        "severity_level": "Low",
+        "description": "Probability of debt delinquency or cash flow shortfall during initial 3-6 months ramp-up.",
+        "potential_features": [
+          "Capital margin adequacy ratio",
+          "Estimated DSCR ratio",
+          "Working capital reserve buffer"
+        ],
+        "mitigation_strategy": "Utilize 6-month MoSJE loan moratorium to reinvest operating revenues into reserves."
+      },
+      {
+        "dimension": "Operational",
+        "category": "Execution & Operational Complexity Risk",
+        "risk_score": 40,
+        "probability": 0.4,
+        "severity_level": "Moderate",
+        "description": "Probability of operational setbacks due to lack of domain technical training or animal disease.",
+        "potential_features": [
+          "Years of domain experience",
+          "Enterprise operational complexity",
+          "Access to veterinary care"
+        ],
+        "mitigation_strategy": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+      }
+    ],
+    "competitors_5km": [
+      {
+        "id": "comp_1",
+        "name": "Kisan Dairy & Cattle Feed Center",
+        "category": "Dairy",
+        "distance_km": 0.0,
+        "address": "Main Road, Block Center",
+        "source": "State Rural Enterprise Survey 2024 (Local Baseline)",
+        "data_confidence": "Verified"
+      },
+      {
+        "id": "comp_2",
+        "name": "Shree Ram Milk Chilling & Collection Unit",
+        "category": "Dairy",
+        "distance_km": 1.37,
+        "address": "Near Co-operative Society, Village Gate",
+        "source": "District Industrial Center (DIC) Registry",
+        "data_confidence": "Verified"
+      }
+    ],
+    "competitors_10km": [
+      {
+        "id": "comp_1",
+        "name": "Kisan Dairy & Cattle Feed Center",
+        "category": "Dairy",
+        "distance_km": 0.0,
+        "address": "Main Road, Block Center",
+        "source": "State Rural Enterprise Survey 2024 (Local Baseline)",
+        "data_confidence": "Verified"
+      },
+      {
+        "id": "comp_2",
+        "name": "Shree Ram Milk Chilling & Collection Unit",
+        "category": "Dairy",
+        "distance_km": 1.37,
+        "address": "Near Co-operative Society, Village Gate",
+        "source": "District Industrial Center (DIC) Registry",
+        "data_confidence": "Verified"
+      }
+    ],
+    "pricing_data": [
+      {
+        "item_name": "Raw Buffalo Milk (per Litre, 6.5% Fat)",
+        "low_price": "52.00",
+        "median_price": "58.00",
+        "high_price": "64.00",
+        "data_confidence": "Verified",
+        "source": "District Milk Producers Union Mandi Report",
+        "date_observed": "2024-10-10"
+      },
+      {
+        "item_name": "Cow Milk (per Litre, 3.5% Fat, 8.5% SNF)",
+        "low_price": "38.00",
+        "median_price": "44.00",
+        "high_price": "48.00",
+        "data_confidence": "Verified",
+        "source": "District Milk Producers Union Mandi Report",
+        "date_observed": "2024-10-10"
+      },
+      {
+        "item_name": "Fresh Paneer (per Kg, Unpackaged)",
+        "low_price": "320.00",
+        "median_price": "360.00",
+        "high_price": "400.00",
+        "data_confidence": "Estimated",
+        "source": "Block Weekly Haat Survey",
+        "date_observed": "2024-09-28"
+      }
+    ],
+    "ai_strategy": {
+      "executive_summary": "Strategic roadmap for establishing a resilient, profitable rural Dairy & Livestock micro-enterprise.",
+      "operational_milestones": [
+        "Month 1-2: Shed setup, machinery procurement, and power connection.",
+        "Month 3: Trial production, local vendor onboarding, and MoSJE loan disbursement.",
+        "Month 4+: Full commercial operations reaching break-even volume."
+      ],
+      "risk_mitigation": "Maintain a minimum 45-day operating cash buffer and secure livestock insurance coverage."
+    },
+    "model1_prediction": {
+      "business_category": "Dairy & Livestock",
+      "feasibility_label": 1,
+      "feasibility_score": 69.5,
+      "viability_probability": 0.69,
+      "success_probability": 0.69,
+      "opportunity_class": "Good",
+      "market_reach_km": 8.4,
+      "competitor_density": {
+        "competitors_1km": 1,
+        "competitors_5km": 2,
+        "competitors_10km": 7,
+        "local_competition_index": 17.0,
+        "density_level": "Low"
+      },
+      "underserved_opportunity": {
+        "is_underserved": true,
+        "summary": "Local population demand index significantly exceeds existing mapped saturation."
+      },
+      "positive_factors": [
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Strong promoter equity margin (\u20b9100,000) covers setup contribution",
+        "Low competitor saturation (2 units within 5km) leaves market share open",
+        "All-weather road connectivity enables reliable supply logistics",
+        "Prior domain experience reduces execution and operational ramp-up risk"
+      ],
+      "negative_factors": [],
+      "top_factors": [
+        "local_demand_index",
+        "target_population",
+        "own_capital_inr",
+        "nearby_population",
+        "road_available"
+      ]
+    },
+    "model2_forecast": {
+      "business_category": "Dairy & Livestock",
+      "commodity_or_service": "Raw Cow Milk",
+      "unit": "INR/Litre",
+      "current_price": 43.35,
+      "price_next_1m": 41.93,
+      "price_next_3m": 41.94,
+      "price_next_6m": 42.51,
+      "demand_next_1m": 321.68,
+      "demand_next_3m": 328.01,
+      "price_trend": "Stable",
+      "price_volatility": 0.7,
+      "price_volatility_3m": 0.7,
+      "uncertainty_interval": {
+        "price_next_1m": {
+          "lower_bound": 23.15,
+          "upper_bound": 60.71
+        },
+        "price_next_3m": {
+          "lower_bound": 17.87,
+          "upper_bound": 66.01
+        },
+        "price_next_6m": {
+          "lower_bound": 13.35,
+          "upper_bound": 71.67
+        }
+      },
+      "pricing_recommendation": "Promotional Discounting",
+      "expected_monthly_revenue": 68789.02
+    },
+    "model3_risk": {
+      "business_category": "Dairy & Livestock",
+      "risk_label": 0,
+      "risk_score": 32.0,
+      "risk_level": "Low",
+      "risk_probability": 0.32,
+      "top_factors": [
+        "demand_trend",
+        "monthly_revenue_estimate_inr",
+        "price_volatility",
+        "supply_chain_reliability",
+        "competitors_5km"
+      ],
+      "dimensional_risks": {
+        "market_risk": {
+          "dimension": "Market-Price Risk",
+          "score": 94,
+          "level": "High",
+          "probability": 0.94,
+          "description": "Spot-price volatility (70.0%) and mandi procurement rate swings.",
+          "mitigation": "Establish institutional supply contracts or forward-procurement pricing agreements."
+        },
+        "demand_seasonal_risk": {
+          "dimension": "Demand & Seasonal Risk",
+          "score": 39,
+          "level": "Moderate",
+          "probability": 0.39,
+          "description": "Seasonal demand cyclicality and local competition from 2 units.",
+          "mitigation": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+        },
+        "supply_chain_risk": {
+          "dimension": "Supply-Chain Risk",
+          "score": 25,
+          "level": "Low",
+          "probability": 0.25,
+          "description": "Feed, raw-material input availability, and all-weather transport connectivity.",
+          "mitigation": "Form raw-material purchasing collective with neighboring village producers."
+        },
+        "infrastructure_risk": {
+          "dimension": "Infrastructure Risk",
+          "score": 20,
+          "level": "Low",
+          "probability": 0.2,
+          "description": "Reliability of grid power, water availability, and cold storage preservation.",
+          "mitigation": "Install solar-powered backup lighting/aeration and rainwater storage."
+        },
+        "financial_risk": {
+          "dimension": "Financial & Debt Service Risk",
+          "score": 31,
+          "level": "Low",
+          "probability": 0.31,
+          "description": "Liquidity buffer and cash surplus sufficiency (Profit margin: 46.9%).",
+          "mitigation": "Utilize official loan moratorium period to build 45-day operating cash buffer."
+        },
+        "operational_risk": {
+          "dimension": "Operational Complexity Risk",
+          "score": 22,
+          "level": "Low",
+          "probability": 0.22,
+          "description": "Execution capability, technical equipment maintenance, and domain experience.",
+          "mitigation": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+        }
+      },
+      "major_threats": [
+        "Market-Price Volatility & spot rate fluctuation",
+        "Local market competition (2 units within 5km) & lean season",
+        "Initial cash flow strain or debt servicing pressure"
+      ]
+    },
+    "model4_advisory": {
+      "business_category": "Dairy & Livestock",
+      "state": "Uttar Pradesh",
+      "estimated_project_cost": 110625,
+      "own_capital": 100000.0,
+      "loan_amount_needed": 10625.0,
+      "expected_monthly_revenue": 68789.02,
+      "expected_operating_cost": 36500.0,
+      "loan_required": true,
+      "recommended_scheme": {
+        "name": "MoSJE / NBCFDC Micro Finance Scheme",
+        "interest_rate": 6.5,
+        "interest_rate_type": "Fixed Concessional",
+        "tenure_months": 36,
+        "moratorium_months": 3,
+        "subsidy_type": "Direct Concessional Refinance",
+        "subsidy_pct": 0.0,
+        "eligibility_notes": "Ideal for rural micro-enterprises. 90% loan component with 10% promoter contribution.",
+        "required_documents": [
+          "Aadhaar Card",
+          "Bank Passbook",
+          "Income / Caste Self-declaration"
+        ],
+        "official_source": "https://nbcfdc.gov.in/schemes/micro-finance"
+      },
+      "alternative_schemes": [
+        {
+          "name": "MoSJE / NBCFDC Term Loan Scheme",
+          "interest_rate": 8.0,
+          "subsidy_pct": null
+        },
+        {
+          "name": "PMEGP Rural Enterprise Scheme",
+          "interest_rate": 8.5,
+          "subsidy_pct": 35.0
+        }
+      ],
+      "repayment_advice": {
+        "potential_monthly_profit": 32289.02,
+        "emi": 352.47,
+        "can_afford_emi": true,
+        "surplus_after_emi": 31936.55,
+        "estimated_payoff_months": 36,
+        "total_interest_paid": 1179.21,
+        "repayment_schedule": [
+          {
+            "month": 1,
+            "is_moratorium": true,
+            "opening_balance": 10625.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 57.55,
+            "closing_balance": 10625.0
+          },
+          {
+            "month": 2,
+            "is_moratorium": true,
+            "opening_balance": 10625.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 57.55,
+            "closing_balance": 10625.0
+          },
+          {
+            "month": 3,
+            "is_moratorium": true,
+            "opening_balance": 10625.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 57.55,
+            "closing_balance": 10625.0
+          },
+          {
+            "month": 4,
+            "is_moratorium": false,
+            "opening_balance": 10625.0,
+            "emi": 352.47,
+            "principal": 294.92,
+            "interest": 57.55,
+            "closing_balance": 10330.08
+          },
+          {
+            "month": 5,
+            "is_moratorium": false,
+            "opening_balance": 10330.08,
+            "emi": 352.47,
+            "principal": 296.52,
+            "interest": 55.95,
+            "closing_balance": 10033.56
+          },
+          {
+            "month": 6,
+            "is_moratorium": false,
+            "opening_balance": 10033.56,
+            "emi": 352.47,
+            "principal": 298.12,
+            "interest": 54.35,
+            "closing_balance": 9735.44
+          },
+          {
+            "month": 7,
+            "is_moratorium": false,
+            "opening_balance": 9735.44,
+            "emi": 352.47,
+            "principal": 299.74,
+            "interest": 52.73,
+            "closing_balance": 9435.7
+          },
+          {
+            "month": 8,
+            "is_moratorium": false,
+            "opening_balance": 9435.7,
+            "emi": 352.47,
+            "principal": 301.36,
+            "interest": 51.11,
+            "closing_balance": 9134.34
+          },
+          {
+            "month": 9,
+            "is_moratorium": false,
+            "opening_balance": 9134.34,
+            "emi": 352.47,
+            "principal": 302.99,
+            "interest": 49.48,
+            "closing_balance": 8831.35
+          },
+          {
+            "month": 10,
+            "is_moratorium": false,
+            "opening_balance": 8831.35,
+            "emi": 352.47,
+            "principal": 304.63,
+            "interest": 47.84,
+            "closing_balance": 8526.72
+          },
+          {
+            "month": 11,
+            "is_moratorium": false,
+            "opening_balance": 8526.72,
+            "emi": 352.47,
+            "principal": 306.28,
+            "interest": 46.19,
+            "closing_balance": 8220.44
+          },
+          {
+            "month": 12,
+            "is_moratorium": false,
+            "opening_balance": 8220.44,
+            "emi": 352.47,
+            "principal": 307.94,
+            "interest": 44.53,
+            "closing_balance": 7912.5
+          },
+          {
+            "month": 13,
+            "is_moratorium": false,
+            "opening_balance": 7912.5,
+            "emi": 352.47,
+            "principal": 309.61,
+            "interest": 42.86,
+            "closing_balance": 7602.89
+          },
+          {
+            "month": 14,
+            "is_moratorium": false,
+            "opening_balance": 7602.89,
+            "emi": 352.47,
+            "principal": 311.29,
+            "interest": 41.18,
+            "closing_balance": 7291.6
+          },
+          {
+            "month": 15,
+            "is_moratorium": false,
+            "opening_balance": 7291.6,
+            "emi": 352.47,
+            "principal": 312.97,
+            "interest": 39.5,
+            "closing_balance": 6978.63
+          },
+          {
+            "month": 16,
+            "is_moratorium": false,
+            "opening_balance": 6978.63,
+            "emi": 352.47,
+            "principal": 314.67,
+            "interest": 37.8,
+            "closing_balance": 6663.96
+          },
+          {
+            "month": 17,
+            "is_moratorium": false,
+            "opening_balance": 6663.96,
+            "emi": 352.47,
+            "principal": 316.37,
+            "interest": 36.1,
+            "closing_balance": 6347.59
+          },
+          {
+            "month": 18,
+            "is_moratorium": false,
+            "opening_balance": 6347.59,
+            "emi": 352.47,
+            "principal": 318.09,
+            "interest": 34.38,
+            "closing_balance": 6029.5
+          },
+          {
+            "month": 19,
+            "is_moratorium": false,
+            "opening_balance": 6029.5,
+            "emi": 352.47,
+            "principal": 319.81,
+            "interest": 32.66,
+            "closing_balance": 5709.69
+          },
+          {
+            "month": 20,
+            "is_moratorium": false,
+            "opening_balance": 5709.69,
+            "emi": 352.47,
+            "principal": 321.54,
+            "interest": 30.93,
+            "closing_balance": 5388.15
+          },
+          {
+            "month": 21,
+            "is_moratorium": false,
+            "opening_balance": 5388.15,
+            "emi": 352.47,
+            "principal": 323.28,
+            "interest": 29.19,
+            "closing_balance": 5064.87
+          },
+          {
+            "month": 22,
+            "is_moratorium": false,
+            "opening_balance": 5064.87,
+            "emi": 352.47,
+            "principal": 325.04,
+            "interest": 27.43,
+            "closing_balance": 4739.83
+          },
+          {
+            "month": 23,
+            "is_moratorium": false,
+            "opening_balance": 4739.83,
+            "emi": 352.47,
+            "principal": 326.8,
+            "interest": 25.67,
+            "closing_balance": 4413.03
+          },
+          {
+            "month": 24,
+            "is_moratorium": false,
+            "opening_balance": 4413.03,
+            "emi": 352.47,
+            "principal": 328.57,
+            "interest": 23.9,
+            "closing_balance": 4084.46
+          },
+          {
+            "month": 25,
+            "is_moratorium": false,
+            "opening_balance": 4084.46,
+            "emi": 352.47,
+            "principal": 330.35,
+            "interest": 22.12,
+            "closing_balance": 3754.11
+          },
+          {
+            "month": 26,
+            "is_moratorium": false,
+            "opening_balance": 3754.11,
+            "emi": 352.47,
+            "principal": 332.14,
+            "interest": 20.33,
+            "closing_balance": 3421.97
+          },
+          {
+            "month": 27,
+            "is_moratorium": false,
+            "opening_balance": 3421.97,
+            "emi": 352.47,
+            "principal": 333.93,
+            "interest": 18.54,
+            "closing_balance": 3088.04
+          },
+          {
+            "month": 28,
+            "is_moratorium": false,
+            "opening_balance": 3088.04,
+            "emi": 352.47,
+            "principal": 335.74,
+            "interest": 16.73,
+            "closing_balance": 2752.3
+          },
+          {
+            "month": 29,
+            "is_moratorium": false,
+            "opening_balance": 2752.3,
+            "emi": 352.47,
+            "principal": 337.56,
+            "interest": 14.91,
+            "closing_balance": 2414.74
+          },
+          {
+            "month": 30,
+            "is_moratorium": false,
+            "opening_balance": 2414.74,
+            "emi": 352.47,
+            "principal": 339.39,
+            "interest": 13.08,
+            "closing_balance": 2075.35
+          },
+          {
+            "month": 31,
+            "is_moratorium": false,
+            "opening_balance": 2075.35,
+            "emi": 352.47,
+            "principal": 341.23,
+            "interest": 11.24,
+            "closing_balance": 1734.12
+          },
+          {
+            "month": 32,
+            "is_moratorium": false,
+            "opening_balance": 1734.12,
+            "emi": 352.47,
+            "principal": 343.08,
+            "interest": 9.39,
+            "closing_balance": 1391.04
+          },
+          {
+            "month": 33,
+            "is_moratorium": false,
+            "opening_balance": 1391.04,
+            "emi": 352.47,
+            "principal": 344.94,
+            "interest": 7.53,
+            "closing_balance": 1046.1
+          },
+          {
+            "month": 34,
+            "is_moratorium": false,
+            "opening_balance": 1046.1,
+            "emi": 352.47,
+            "principal": 346.8,
+            "interest": 5.67,
+            "closing_balance": 699.3
+          },
+          {
+            "month": 35,
+            "is_moratorium": false,
+            "opening_balance": 699.3,
+            "emi": 352.47,
+            "principal": 348.68,
+            "interest": 3.79,
+            "closing_balance": 350.62
+          },
+          {
+            "month": 36,
+            "is_moratorium": false,
+            "opening_balance": 350.62,
+            "emi": 352.52,
+            "principal": 350.62,
+            "interest": 1.9,
+            "closing_balance": 0.0
+          }
+        ]
+      },
+      "disclosure": "Statutory rule check based on official MoSJE & NBCFDC guidelines. Qualification is deterministic and auditable."
+    },
+    "sources_and_confidence": {
+      "population_data": "Estimated from Census & Village Directory [2021-24 Projection]",
+      "scheme_rules": "MoSJE Policy Gazette 2024 [Verified]",
+      "competitor_data": "District Enterprise Survey [Verified / 2 Records Found]",
+      "pricing_data": "District Milk Producers Union Mandi Report [Verified]"
+    },
+    "download_report_url": "/api/v1/reports/demo-dairy-assessment-101/pdf"
+  },
+  "asm-92004ff1": {
+    "id": "asm-92004ff1",
+    "title": "Digital / CSC / Online Services in Sindri",
+    "created_at": "2026-09-13T13:04:12.666544+00:00",
+    "status": "COMPLETED",
+    "user_inputs": {
+      "title": null,
+      "location": {
+        "state": "Jharkhand",
+        "district": "Dhanbad",
+        "block": "Baliapur",
+        "village": "Sindri",
+        "latitude": 23.652869,
+        "longitude": 86.477762
+      },
+      "margin_capital": "100",
+      "own_capital": null,
+      "entrepreneur_name": "Rural Entrepreneur",
+      "prior_experience": false,
+      "annual_household_income": "120000",
+      "social_category": "OBC",
+      "existing_investment": "0",
+      "existing_loans": "0",
+      "expected_monthly_income": null,
+      "business_category": "Digital / CSC / Online Services",
+      "business_subcategory": "Common Service Center (CSC)",
+      "experience_years": 0,
+      "land_available": true,
+      "water_available": true,
+      "electricity_available": true,
+      "transport_available": true,
+      "storage_available": false,
+      "primary_customers": null,
+      "sales_channels": null
+    },
+    "financial_summary": {
+      "margin_capital": "100.00",
+      "project_cost": "1000.00",
+      "calculated_financing": "900.00",
+      "financing_percentage": "90.0",
+      "margin_percentage": "10.0",
+      "formatted_project_cost": "\u20b91,000.00",
+      "formatted_calculated_financing": "\u20b9900.00",
+      "formatted_margin_capital": "\u20b9100.00"
+    },
+    "scheme_recommendation": {
+      "eligible": true,
+      "scheme_code": "MOSJE_MICRO_FINANCE",
+      "scheme_name": "MoSJE / NBCFDC Micro Finance Scheme",
+      "scheme_version_id": null,
+      "project_cost": "1000.00",
+      "calculated_financing": "900.00",
+      "actual_eligible_financing": "900.00",
+      "interest_rate": "6.50",
+      "tenure_months": 36,
+      "moratorium_months": 3,
+      "moratorium_interest_policy": "accrued",
+      "source_document": "MoSJE NBCFDC Micro Finance Guidelines 2024",
+      "effective_from": "2024-04-01",
+      "last_verified_at": "2024-10-15",
+      "notes": [
+        "Project qualifies for full 90% financing under MoSJE / NBCFDC Micro Finance Scheme."
+      ]
+    },
+    "feasibility_score": {
+      "market_demand_score": 75.0,
+      "competition_score": 92.0,
+      "capital_adequacy_score": 60.0,
+      "profit_potential_score": 82.0,
+      "risk_score": 65.0,
+      "infrastructure_score": 80.0,
+      "overall_score": 59.2,
+      "category_label": "Good",
+      "viability_probability": 0.59,
+      "viability_class": "Viable",
+      "model_architecture": "Model 1 Random Forest Classifier + SHAP Attribution Pipeline",
+      "shap_feature_attributions": [
+        {
+          "feature_name": "Village Population (8,420 residents)",
+          "feature_group": "Demographics",
+          "attribution_value": 0.18,
+          "impact_description": "Substantial local consumer base supporting daily rural sales volume."
+        },
+        {
+          "feature_name": "Competitor Density (0 within 5km)",
+          "feature_group": "Competition",
+          "attribution_value": 0.22,
+          "impact_description": "Room for new entrant without aggressive price-undercutting."
+        },
+        {
+          "feature_name": "Margin Capital Buffer (\u20b9100)",
+          "feature_group": "Finance",
+          "attribution_value": -0.15,
+          "impact_description": "Adequate promoter equity to absorb initial setup and ramp-up."
+        },
+        {
+          "feature_name": "Market Access Distance (4.5 km)",
+          "feature_group": "Market access",
+          "attribution_value": 0.12,
+          "impact_description": "Convenient access to regional market for procurement."
+        },
+        {
+          "feature_name": "Key ML Factors (local_demand_index, target_population, own_capital_inr)",
+          "feature_group": "ML Feature Importances",
+          "attribution_value": 0.15,
+          "impact_description": "Top driving features verified by Model 1 Random Forest."
+        }
+      ],
+      "disclaimer": "Model 1 Viability Estimate: Generated via feature pipeline combining Census demographics, AGMARKNET prices, and OSM spatial saturation. Explainability verified via SHAP attributions."
+    },
+    "swot": {
+      "strengths": [
+        "Strong overall feasibility (60.0/100) and viable local opportunity.",
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Low competitor saturation (0 units within 5km) leaves market share open"
+      ],
+      "weaknesses": [
+        "Modest equity buffer (\u20b9100) requires tight debt management",
+        "First-time business operator; vocational / KVK training recommended",
+        "Initial working-capital liquidity buffer required during gestation period."
+      ],
+      "opportunities": [
+        "Model 2 Forecast: Downward pricing trend (Promotional Discounting) supports healthy revenue potential.",
+        "Expanded catchment area reaching 8.4 km across neighboring village haats.",
+        "MoSJE / NBCFDC concessional refinance rates (6.5% - 8.0% p.a.) with upfront moratorium."
+      ],
+      "threats": [
+        "Market-Price Volatility & spot rate fluctuation",
+        "Execution setbacks due to technical domain learning curve",
+        "Initial cash flow strain or debt servicing pressure",
+        "High price volatility (80.0%) in Banking/Aadhaar market."
+      ]
+    },
+    "risks": [
+      {
+        "dimension": "Market-price",
+        "category": "Market-Price Volatility Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Moderate",
+        "description": "Probability of adverse spot-price fluctuation and mandi procurement rate volatility.",
+        "potential_features": [
+          "Historical price volatility (NSSO/Agmarknet)",
+          "Perishability index",
+          "Storage shelf-life"
+        ],
+        "mitigation_strategy": "Establish fixed-price milk cooperative procurement or value-added processing (Paneer/Curd)."
+      },
+      {
+        "dimension": "Demand",
+        "category": "Local Market Demand & Saturation Risk",
+        "risk_score": 30,
+        "probability": 0.3,
+        "severity_level": "Low",
+        "description": "Likelihood of market saturation or insufficient local consumer purchasing capacity.",
+        "potential_features": [
+          "Competitor density within 5km",
+          "Block population density",
+          "Household income index"
+        ],
+        "mitigation_strategy": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+      },
+      {
+        "dimension": "Supply-chain",
+        "category": "Input & Logistics Supply Chain Risk",
+        "risk_score": 28,
+        "probability": 0.28,
+        "severity_level": "Low",
+        "description": "Risk of input supply disruptions, livestock feed inflation, or transport bottlenecks.",
+        "potential_features": [
+          "Paved road connectivity",
+          "Distance to raw material mandi",
+          "Feed supplier concentration"
+        ],
+        "mitigation_strategy": "Form raw-material purchasing collective with neighboring producers to hedge logistics costs."
+      },
+      {
+        "dimension": "Infrastructure",
+        "category": "Utilities & Processing Infrastructure Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Low",
+        "description": "Probability of yield disruption caused by power outages or water shortage.",
+        "potential_features": [
+          "Daily power availability hours",
+          "Borewell groundwater depth",
+          "Cold-chain infrastructure presence"
+        ],
+        "mitigation_strategy": "Install solar-powered backup lighting/aeration and rainwater harvesting recharge pits."
+      },
+      {
+        "dimension": "Financial",
+        "category": "Liquidity & Debt Service Risk",
+        "risk_score": 70,
+        "probability": 0.7,
+        "severity_level": "High",
+        "description": "Probability of debt delinquency or cash flow shortfall during initial 3-6 months ramp-up.",
+        "potential_features": [
+          "Capital margin adequacy ratio",
+          "Estimated DSCR ratio",
+          "Working capital reserve buffer"
+        ],
+        "mitigation_strategy": "Utilize 6-month MoSJE loan moratorium to reinvest operating revenues into reserves."
+      },
+      {
+        "dimension": "Operational",
+        "category": "Execution & Operational Complexity Risk",
+        "risk_score": 68,
+        "probability": 0.68,
+        "severity_level": "Moderate",
+        "description": "Probability of operational setbacks due to lack of domain technical training or animal disease.",
+        "potential_features": [
+          "Years of domain experience",
+          "Enterprise operational complexity",
+          "Access to veterinary care"
+        ],
+        "mitigation_strategy": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+      }
+    ],
+    "competitors_5km": [],
+    "competitors_10km": [],
+    "pricing_data": [],
+    "ai_strategy": {
+      "executive_summary": "Strategic roadmap for establishing a resilient, profitable rural Digital / CSC / Online Services micro-enterprise.",
+      "operational_milestones": [
+        "Month 1-2: Shed setup, machinery procurement, and power connection.",
+        "Month 3: Trial production, local vendor onboarding, and MoSJE loan disbursement.",
+        "Month 4+: Full commercial operations reaching break-even volume."
+      ],
+      "risk_mitigation": "Maintain a minimum 45-day operating cash buffer and secure livestock insurance coverage."
+    },
+    "model1_prediction": {
+      "business_category": "Digital / CSC / Online Services",
+      "feasibility_label": 1,
+      "feasibility_score": 60.0,
+      "viability_probability": 0.6,
+      "success_probability": 0.6,
+      "opportunity_class": "Good",
+      "market_reach_km": 8.4,
+      "competitor_density": {
+        "competitors_1km": 0,
+        "competitors_5km": 0,
+        "competitors_10km": 0,
+        "local_competition_index": 0.0,
+        "density_level": "Low"
+      },
+      "underserved_opportunity": {
+        "is_underserved": true,
+        "summary": "Local population demand index significantly exceeds existing mapped saturation."
+      },
+      "positive_factors": [
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Low competitor saturation (0 units within 5km) leaves market share open",
+        "All-weather road connectivity enables reliable supply logistics"
+      ],
+      "negative_factors": [
+        "Modest equity buffer (\u20b9100) requires tight debt management",
+        "First-time business operator; vocational / KVK training recommended"
+      ],
+      "top_factors": [
+        "local_demand_index",
+        "target_population",
+        "own_capital_inr",
+        "nearby_population",
+        "road_available"
+      ]
+    },
+    "model2_forecast": {
+      "business_category": "Digital / CSC / Online Services",
+      "commodity_or_service": "Banking/Aadhaar",
+      "unit": "INR/Transaction",
+      "current_price": 56.6,
+      "price_next_1m": 56.27,
+      "price_next_3m": 55.99,
+      "price_next_6m": 57.33,
+      "demand_next_1m": 136.75,
+      "demand_next_3m": 137.5,
+      "price_trend": "Downward",
+      "price_volatility": 0.8,
+      "price_volatility_3m": 0.8,
+      "uncertainty_interval": {
+        "price_next_1m": {
+          "lower_bound": 31.06,
+          "upper_bound": 81.48
+        },
+        "price_next_3m": {
+          "lower_bound": 23.85,
+          "upper_bound": 88.13
+        },
+        "price_next_6m": {
+          "lower_bound": 18.0,
+          "upper_bound": 96.66
+        }
+      },
+      "pricing_recommendation": "Promotional Discounting",
+      "expected_monthly_revenue": 26932.23
+    },
+    "model3_risk": {
+      "business_category": "Digital / CSC / Online Services",
+      "risk_label": 1,
+      "risk_score": 51.0,
+      "risk_level": "Medium",
+      "risk_probability": 0.51,
+      "top_factors": [
+        "demand_trend",
+        "monthly_revenue_estimate_inr",
+        "price_volatility",
+        "supply_chain_reliability",
+        "competitors_5km"
+      ],
+      "dimensional_risks": {
+        "market_risk": {
+          "dimension": "Market-Price Risk",
+          "score": 95,
+          "level": "High",
+          "probability": 0.95,
+          "description": "Spot-price volatility (80.0%) and mandi procurement rate swings.",
+          "mitigation": "Establish institutional supply contracts or forward-procurement pricing agreements."
+        },
+        "demand_seasonal_risk": {
+          "dimension": "Demand & Seasonal Risk",
+          "score": 30,
+          "level": "Low",
+          "probability": 0.3,
+          "description": "Seasonal demand cyclicality and local competition from 0 units.",
+          "mitigation": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+        },
+        "supply_chain_risk": {
+          "dimension": "Supply-Chain Risk",
+          "score": 25,
+          "level": "Low",
+          "probability": 0.25,
+          "description": "Feed, raw-material input availability, and all-weather transport connectivity.",
+          "mitigation": "Form raw-material purchasing collective with neighboring village producers."
+        },
+        "infrastructure_risk": {
+          "dimension": "Infrastructure Risk",
+          "score": 20,
+          "level": "Low",
+          "probability": 0.2,
+          "description": "Reliability of grid power, water availability, and cold storage preservation.",
+          "mitigation": "Install solar-powered backup lighting/aeration and rainwater storage."
+        },
+        "financial_risk": {
+          "dimension": "Financial & Debt Service Risk",
+          "score": 45,
+          "level": "Moderate",
+          "probability": 0.45,
+          "description": "Liquidity buffer and cash surplus sufficiency (Profit margin: 65.8%).",
+          "mitigation": "Utilize official loan moratorium period to build 45-day operating cash buffer."
+        },
+        "operational_risk": {
+          "dimension": "Operational Complexity Risk",
+          "score": 65,
+          "level": "High",
+          "probability": 0.65,
+          "description": "Execution capability, technical equipment maintenance, and domain experience.",
+          "mitigation": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+        }
+      },
+      "major_threats": [
+        "Market-Price Volatility & spot rate fluctuation",
+        "Execution setbacks due to technical domain learning curve",
+        "Initial cash flow strain or debt servicing pressure"
+      ]
+    },
+    "model4_advisory": {
+      "business_category": "Digital / CSC / Online Services",
+      "state": "Jharkhand",
+      "estimated_project_cost": 55312,
+      "own_capital": 100.0,
+      "loan_amount_needed": 55212.0,
+      "expected_monthly_revenue": 26932.23,
+      "expected_operating_cost": 9200.0,
+      "loan_required": true,
+      "recommended_scheme": {
+        "name": "MoSJE / NBCFDC Micro Finance Scheme",
+        "interest_rate": 6.5,
+        "interest_rate_type": "Fixed Concessional",
+        "tenure_months": 36,
+        "moratorium_months": 3,
+        "subsidy_type": "Direct Concessional Refinance",
+        "subsidy_pct": 0.0,
+        "eligibility_notes": "Ideal for rural micro-enterprises. 90% loan component with 10% promoter contribution.",
+        "required_documents": [
+          "Aadhaar Card",
+          "Bank Passbook",
+          "Income / Caste Self-declaration"
+        ],
+        "official_source": "https://nbcfdc.gov.in/schemes/micro-finance"
+      },
+      "alternative_schemes": [
+        {
+          "name": "MoSJE / NBCFDC Term Loan Scheme",
+          "interest_rate": 8.0,
+          "subsidy_pct": null
+        },
+        {
+          "name": "PMEGP Rural Enterprise Scheme",
+          "interest_rate": 8.5,
+          "subsidy_pct": 35.0
+        }
+      ],
+      "repayment_advice": {
+        "potential_monthly_profit": 17732.23,
+        "emi": 1831.59,
+        "can_afford_emi": true,
+        "surplus_after_emi": 15900.64,
+        "estimated_payoff_months": 36,
+        "total_interest_paid": 6127.68,
+        "repayment_schedule": [
+          {
+            "month": 1,
+            "is_moratorium": true,
+            "opening_balance": 55212.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 299.06,
+            "closing_balance": 55212.0
+          },
+          {
+            "month": 2,
+            "is_moratorium": true,
+            "opening_balance": 55212.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 299.06,
+            "closing_balance": 55212.0
+          },
+          {
+            "month": 3,
+            "is_moratorium": true,
+            "opening_balance": 55212.0,
+            "emi": 0.0,
+            "principal": 0.0,
+            "interest": 299.06,
+            "closing_balance": 55212.0
+          },
+          {
+            "month": 4,
+            "is_moratorium": false,
+            "opening_balance": 55212.0,
+            "emi": 1831.59,
+            "principal": 1532.53,
+            "interest": 299.06,
+            "closing_balance": 53679.47
+          },
+          {
+            "month": 5,
+            "is_moratorium": false,
+            "opening_balance": 53679.47,
+            "emi": 1831.59,
+            "principal": 1540.83,
+            "interest": 290.76,
+            "closing_balance": 52138.64
+          },
+          {
+            "month": 6,
+            "is_moratorium": false,
+            "opening_balance": 52138.64,
+            "emi": 1831.59,
+            "principal": 1549.17,
+            "interest": 282.42,
+            "closing_balance": 50589.47
+          },
+          {
+            "month": 7,
+            "is_moratorium": false,
+            "opening_balance": 50589.47,
+            "emi": 1831.59,
+            "principal": 1557.56,
+            "interest": 274.03,
+            "closing_balance": 49031.91
+          },
+          {
+            "month": 8,
+            "is_moratorium": false,
+            "opening_balance": 49031.91,
+            "emi": 1831.59,
+            "principal": 1566.0,
+            "interest": 265.59,
+            "closing_balance": 47465.91
+          },
+          {
+            "month": 9,
+            "is_moratorium": false,
+            "opening_balance": 47465.91,
+            "emi": 1831.59,
+            "principal": 1574.48,
+            "interest": 257.11,
+            "closing_balance": 45891.43
+          },
+          {
+            "month": 10,
+            "is_moratorium": false,
+            "opening_balance": 45891.43,
+            "emi": 1831.59,
+            "principal": 1583.01,
+            "interest": 248.58,
+            "closing_balance": 44308.42
+          },
+          {
+            "month": 11,
+            "is_moratorium": false,
+            "opening_balance": 44308.42,
+            "emi": 1831.59,
+            "principal": 1591.59,
+            "interest": 240.0,
+            "closing_balance": 42716.83
+          },
+          {
+            "month": 12,
+            "is_moratorium": false,
+            "opening_balance": 42716.83,
+            "emi": 1831.59,
+            "principal": 1600.21,
+            "interest": 231.38,
+            "closing_balance": 41116.62
+          },
+          {
+            "month": 13,
+            "is_moratorium": false,
+            "opening_balance": 41116.62,
+            "emi": 1831.59,
+            "principal": 1608.87,
+            "interest": 222.72,
+            "closing_balance": 39507.75
+          },
+          {
+            "month": 14,
+            "is_moratorium": false,
+            "opening_balance": 39507.75,
+            "emi": 1831.59,
+            "principal": 1617.59,
+            "interest": 214.0,
+            "closing_balance": 37890.16
+          },
+          {
+            "month": 15,
+            "is_moratorium": false,
+            "opening_balance": 37890.16,
+            "emi": 1831.59,
+            "principal": 1626.35,
+            "interest": 205.24,
+            "closing_balance": 36263.81
+          },
+          {
+            "month": 16,
+            "is_moratorium": false,
+            "opening_balance": 36263.81,
+            "emi": 1831.59,
+            "principal": 1635.16,
+            "interest": 196.43,
+            "closing_balance": 34628.65
+          },
+          {
+            "month": 17,
+            "is_moratorium": false,
+            "opening_balance": 34628.65,
+            "emi": 1831.59,
+            "principal": 1644.02,
+            "interest": 187.57,
+            "closing_balance": 32984.63
+          },
+          {
+            "month": 18,
+            "is_moratorium": false,
+            "opening_balance": 32984.63,
+            "emi": 1831.59,
+            "principal": 1652.92,
+            "interest": 178.67,
+            "closing_balance": 31331.71
+          },
+          {
+            "month": 19,
+            "is_moratorium": false,
+            "opening_balance": 31331.71,
+            "emi": 1831.59,
+            "principal": 1661.88,
+            "interest": 169.71,
+            "closing_balance": 29669.83
+          },
+          {
+            "month": 20,
+            "is_moratorium": false,
+            "opening_balance": 29669.83,
+            "emi": 1831.59,
+            "principal": 1670.88,
+            "interest": 160.71,
+            "closing_balance": 27998.95
+          },
+          {
+            "month": 21,
+            "is_moratorium": false,
+            "opening_balance": 27998.95,
+            "emi": 1831.59,
+            "principal": 1679.93,
+            "interest": 151.66,
+            "closing_balance": 26319.02
+          },
+          {
+            "month": 22,
+            "is_moratorium": false,
+            "opening_balance": 26319.02,
+            "emi": 1831.59,
+            "principal": 1689.03,
+            "interest": 142.56,
+            "closing_balance": 24629.99
+          },
+          {
+            "month": 23,
+            "is_moratorium": false,
+            "opening_balance": 24629.99,
+            "emi": 1831.59,
+            "principal": 1698.18,
+            "interest": 133.41,
+            "closing_balance": 22931.81
+          },
+          {
+            "month": 24,
+            "is_moratorium": false,
+            "opening_balance": 22931.81,
+            "emi": 1831.59,
+            "principal": 1707.38,
+            "interest": 124.21,
+            "closing_balance": 21224.43
+          },
+          {
+            "month": 25,
+            "is_moratorium": false,
+            "opening_balance": 21224.43,
+            "emi": 1831.59,
+            "principal": 1716.62,
+            "interest": 114.97,
+            "closing_balance": 19507.81
+          },
+          {
+            "month": 26,
+            "is_moratorium": false,
+            "opening_balance": 19507.81,
+            "emi": 1831.59,
+            "principal": 1725.92,
+            "interest": 105.67,
+            "closing_balance": 17781.89
+          },
+          {
+            "month": 27,
+            "is_moratorium": false,
+            "opening_balance": 17781.89,
+            "emi": 1831.59,
+            "principal": 1735.27,
+            "interest": 96.32,
+            "closing_balance": 16046.62
+          },
+          {
+            "month": 28,
+            "is_moratorium": false,
+            "opening_balance": 16046.62,
+            "emi": 1831.59,
+            "principal": 1744.67,
+            "interest": 86.92,
+            "closing_balance": 14301.95
+          },
+          {
+            "month": 29,
+            "is_moratorium": false,
+            "opening_balance": 14301.95,
+            "emi": 1831.59,
+            "principal": 1754.12,
+            "interest": 77.47,
+            "closing_balance": 12547.83
+          },
+          {
+            "month": 30,
+            "is_moratorium": false,
+            "opening_balance": 12547.83,
+            "emi": 1831.59,
+            "principal": 1763.62,
+            "interest": 67.97,
+            "closing_balance": 10784.21
+          },
+          {
+            "month": 31,
+            "is_moratorium": false,
+            "opening_balance": 10784.21,
+            "emi": 1831.59,
+            "principal": 1773.18,
+            "interest": 58.41,
+            "closing_balance": 9011.03
+          },
+          {
+            "month": 32,
+            "is_moratorium": false,
+            "opening_balance": 9011.03,
+            "emi": 1831.59,
+            "principal": 1782.78,
+            "interest": 48.81,
+            "closing_balance": 7228.25
+          },
+          {
+            "month": 33,
+            "is_moratorium": false,
+            "opening_balance": 7228.25,
+            "emi": 1831.59,
+            "principal": 1792.44,
+            "interest": 39.15,
+            "closing_balance": 5435.81
+          },
+          {
+            "month": 34,
+            "is_moratorium": false,
+            "opening_balance": 5435.81,
+            "emi": 1831.59,
+            "principal": 1802.15,
+            "interest": 29.44,
+            "closing_balance": 3633.66
+          },
+          {
+            "month": 35,
+            "is_moratorium": false,
+            "opening_balance": 3633.66,
+            "emi": 1831.59,
+            "principal": 1811.91,
+            "interest": 19.68,
+            "closing_balance": 1821.75
+          },
+          {
+            "month": 36,
+            "is_moratorium": false,
+            "opening_balance": 1821.75,
+            "emi": 1831.62,
+            "principal": 1821.75,
+            "interest": 9.87,
+            "closing_balance": 0.0
+          }
+        ]
+      },
+      "disclosure": "Statutory rule check based on official MoSJE & NBCFDC guidelines. Qualification is deterministic and auditable."
+    },
+    "sources_and_confidence": {
+      "population_data": "Estimated from Census & Panchayat Registry",
+      "scheme_rules": "MoSJE Policy Guideline 2024 [Verified]",
+      "competitor_data": "0 local commercial points identified [Verified]",
+      "pricing_data": "District Mandi & Haat Benchmarks [Verified / Estimated]"
+    },
+    "download_report_url": "/api/v1/reports/asm-92004ff1/pdf"
+  },
+  "asm-b43f649d": {
+    "id": "asm-b43f649d",
+    "title": "Poultry & Egg Production in Pratappur",
+    "created_at": "2026-09-13T13:12:46.838258+00:00",
+    "status": "COMPLETED",
+    "user_inputs": {
+      "title": null,
+      "location": {
+        "state": "Jharkhand",
+        "district": "Dhanbad",
+        "block": "Govindpur",
+        "village": "Pratappur",
+        "latitude": 23.834,
+        "longitude": 86.521
+      },
+      "margin_capital": "100000",
+      "own_capital": null,
+      "entrepreneur_name": "Rural Entrepreneur",
+      "prior_experience": false,
+      "annual_household_income": "120000",
+      "social_category": "OBC",
+      "existing_investment": "0",
+      "existing_loans": "0",
+      "expected_monthly_income": null,
+      "business_category": "Poultry & Egg Production",
+      "business_subcategory": "Broiler Unit (1000 birds)",
+      "experience_years": 0,
+      "land_available": true,
+      "water_available": true,
+      "electricity_available": true,
+      "transport_available": true,
+      "storage_available": false,
+      "primary_customers": null,
+      "sales_channels": null
+    },
+    "financial_summary": {
+      "margin_capital": "100000.00",
+      "project_cost": "1000000.00",
+      "calculated_financing": "900000.00",
+      "financing_percentage": "90.0",
+      "margin_percentage": "10.0",
+      "formatted_project_cost": "\u20b910,00,000.00",
+      "formatted_calculated_financing": "\u20b99,00,000.00",
+      "formatted_margin_capital": "\u20b91,00,000.00"
+    },
+    "scheme_recommendation": {
+      "eligible": true,
+      "scheme_code": "MOSJE_TERM_LOAN",
+      "scheme_name": "MoSJE / NBCFDC Term Loan Scheme",
+      "scheme_version_id": null,
+      "project_cost": "1000000.00",
+      "calculated_financing": "900000.00",
+      "actual_eligible_financing": "900000.00",
+      "interest_rate": "8.00",
+      "tenure_months": 84,
+      "moratorium_months": 6,
+      "moratorium_interest_policy": "accrued",
+      "source_document": "MoSJE Term Loan Assistance Policy Vol-II 2024",
+      "effective_from": "2024-04-01",
+      "last_verified_at": "2024-10-15",
+      "notes": [
+        "Project qualifies for full 90% financing under MoSJE / NBCFDC Term Loan Scheme."
+      ]
+    },
+    "feasibility_score": {
+      "market_demand_score": 75.0,
+      "competition_score": 92.0,
+      "capital_adequacy_score": 92.0,
+      "profit_potential_score": 82.0,
+      "risk_score": 65.0,
+      "infrastructure_score": 80.0,
+      "overall_score": 65.3,
+      "category_label": "Good",
+      "viability_probability": 0.65,
+      "viability_class": "Viable",
+      "model_architecture": "Model 1 Random Forest Classifier + SHAP Attribution Pipeline",
+      "shap_feature_attributions": [
+        {
+          "feature_name": "Village Population (8,420 residents)",
+          "feature_group": "Demographics",
+          "attribution_value": 0.18,
+          "impact_description": "Substantial local consumer base supporting daily rural sales volume."
+        },
+        {
+          "feature_name": "Competitor Density (0 within 5km)",
+          "feature_group": "Competition",
+          "attribution_value": 0.22,
+          "impact_description": "Room for new entrant without aggressive price-undercutting."
+        },
+        {
+          "feature_name": "Margin Capital Buffer (\u20b9100,000)",
+          "feature_group": "Finance",
+          "attribution_value": 0.25,
+          "impact_description": "Adequate promoter equity to absorb initial setup and ramp-up."
+        },
+        {
+          "feature_name": "Market Access Distance (4.5 km)",
+          "feature_group": "Market access",
+          "attribution_value": 0.12,
+          "impact_description": "Convenient access to regional market for procurement."
+        },
+        {
+          "feature_name": "Key ML Factors (local_demand_index, target_population, own_capital_inr)",
+          "feature_group": "ML Feature Importances",
+          "attribution_value": 0.15,
+          "impact_description": "Top driving features verified by Model 1 Random Forest."
+        }
+      ],
+      "disclaimer": "Model 1 Viability Estimate: Generated via feature pipeline combining Census demographics, AGMARKNET prices, and OSM spatial saturation. Explainability verified via SHAP attributions."
+    },
+    "swot": {
+      "strengths": [
+        "Strong overall feasibility (65.8/100) and viable local opportunity.",
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Strong promoter equity margin (\u20b9100,000) covers setup contribution"
+      ],
+      "weaknesses": [
+        "First-time business operator; vocational / KVK training recommended",
+        "Initial working-capital liquidity buffer required during gestation period."
+      ],
+      "opportunities": [
+        "Model 2 Forecast: Downward pricing trend (Promotional Discounting) supports healthy revenue potential.",
+        "Expanded catchment area reaching 8.4 km across neighboring village haats.",
+        "MoSJE / NBCFDC concessional refinance rates (6.5% - 8.0% p.a.) with upfront moratorium."
+      ],
+      "threats": [
+        "Execution setbacks due to technical domain learning curve",
+        "Initial cash flow strain or debt servicing pressure",
+        "Market-Price Volatility & spot rate fluctuation",
+        "High price volatility (178.0%) in Broiler Live Bird market."
+      ]
+    },
+    "risks": [
+      {
+        "dimension": "Market-price",
+        "category": "Market-Price Volatility Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Moderate",
+        "description": "Probability of adverse spot-price fluctuation and mandi procurement rate volatility.",
+        "potential_features": [
+          "Historical price volatility (NSSO/Agmarknet)",
+          "Perishability index",
+          "Storage shelf-life"
+        ],
+        "mitigation_strategy": "Establish fixed-price milk cooperative procurement or value-added processing (Paneer/Curd)."
+      },
+      {
+        "dimension": "Demand",
+        "category": "Local Market Demand & Saturation Risk",
+        "risk_score": 30,
+        "probability": 0.3,
+        "severity_level": "Low",
+        "description": "Likelihood of market saturation or insufficient local consumer purchasing capacity.",
+        "potential_features": [
+          "Competitor density within 5km",
+          "Block population density",
+          "Household income index"
+        ],
+        "mitigation_strategy": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+      },
+      {
+        "dimension": "Supply-chain",
+        "category": "Input & Logistics Supply Chain Risk",
+        "risk_score": 28,
+        "probability": 0.28,
+        "severity_level": "Low",
+        "description": "Risk of input supply disruptions, livestock feed inflation, or transport bottlenecks.",
+        "potential_features": [
+          "Paved road connectivity",
+          "Distance to raw material mandi",
+          "Feed supplier concentration"
+        ],
+        "mitigation_strategy": "Form raw-material purchasing collective with neighboring producers to hedge logistics costs."
+      },
+      {
+        "dimension": "Infrastructure",
+        "category": "Utilities & Processing Infrastructure Risk",
+        "risk_score": 35,
+        "probability": 0.35,
+        "severity_level": "Low",
+        "description": "Probability of yield disruption caused by power outages or water shortage.",
+        "potential_features": [
+          "Daily power availability hours",
+          "Borewell groundwater depth",
+          "Cold-chain infrastructure presence"
+        ],
+        "mitigation_strategy": "Install solar-powered backup lighting/aeration and rainwater harvesting recharge pits."
+      },
+      {
+        "dimension": "Financial",
+        "category": "Liquidity & Debt Service Risk",
+        "risk_score": 24,
+        "probability": 0.24,
+        "severity_level": "Low",
+        "description": "Probability of debt delinquency or cash flow shortfall during initial 3-6 months ramp-up.",
+        "potential_features": [
+          "Capital margin adequacy ratio",
+          "Estimated DSCR ratio",
+          "Working capital reserve buffer"
+        ],
+        "mitigation_strategy": "Utilize 6-month MoSJE loan moratorium to reinvest operating revenues into reserves."
+      },
+      {
+        "dimension": "Operational",
+        "category": "Execution & Operational Complexity Risk",
+        "risk_score": 68,
+        "probability": 0.68,
+        "severity_level": "Moderate",
+        "description": "Probability of operational setbacks due to lack of domain technical training or animal disease.",
+        "potential_features": [
+          "Years of domain experience",
+          "Enterprise operational complexity",
+          "Access to veterinary care"
+        ],
+        "mitigation_strategy": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+      }
+    ],
+    "competitors_5km": [],
+    "competitors_10km": [],
+    "pricing_data": [],
+    "ai_strategy": {
+      "executive_summary": "Strategic roadmap for establishing a resilient, profitable rural Poultry & Egg Production micro-enterprise.",
+      "operational_milestones": [
+        "Month 1-2: Shed setup, machinery procurement, and power connection.",
+        "Month 3: Trial production, local vendor onboarding, and MoSJE loan disbursement.",
+        "Month 4+: Full commercial operations reaching break-even volume."
+      ],
+      "risk_mitigation": "Maintain a minimum 45-day operating cash buffer and secure livestock insurance coverage."
+    },
+    "model1_prediction": {
+      "business_category": "Poultry & Egg Production",
+      "feasibility_label": 1,
+      "feasibility_score": 65.8,
+      "viability_probability": 0.66,
+      "success_probability": 0.66,
+      "opportunity_class": "Good",
+      "market_reach_km": 8.4,
+      "competitor_density": {
+        "competitors_1km": 0,
+        "competitors_5km": 0,
+        "competitors_10km": 0,
+        "local_competition_index": 0.0,
+        "density_level": "Low"
+      },
+      "underserved_opportunity": {
+        "is_underserved": true,
+        "summary": "Local population demand index significantly exceeds existing mapped saturation."
+      },
+      "positive_factors": [
+        "Substantial consumer base (8,420 residents) driving high local demand",
+        "Strong promoter equity margin (\u20b9100,000) covers setup contribution",
+        "Low competitor saturation (0 units within 5km) leaves market share open",
+        "All-weather road connectivity enables reliable supply logistics"
+      ],
+      "negative_factors": [
+        "First-time business operator; vocational / KVK training recommended"
+      ],
+      "top_factors": [
+        "local_demand_index",
+        "target_population",
+        "own_capital_inr",
+        "nearby_population",
+        "road_available"
+      ]
+    },
+    "model2_forecast": {
+      "business_category": "Poultry & Egg Production",
+      "commodity_or_service": "Broiler Live Bird",
+      "unit": "INR/Kg",
+      "current_price": 114.55,
+      "price_next_1m": 112.87,
+      "price_next_3m": 112.14,
+      "price_next_6m": 112.99,
+      "demand_next_1m": 160.77,
+      "demand_next_3m": 154.1,
+      "price_trend": "Downward",
+      "price_volatility": 1.78,
+      "price_volatility_3m": 1.78,
+      "uncertainty_interval": {
+        "price_next_1m": {
+          "lower_bound": 87.15,
+          "upper_bound": 138.59
+        },
+        "price_next_3m": {
+          "lower_bound": 79.4,
+          "upper_bound": 144.88
+        },
+        "price_next_6m": {
+          "lower_bound": 73.57,
+          "upper_bound": 152.41
+        }
+      },
+      "pricing_recommendation": "Promotional Discounting",
+      "expected_monthly_revenue": 61696.77
+    },
+    "model3_risk": {
+      "business_category": "Poultry & Egg Production",
+      "risk_label": 0,
+      "risk_score": 2.8,
+      "risk_level": "Low",
+      "risk_probability": 0.03,
+      "top_factors": [
+        "demand_trend",
+        "monthly_revenue_estimate_inr",
+        "price_volatility",
+        "supply_chain_reliability",
+        "competitors_5km"
+      ],
+      "dimensional_risks": {
+        "market_risk": {
+          "dimension": "Market-Price Risk",
+          "score": 31,
+          "level": "Low",
+          "probability": 0.31,
+          "description": "Spot-price volatility (17.8%) and mandi procurement rate swings.",
+          "mitigation": "Establish institutional supply contracts or forward-procurement pricing agreements."
+        },
+        "demand_seasonal_risk": {
+          "dimension": "Demand & Seasonal Risk",
+          "score": 30,
+          "level": "Low",
+          "probability": 0.3,
+          "description": "Seasonal demand cyclicality and local competition from 0 units.",
+          "mitigation": "Diversify distribution across neighboring village weekly haats and institutional buyers."
+        },
+        "supply_chain_risk": {
+          "dimension": "Supply-Chain Risk",
+          "score": 25,
+          "level": "Low",
+          "probability": 0.25,
+          "description": "Feed, raw-material input availability, and all-weather transport connectivity.",
+          "mitigation": "Form raw-material purchasing collective with neighboring village producers."
+        },
+        "infrastructure_risk": {
+          "dimension": "Infrastructure Risk",
+          "score": 20,
+          "level": "Low",
+          "probability": 0.2,
+          "description": "Reliability of grid power, water availability, and cold storage preservation.",
+          "mitigation": "Install solar-powered backup lighting/aeration and rainwater storage."
+        },
+        "financial_risk": {
+          "dimension": "Financial & Debt Service Risk",
+          "score": 35,
+          "level": "Moderate",
+          "probability": 0.35,
+          "description": "Liquidity buffer and cash surplus sufficiency (Profit margin: 40.0%).",
+          "mitigation": "Utilize official loan moratorium period to build 45-day operating cash buffer."
+        },
+        "operational_risk": {
+          "dimension": "Operational Complexity Risk",
+          "score": 65,
+          "level": "High",
+          "probability": 0.65,
+          "description": "Execution capability, technical equipment maintenance, and domain experience.",
+          "mitigation": "Enroll in Krishi Vigyan Kendra (KVK) / RSETI technical skill certification program."
+        }
+      },
+      "major_threats": [
+        "Execution setbacks due to technical domain learning curve",
+        "Initial cash flow strain or debt servicing pressure",
+        "Market-Price Volatility & spot rate fluctuation"
+      ]
+    },
+    "model4_advisory": {
+      "business_category": "Poultry & Egg Production",
+      "state": "Jharkhand",
+      "estimated_project_cost": 89375,
+      "own_capital": 100000.0,
+      "loan_amount_needed": 0.0,
+      "expected_monthly_revenue": 61696.77,
+      "expected_operating_cost": 37000.0,
+      "loan_required": false,
+      "message": "Own capital covers the entire estimated project setup cost. No institutional credit required.",
+      "potential_monthly_profit": 24696.77
+    },
+    "sources_and_confidence": {
+      "population_data": "Estimated from Census & Panchayat Registry",
+      "scheme_rules": "MoSJE Policy Guideline 2024 [Verified]",
+      "competitor_data": "0 local commercial points identified [Verified]",
+      "pricing_data": "District Mandi & Haat Benchmarks [Verified / Estimated]"
+    },
+    "download_report_url": "/api/v1/reports/asm-b43f649d/pdf"
+  }
+}

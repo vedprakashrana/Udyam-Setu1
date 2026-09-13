@@ -13,15 +13,32 @@ class MongoDB:
 db = MongoDB()
 
 async def connect_to_mongo():
-    """Connect to MongoDB on startup."""
-    mongo_url = getattr(settings, "MONGODB_URL", os.getenv("MONGODB_URL", "mongodb://localhost:27017"))
+    """Connect to MongoDB on startup with active ping and fallback."""
+    mongo_url = getattr(settings, "MONGODB_URL", os.getenv("MONGODB_URL", "mongodb://127.0.0.1:27017/grambiz_ai"))
     db_name = getattr(settings, "MONGODB_DB_NAME", os.getenv("MONGODB_DB_NAME", "grambiz_ai"))
+    
+    # 1. Try configured URL
     try:
-        db.client = AsyncIOMotorClient(mongo_url)
-        db.db = db.client[db_name]
-        logger.info(f"Connected to MongoDB database: {db_name}")
+        client = AsyncIOMotorClient(mongo_url, serverSelectionTimeoutMS=3000)
+        await client.admin.command("ping")
+        db.client = client
+        db.db = client[db_name]
+        logger.info(f"Successfully connected to MongoDB ({mongo_url}) database: {db_name}")
+        return
     except Exception as e:
-        logger.warning(f"Failed to connect to MongoDB ({e}). Falling back to memory storage.")
+        logger.warning(f"Configured MongoDB url connection failed ({e}). Attempting local fallback mongodb://127.0.0.1:27017...")
+
+    # 2. Try local MongoDB instance
+    try:
+        fallback_client = AsyncIOMotorClient("mongodb://127.0.0.1:27017", serverSelectionTimeoutMS=2000)
+        await fallback_client.admin.command("ping")
+        db.client = fallback_client
+        db.db = fallback_client[db_name]
+        logger.info(f"Successfully connected to local MongoDB instance: {db_name}")
+    except Exception as err:
+        logger.error(f"Local MongoDB also unreachable ({err}). Endpoints will use in-memory fallback.")
+        db.client = None
+        db.db = None
 
 async def close_mongo_connection():
     """Close MongoDB connection on shutdown."""
@@ -30,5 +47,8 @@ async def close_mongo_connection():
         logger.info("Closed MongoDB connection.")
 
 def get_database():
-    """Helper to get db instance."""
+    """Helper to get active db instance (or None if offline)."""
     return db.db
+
+def is_mongo_connected() -> bool:
+    return db.db is not None

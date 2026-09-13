@@ -11,9 +11,10 @@ import {
   Database, 
   FileText,
   Activity,
-  Layers,
-  Save
+  Save,
+  Check
 } from 'lucide-react';
+import { ApiClient } from '../../services/apiClient';
 
 export default function AdminDatasetManagementPage() {
   const [schemes, setSchemes] = useState([
@@ -59,22 +60,17 @@ export default function AdminDatasetManagementPage() {
     e.preventDefault();
     setSaving(true);
     try {
-      const res = await fetch('http://localhost:8000/api/v1/admin/schemes/update', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          scheme_code: form.code,
-          scheme_name: form.name,
-          interest_rate: form.interestRate,
-          max_project_cost: form.maxProjectCost,
-          financing_ratio: form.financingRatio,
-          moratorium_months: form.moratoriumMonths,
-          tenure_months: form.tenureMonths,
-          source_document: form.sourceDocument
-        })
+      await ApiClient.updateScheme({
+        scheme_code: form.code,
+        scheme_name: form.name,
+        interest_rate: form.interestRate,
+        max_project_cost: form.maxProjectCost,
+        financing_ratio: form.financingRatio,
+        moratorium_months: form.moratoriumMonths,
+        tenure_months: form.tenureMonths,
+        source_document: form.sourceDocument
       });
-      if (res.ok) {
-        setNotification(`Scheme '${form.name}' saved and live in calculation engine!`);
+      setNotification(`Scheme '${form.name}' saved and live in calculation engine!`);
         setSchemes(prev => [...prev.filter(s => s.code !== form.code), {
           code: form.code,
           name: form.name,
@@ -86,9 +82,6 @@ export default function AdminDatasetManagementPage() {
           sourceDocument: form.sourceDocument,
           status: 'ACTIVE'
         }]);
-      } else {
-        throw new Error();
-      }
     } catch (err) {
       setNotification(`Scheme '${form.name}' updated in local session!`);
     } finally {

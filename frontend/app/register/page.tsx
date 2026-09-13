@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Landmark, Sparkles, UserPlus, ArrowRight, ShieldCheck } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { API_BASE_URL } from '../../services/apiClient';
 
 function RegisterForm() {
   const router = useRouter();
@@ -45,7 +46,7 @@ function RegisterForm() {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:8000/api/v1/auth/register', {
+      const res = await fetch(`${API_BASE_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

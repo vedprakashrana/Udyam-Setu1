@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { LocationService, VillageEntity, SelectedLocationState } from '../../../services/locationService';
 import { useAuth } from '../../../context/AuthContext';
+import { ApiClient } from '../../../services/apiClient';
 
 // Dynamically import Leaflet Map to avoid SSR window errors
 const InteractiveLocationMap = dynamic(
@@ -421,18 +422,15 @@ export default function AssessmentWizard() {
         storage_available: Boolean(financialData.storage_available)
       };
 
-      const res = await fetch('http://localhost:8000/api/v1/assessments', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (!res.ok) throw new Error('Assessment creation failed');
-      const data = await res.json();
-      router.push(`/assessment/${data.id}`);
-    } catch (err) {
-      console.error(err);
-      router.push(`/assessment/demo-dairy-assessment-101`);
+      const data = await ApiClient.createAssessment(payload);
+      if (data?.id) {
+        router.push(`/assessment/${data.id}`);
+      } else {
+        throw new Error('No assessment ID returned');
+      }
+    } catch (err: any) {
+      console.error("Assessment creation error:", err);
+      alert(`Could not create assessment on live server: ${err.message || 'Server error'}. Please ensure the backend is running.`);
     } finally {
       setIsSubmitting(false);
     }

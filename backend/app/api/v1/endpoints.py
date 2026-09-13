@@ -49,15 +49,24 @@ from app.models.unified_models import (
     COMMODITY_MAP
 )
 
+from app.core.persistence import (
+    load_assessments_store,
+    save_assessments_store,
+    load_users_store,
+    save_users_store
+)
+
 router = APIRouter()
 
-# In-memory storage for rapid end-to-end MVP session state
-USERS_DB = {}
-ASSESSMENTS_DB = {}
+# Persistent storage for user records & enterprise assessments
+USERS_DB = load_users_store()
+ASSESSMENTS_DB = load_assessments_store()
 
 # Seed a default demo assessment matching the prompt flow
 def seed_default_assessment():
     demo_id = "demo-dairy-assessment-101"
+    if demo_id in ASSESSMENTS_DB:
+        return
     cat = "Dairy & Livestock"
     fin_cost = FinancialEngine.calculate_project_cost(Decimal("100000.00"))
     scheme_rec = SchemeRuleEngine.evaluate_scheme(fin_cost.project_cost, Decimal("100000.00"))
@@ -168,6 +177,7 @@ def register(payload: UserRegisterRequest):
         **user_record,
         "password": payload.password
     }
+    save_users_store(USERS_DB)
 
     return TokenResponse(
         access_token=f"jwt_mock_access_{user_id}",
@@ -421,6 +431,7 @@ def create_assessment(payload: AssessmentCreateRequest):
     }
 
     ASSESSMENTS_DB[assessment_id] = record
+    save_assessments_store(ASSESSMENTS_DB)
     return record
 
 @router.get("/assessments")

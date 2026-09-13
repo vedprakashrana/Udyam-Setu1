@@ -287,48 +287,23 @@ export default function AssistantPage() {
       } else {
         throw new Error('API server returned error');
       }
-    } catch (e) {
-      // Intelligent rural conversational engine fallback
+    } catch (e: any) {
+      console.error("AI chat error:", e);
       const isHi = currentLang === 'hi';
-      const msgLower = trimmed.toLowerCase();
-      let fallbackReply = "";
-      let suggestedActions = isHi 
-        ? ['मेरे पास ₹1 लाख मार्जिन है', 'पोल्ट्री फार्मिंग के रिस्क क्या हैं?', 'EMI कैलकुलेटर देखें']
-        : ['I have ₹1 Lakh margin', 'What are risks in Poultry?', 'Open EMI Calculator'];
-
-      if (msgLower.includes('poultry') || msgLower.includes('पोल्ट्री') || msgLower.includes('जोखिम') || msgLower.includes('risk')) {
-        fallbackReply = isHi
-          ? "### 🐔 **पोल्ट्री फार्मिंग (ब्रायलर/लेयर) - मुख्य जोखिम और समाधान**:\n\n1. **महामारी और मृत्यु दर (Mortality Risk)**: बर्ड फ्लू या रानीखेत बीमारी से 15-20% तक नुकसान का खतरा।\n   - *समाधान*: समय पर बायो-सिक्योरिटी टीकाकरण व पोल्ट्री बीमा करवाएं।\n2. **फीड और दाने की कीमतों में उतार-चढ़ाव**: कुल लागत का 65-70% हिस्सा फीड पर होता है।\n   - *समाधान*: स्थानीय मक्का/सोया का अग्रिम भंडारण या कॉन्ट्रैक्ट फार्मिंग मॉडल अपनाएं।\n3. **तापमान संवेदनशीलता**: अत्यधिक गर्मी (लू) या ठंड से चूजों की मृत्यु दर बढ़ती है।\n4. **MoSJE योजना लाभ**: पोल्ट्री यूनिट के लिए 90% तक ऋण व 6 माह का मोरेटोरियम उपलब्ध है।"
-          : "### 🐔 **Poultry Farming - Key Risks & Mitigation**:\n\n1. **Disease & Mortality Risk**: Outbreaks like Ranikhet / Bird Flu can cause losses.\n   - *Mitigation*: Strict biosecurity, mandatory vaccination schedules, and livestock insurance.\n2. **Feed Price Volatility**: Feed accounts for 65-70% of operational expenditure.\n   - *Mitigation*: Advance procurement or contract farming models.\n3. **Extreme Weather Sensitivity**: High summer heatwaves increase broiler mortality.\n4. **MoSJE Financing**: Up to 90% concessional debt available with a 6-month moratorium.";
-        suggestedActions = isHi ? ['डेयरी और टेलरिंग की तुलना करें', '₹1 लाख मार्जिन से कितना लोन मिलेगा?', 'सरकारी सब्सिडी नियम'] : ['Compare Dairy vs Tailoring', 'How much loan for ₹1L margin?', 'Government Subsidy Rules'];
-      } else if (msgLower.includes('dairy') || msgLower.includes('डेयरी') || msgLower.includes('lakh') || msgLower.includes('लाख') || msgLower.includes('मार्जिन') || msgLower.includes('margin') || msgLower.includes('loan') || msgLower.includes('ऋण')) {
-        fallbackReply = isHi
-          ? "### 📊 **डेयरी सूक्ष्म उद्यम वित्तीय सहायता (MoSJE Norms)**:\n\n- **10% उद्यमी अंशदान (Margin)**: ₹1,00,000\n- **कुल प्रोजेक्ट लागत (Project Cost)**: ₹10,00,000\n- **पात्र MoSJE रियायती ऋण (90%)**: **₹9,00,000** (ब्याज दर: 8.0% वार्षिक)\n- **मोहलत (Moratorium)**: 6 महीने (ऋण शुरू होने के बाद)\n- **अनुमानित मासिक EMI (5 वर्ष)**: **₹14,082 / माह**\n- **सालाना अनुमानित लाभ**: ₹2,40,000 - ₹3,20,000"
-          : "### 📊 **Dairy Micro-Enterprise Financing (MoSJE Norms)**:\n\n- **10% Entrepreneur Margin**: ₹1,00,000\n- **Total Project Cost**: ₹10,00,000\n- **Eligible MoSJE Loan (90%)**: **₹9,00,000** (Interest: 8.0% p.a.)\n- **Moratorium Period**: 6 Months\n- **Estimated Monthly EMI (5 Years)**: **₹14,082 / Month**\n- **Estimated Annual Net Income**: ₹2,40,000 - ₹3,20,000";
-        suggestedActions = isHi ? ['पोल्ट्री फार्मिंग के रिस्क क्या हैं?', 'लोन के लिए कौन से दस्तावेज चाहिए?', 'विलेज मार्केट रिपोर्ट देखें'] : ['What are risks in poultry?', 'Documents needed for loan', 'View Village Market Report'];
-      } else if (msgLower.includes('tailor') || msgLower.includes('टेलरिंग') || msgLower.includes('कपड़े') || msgLower.includes('सिलाई')) {
-        fallbackReply = isHi
-          ? "### 🧵 **ग्रामीण बुटीक व टेलरिंग उद्यम**:\n\n- **अनुमानित पूंजी**: ₹1,50,000 - ₹3,00,000 (औद्योगिक सिलाई मशीन व कच्चा माल)\n- **उद्यमी मार्जिन (10%)**: ₹15,000 - ₹30,000\n- **MoSJE ऋण**: ₹1,35,000 - ₹2,70,000 (6.5% - 8.0% ब्याज)\n- **मासिक संभावित आय**: ₹18,000 - ₹35,000"
-          : "### 🧵 **Rural Tailoring & Boutique Enterprise**:\n\n- **Estimated Cost**: ₹1,50,000 - ₹3,00,000 (Industrial sewing machines & fabric stock)\n- **10% Margin Required**: ₹15,000 - ₹30,000\n- **MoSJE Concessional Loan**: ₹1,35,000 - ₹2,70,000\n- **Expected Monthly Income**: ₹18,000 - ₹35,000";
-        suggestedActions = isHi ? ['डेयरी बिजनेस से तुलना करें', 'ब्याज दर और सब्सिडी नियम'] : ['Compare with Dairy Business', 'Interest Rates & Subsidies'];
-      } else {
-        fallbackReply = isHi
-          ? `नमस्ते! आपके प्रश्न (*"${trimmed}"*) के संबंध में:\n\nUDYAM-SETU आपके ग्रामीण उद्यम के लिए MoSJE ऋण, 10% मार्जिन गणना, ब्याज दर, और जोखिम विश्लेषण की पूरी जानकारी प्रदान करता है। आप नीचे दिए गए विकल्पों पर क्लिक करके तुरंत विस्तृत विवरण देख सकते हैं।`
-          : `Hello! Regarding your query (*"${trimmed}"*):\n\nUDYAM-SETU provides verified MoSJE loan guidelines, 10% entrepreneur margin structuring, EMI calculation, and local market risk analysis. You can tap on the options below for exact details.`;
-      }
-
-      const fallbackMsgId = 'asst_fallback_' + Date.now();
-      setMessages(prev => [...prev, {
-        id: fallbackMsgId,
+      const errorMsg: Message = {
+        id: 'err_' + Date.now(),
         role: 'assistant',
-        content: fallbackReply,
-        citations: [{ source: 'MoSJE Concessional Credit Policy 2024 (NBCFDC/NSFDC)', section: 'Standard Financial & Risk Baseline', confidence: 'Verified' }],
-        suggested_actions: suggestedActions,
+        content: isHi
+          ? "⚠️ **लाइव AI सेवा से संपर्क नहीं हो पाया।** कृपया सुनिश्चित करें कि बैकएंड API सर्वर चालू है (`http://localhost:8000`) और पुनः प्रयास करें।"
+          : "⚠️ **Could not connect to Live AI service.** Please ensure the backend API server is running (`http://localhost:8000`) and try again.",
+        suggested_actions: isHi ? ['पुनः प्रयास करें', 'डेयरी लोन पात्रता', 'मंडी के ताज़ा भाव'] : ['Retry', 'Check Dairy Eligibility', 'View Mandi Prices'],
         createdAt: new Date().toISOString()
-      }]);
+      };
+      setMessages(prev => [...prev, errorMsg]);
     } finally {
       setLoading(false);
     }
+
   };
 
   return (

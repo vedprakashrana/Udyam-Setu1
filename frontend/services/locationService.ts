@@ -1,4 +1,5 @@
 // Location hierarchy service & API abstraction layer for UDYAM-SETU AI
+import { API_BASE_URL } from './apiClient';
 
 export interface VillageEntity {
   id: string;
@@ -202,7 +203,7 @@ export const LocationService = {
 
   async reverseGeocode(latitude: number, longitude: number, source: string = "gps"): Promise<ReverseGeocodeResult> {
     try {
-      const res = await fetch(`http://localhost:8000/api/v1/locations/reverse-geocode?lat=${latitude}&lon=${longitude}&source=${source}`);
+      const res = await fetch(`${API_BASE_URL}/locations/reverse-geocode?lat=${latitude}&lon=${longitude}&source=${source}`);
       if (res.ok) {
         return await res.json();
       }

@@ -1,8 +1,22 @@
-// API Client Configuration for UDYAM-SETU Frontend
+function normalizeApiUrl(url?: string): string {
+  let u = (url || 'http://localhost:8000/api/v1').trim();
+  if (!u.startsWith('http://') && !u.startsWith('https://')) {
+    u = `https://${u}`;
+  }
+  if (!u.endsWith('/api/v1')) {
+    u = `${u.replace(/\/$/, '')}/api/v1`;
+  }
+  return u;
+}
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+export const API_BASE_URL = normalizeApiUrl(process.env.NEXT_PUBLIC_API_URL);
 
 export const ApiClient = {
+  // Base URL access
+  getBaseUrl() {
+    return API_BASE_URL;
+  },
+
   // Multilingual Translation (Bhashini / IndicTrans2)
   async translate(text: string, targetLang: string, sourceLang: string = 'en') {
     try {
@@ -16,6 +30,53 @@ export const ApiClient = {
       console.warn('Translate API call failed, using source text:', e);
     }
     return { translated_text: text };
+  },
+
+  // Assessments
+  async getAssessments() {
+    const res = await fetch(`${API_BASE_URL}/assessments`);
+    if (!res.ok) throw new Error('Failed to fetch assessments');
+    return await res.json();
+  },
+
+  async getAssessmentById(id: string) {
+    const res = await fetch(`${API_BASE_URL}/assessments/${id}`);
+    if (!res.ok) throw new Error(`Failed to fetch assessment ${id}`);
+    return await res.json();
+  },
+
+  async createAssessment(payload: any) {
+    const res = await fetch(`${API_BASE_URL}/assessments`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('Failed to create assessment');
+    return await res.json();
+  },
+
+  // Schemes
+  async getSchemes() {
+    const res = await fetch(`${API_BASE_URL}/schemes`);
+    if (!res.ok) throw new Error('Failed to fetch schemes');
+    return await res.json();
+  },
+
+  async updateScheme(payload: any) {
+    const res = await fetch(`${API_BASE_URL}/admin/schemes/update`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('Failed to update scheme');
+    return await res.json();
+  },
+
+  // Business Comparison Matrix
+  async getComparisonMatrix() {
+    const res = await fetch(`${API_BASE_URL}/pro/compare/all`);
+    if (!res.ok) throw new Error('Failed to fetch business comparison matrix');
+    return await res.json();
   },
 
   // Financial Calculations
@@ -53,15 +114,19 @@ export const ApiClient = {
         preferred_language: preferredLang
       })
     });
+    if (!res.ok) throw new Error('AI Chat endpoint returned error');
     return await res.json();
   },
 
   // Live APMC Mandi Data
-  async getLiveMandiPrices(category?: string, district?: string) {
+  async getLiveMandiPrices(category?: string, district?: string, state?: string) {
     const params = new URLSearchParams();
-    if (category) params.append('category', category);
-    if (district) params.append('district', district);
-    const res = await fetch(`${API_BASE_URL}/pro/mandi/live?${params.toString()}`);
+    if (category && category !== 'All') params.append('category', category);
+    if (district && district !== 'All') params.append('district', district);
+    if (state && state !== 'All') params.append('state', state);
+    const queryString = params.toString() ? `?${params.toString()}` : '';
+    const res = await fetch(`${API_BASE_URL}/pro/mandi/live${queryString}`);
+    if (!res.ok) throw new Error('Failed to fetch live Mandi prices');
     return await res.json();
   },
 
@@ -77,6 +142,7 @@ export const ApiClient = {
         months_ahead: months
       })
     });
+    if (!res.ok) throw new Error('Failed to fetch ML forecast');
     return await res.json();
   },
 
@@ -90,6 +156,8 @@ export const ApiClient = {
         sample_text: sampleText
       })
     });
+    if (!res.ok) throw new Error('Failed to scan document');
     return await res.json();
   }
 };
+
