@@ -27,6 +27,8 @@ def normalize_gemini_api_key(raw_key: Optional[str]) -> str:
         return f"AQ.{key}"
     return key
 
+_last_gemini_failure_time = 0.0
+
 class LLMClientAdapter:
     """
     Real Multi-Provider LLM Client supporting Gemini, OpenAI, Groq, Ollama and intelligent Fallback.
@@ -37,17 +39,21 @@ class LLMClientAdapter:
         user_message: str,
         history: List[Dict[str, str]] = None
     ) -> Optional[str]:
+        global _last_gemini_failure_time
         provider = os.getenv("LLM_PROVIDER", settings.LLM_PROVIDER).lower()
         api_key = os.getenv("LLM_API_KEY", settings.LLM_API_KEY)
 
         # 1. Google Gemini Provider
         if provider == "gemini" or (not api_key and os.getenv("GEMINI_API_KEY")):
+            # Fast cooldown: if Gemini failed or timed out recently, don't stall user requests
+            if time.time() - _last_gemini_failure_time < 60.0:
+                return None
+
             raw_key = api_key or os.getenv("GEMINI_API_KEY", "")
             gemini_key = normalize_gemini_api_key(raw_key)
             if gemini_key:
                 preferred_model = getattr(settings, "LLM_MODEL", None) or os.getenv("LLM_MODEL", "gemini-1.5-flash")
                 candidate_models = [preferred_model, "gemini-1.5-flash", "gemini-flash-latest"]
-                # Deduplicate while preserving priority order
                 models_to_try = list(dict.fromkeys(candidate_models))
 
                 contents = []
@@ -66,7 +72,7 @@ class LLMClientAdapter:
                 for model in models_to_try:
                     try:
                         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={gemini_key}"
-                        with httpx.Client(timeout=3.0) as client:
+                        with httpx.Client(timeout=2.5) as client:
                             res = client.post(url, json=payload)
                             if res.status_code == 200:
                                 data = res.json()
@@ -76,13 +82,14 @@ class LLMClientAdapter:
                                     if parts and "text" in parts[0]:
                                         logger.info(f"Gemini generation succeeded using {model}")
                                         return parts[0]["text"]
-                            elif res.status_code in (400, 401, 403):
-                                logger.warning(f"Gemini auth error (HTTP {res.status_code}). Switching directly to instant local advisor.")
-                                break
                             else:
-                                logger.warning(f"Gemini {model} returned HTTP {res.status_code}: {res.text[:120]}")
+                                _last_gemini_failure_time = time.time()
+                                logger.warning(f"Gemini {model} returned HTTP {res.status_code}. Setting 60s cooldown.")
+                                break
                     except Exception as ex:
-                        logger.warning(f"Gemini {model} fast timeout / notice ({ex})")
+                        _last_gemini_failure_time = time.time()
+                        logger.warning(f"Gemini {model} notice ({ex}). Setting 60s cooldown.")
+                        break
 
         # 2. OpenAI Provider
         if provider in ["openai", "gpt-4o", "gpt-4o-mini"] or os.getenv("OPENAI_API_KEY"):
@@ -237,78 +244,10 @@ class AIOrchestrator:
         scheme_rec = SchemeRuleEngine.evaluate_scheme(cost_calc.project_cost, margin_dec)
         emi_res = FinancialEngine.calculate_emi_and_amortization(scheme_rec.actual_eligible_financing, scheme_rec.interest_rate, scheme_rec.tenure_months, scheme_rec.moratorium_months)
 
-        # 2. Try Real LLM Generation with Grounded System Context
-        system_grounding_prompt = f"""
-You are UDYAM-SETU, a verified rural enterprise and financial planning advisor for Indian micro-entrepreneurs.
-Current Verified Context:
-- Sector / Category: {current_category}
-- Margin Equity: ₹{margin_dec:,.2f}
-- Total Project Cost: ₹{cost_calc.project_cost:,.2f} (Formula: Margin / 0.10)
-- Eligible MoSJE Loan: ₹{scheme_rec.actual_eligible_financing:,.2f} under {scheme_rec.scheme_name}
-- Interest Rate: {scheme_rec.interest_rate}% p.a., Moratorium: {scheme_rec.moratorium_months} Months, Tenure: {scheme_rec.tenure_months} Months
-- Monthly Post-Moratorium EMI: ₹{emi_res.monthly_emi:,.2f}
-- Key Operational Risks: {business_kb.get('common_risks', [])}
-- Language: Respond strictly in {"English" if lang_is_en else "Hindi (or Hinglish if appropriate)"}.
-Provide structured, concise, and highly accurate guidance adhering to these verified numbers. Do not fabricate rates or schemes.
-"""
-        real_llm_response = LLMClientAdapter.call_real_llm(
-            system_prompt=system_grounding_prompt,
-            user_message=text,
-            history=history
-        )
-
-        if real_llm_response and len(real_llm_response.strip()) > 10:
-            live_sources = [
-                {
-                    "source": f"MoSJE / NBCFDC Policy Guidelines 2024 ({scheme_rec.scheme_name})",
-                    "section": "Concessional Credit Norms & Eligibility",
-                    "confidence": "Verified Live AI"
-                }
-            ]
-            if is_comparison:
-                live_actions = [
-                    f"Calculate EMI for {current_category}",
-                    f"Calculate EMI for {comparison_other_cat}",
-                    "View Working Capital Guidelines"
-                ] if lang_is_en else [
-                    f"{current_category} के लिए लोन ईएमआई देखें",
-                    f"{comparison_other_cat} के लिए लोन ईएमआई देखें",
-                    "वर्किंग कैपिटल आवश्यकता जानें"
-                ]
-            elif "emi" in msg_lower or "loan" in msg_lower or "cost" in msg_lower:
-                live_actions = [
-                    "What are the operational risks?",
-                    "How much working capital buffer is needed?",
-                    "View Village Mandi Prices"
-                ] if lang_is_en else [
-                    "इस व्यवसाय में मुख्य रिस्क क्या हैं?",
-                    "वर्किंग कैपिटल कितना रखना चाहिए?",
-                    "मंडी के ताज़ा भाव देखें"
-                ]
-            else:
-                live_actions = [
-                    f"₹1 Lakh loan details for {current_category}",
-                    f"Key risks in {current_category}",
-                    "Check nearby market competition"
-                ] if lang_is_en else [
-                    f"₹1 लाख मार्जिन पर {current_category} लोन",
-                    f"{current_category} में मुख्य रिस्क क्या हैं?",
-                    "नजदीकी बाजार में प्रतियोगिता देखें"
-                ]
-
-            conv["messages"].append({"role": "user", "content": text})
-            conv["messages"].append({"role": "assistant", "content": real_llm_response})
-            return {
-                "conversation_id": conv["id"],
-                "reply": real_llm_response,
-                "citations": live_sources,
-                "suggested_actions": live_actions
-            }
-
         sources = []
         suggested_actions = []
 
-        # ================= ROUTE 1: Greetings & Small Talk (Fallback) =================
+        # ================= ROUTE 1: Greetings & Small Talk =================
         if any(msg_lower == g or msg_lower.startswith(g + " ") for g in ["hi", "hello", "namaste", "pranam", "kaise ho", "hey"]):
             if lang_is_en:
                 reply = (
@@ -545,6 +484,25 @@ Provide structured, concise, and highly accurate guidance adhering to these veri
             }
 
         # ================= ROUTE 6: Real LLM / Fallback Contextual Reasoning =================
+        system_grounding_prompt = f"""
+You are UDYAM-SETU, a verified rural enterprise and financial planning advisor for Indian micro-entrepreneurs.
+Current Verified Context:
+- Sector / Category: {current_category}
+- Margin Equity: ₹{margin_dec:,.2f}
+- Total Project Cost: ₹{cost_calc.project_cost:,.2f} (Formula: Margin / 0.10)
+- Eligible MoSJE Loan: ₹{scheme_rec.actual_eligible_financing:,.2f} under {scheme_rec.scheme_name}
+- Interest Rate: {scheme_rec.interest_rate}% p.a., Moratorium: {scheme_rec.moratorium_months} Months, Tenure: {scheme_rec.tenure_months} Months
+- Monthly Post-Moratorium EMI: ₹{emi_res.monthly_emi:,.2f}
+- Key Operational Risks: {business_kb.get('common_risks', [])}
+- Language: Respond strictly in {"English" if lang_is_en else "Hindi (or Hinglish if appropriate)"}.
+Provide structured, concise, and highly accurate guidance adhering to these verified numbers. Do not fabricate rates or schemes.
+"""
+        real_llm_response = LLMClientAdapter.call_real_llm(
+            system_prompt=system_grounding_prompt,
+            user_message=text,
+            history=history
+        )
+
         if real_llm_response:
             reply = real_llm_response
         else:
