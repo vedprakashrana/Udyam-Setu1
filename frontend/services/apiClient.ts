@@ -11,6 +11,12 @@ function normalizeApiUrl(url?: string): string {
 }
 
 export function getApiBaseUrl(): string {
+  // Next.js build-time or runtime env var
+  const envUrl = process.env.NEXT_PUBLIC_API_URL;
+  if (envUrl && envUrl.trim() !== '' && !envUrl.includes('localhost')) {
+    return normalizeApiUrl(envUrl);
+  }
+
   // If running in browser on Render cloud or Vercel, automatically pair with the backend service
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
@@ -19,16 +25,12 @@ export function getApiBaseUrl(): string {
       return `https://${apiHost}/api/v1`;
     }
     if (hostname.includes('.vercel.app')) {
-      return `/api/v1`;
+      // Point Vercel frontend to the live Render backend API
+      return `https://grambiz-api.onrender.com/api/v1`;
     }
   }
 
-  // Next.js build-time or runtime env var
-  const envUrl = process.env.NEXT_PUBLIC_API_URL;
-  if (envUrl && envUrl.trim() !== '') {
-    return normalizeApiUrl(envUrl);
-  }
-
+  // Fallback for local development
   return 'http://localhost:8000/api/v1';
 }
 
