@@ -464,8 +464,8 @@ export default function AssessmentWizard() {
               </span>
               <h2 className="text-2xl font-black text-slate-900">
                 {step === 1 && "Geographic Location & Village Profile"}
-                {step === 2 && "Available Margin Capital (10% Structuring)"}
-                {step === 3 && "Proposed Business Category (10 Core Sectors)"}
+                {step === 2 && "Proposed Business Category (10 Core Sectors)"}
+                {step === 3 && "Available Margin Capital (10% Structuring)"}
                 {step === 4 && "Entrepreneur Experience"}
                 {step === 5 && "Review & Generate Dossier"}
               </h2>
@@ -619,8 +619,8 @@ export default function AssessmentWizard() {
             </div>
           )}
 
-          {/* STEP 2: CAPITAL & FINANCIAL STRUCTURING */}
-          {step === 2 && (
+          {/* STEP 3: CAPITAL & FINANCIAL STRUCTURING */}
+          {step === 3 && (
             <div className="space-y-6">
               <div>
                 <label className="block text-xs font-black text-slate-700 uppercase mb-2">
@@ -656,8 +656,8 @@ export default function AssessmentWizard() {
             </div>
           )}
 
-          {/* STEP 3: ALL 10 BUSINESS CATEGORIES */}
-          {step === 3 && (
+          {/* STEP 2: ALL 10 BUSINESS CATEGORIES */}
+          {step === 2 && (
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <label className="block text-xs font-black text-slate-700 uppercase">
