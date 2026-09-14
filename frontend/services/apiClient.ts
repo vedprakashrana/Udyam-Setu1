@@ -25,8 +25,8 @@ export function getApiBaseUrl(): string {
       return `https://${apiHost}/api/v1`;
     }
     if (hostname.includes('.vercel.app')) {
-      // Point Vercel frontend to the live Render backend API
-      return `https://grambiz-api.onrender.com/api/v1`;
+      // Point Vercel frontend to the live tunnel to your local backend API
+      return `https://1c2ae5a3e2ce1d.lhr.life/api/v1`;
     }
   }
 
