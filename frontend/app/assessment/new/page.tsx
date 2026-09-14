@@ -636,9 +636,27 @@ export default function AssessmentWizard() {
                     placeholder="100000"
                   />
                 </div>
-                <p className="text-xs text-slate-500 mt-2">
-                  Standard MoSJE Norm: ₹1,00,000 margin unlocks ₹10,00,000 total project size (90% loan).
-                </p>
+                {(() => {
+                  const selectedCat = BUSINESS_CATEGORIES.find(c => c.id === financialData.business_category);
+                  if (selectedCat) {
+                    const recommendedMargin = Math.ceil(selectedCat.typicalCost * 0.10);
+                    return (
+                      <div className="mt-3 p-4 bg-emerald-50/50 rounded-xl border border-emerald-100 space-y-1.5">
+                        <p className="text-xs text-slate-700 font-medium leading-relaxed">
+                          <span className="font-bold text-emerald-800">Category Insight:</span> A typical <strong>{selectedCat.label.replace(/^\d+\.\s*/, '')}</strong> business requires around <strong>₹{selectedCat.typicalCost.toLocaleString('en-IN')}</strong> to set up.
+                        </p>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          Based on MoSJE's 10% Margin Norm, we recommend an initial margin capital of at least <strong className="text-emerald-700">₹{recommendedMargin.toLocaleString('en-IN')}</strong> to unlock the required 90% concessional loan.
+                        </p>
+                      </div>
+                    );
+                  }
+                  return (
+                    <p className="text-xs text-slate-500 mt-2">
+                      Standard MoSJE Norm: ₹1,00,000 margin unlocks ₹10,00,000 total project size (90% loan).
+                    </p>
+                  );
+                })()}
               </div>
 
               {/* Instant deterministic preview */}
