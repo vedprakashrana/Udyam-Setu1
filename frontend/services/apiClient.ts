@@ -17,15 +17,11 @@ export function getApiBaseUrl(): string {
     return normalizeApiUrl(envUrl);
   }
 
-  // If running in browser on Render cloud or Vercel, automatically pair with the backend service
+  // If running in browser on Render cloud or Vercel, point to the live local tunnel
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
-    if (hostname.includes('.onrender.com')) {
-      const apiHost = hostname.replace('grambiz-web', 'grambiz-api');
-      return `https://${apiHost}/api/v1`;
-    }
-    if (hostname.includes('.vercel.app')) {
-      // Point Vercel frontend to the live tunnel to your local backend API
+    if (hostname.includes('.onrender.com') || hostname.includes('.vercel.app')) {
+      // Since Render backend failed to deploy, point everything to the local laptop tunnel
       return `https://1c2ae5a3e2ce1d.lhr.life/api/v1`;
     }
   }
